@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "title": "BPS Tracker - Bull Put Spread 持倉管理",
+    "description": "專為選擇權交易者設計的持倉追蹤工具。即時監控 Greeks、風險評估、獲利追蹤。"
+  },
+  "header": {
+    "features": "功能",
+    "screenshots": "截圖",
+    "howItWorks": "使用方式",
+    "comingSoon": "即將推出"
+  },
+  "hero": {
+    "tagline": "Bull Put Spread 持倉管理，一目瞭然",
+    "description": "專為選擇權交易者設計的持倉追蹤工具。即時監控 Greeks、風險評估、獲利追蹤，讓每一筆交易都在掌握之中。",
+    "cta": "即將上架 App Store",
+    "learnMore": "了解更多"
+  },
+  "features": {
+    "title": "核心功能",
+    "subtitle": "管理 Bull Put Spread 持倉所需的一切",
+    "portfolio": {
+      "title": "持倉總覽",
+      "description": "一眼掌握所有持倉的盈虧狀態、勝率與平均報酬"
+    },
+    "greeks": {
+      "title": "Greeks 分析",
+      "description": "Delta、Gamma、Theta、Vega 完整呈現，掌握風險敞口"
+    },
+    "risk": {
+      "title": "風險評估",
+      "description": "即時計算最大損失、損益平衡點與安全邊際"
+    },
+    "expiry": {
+      "title": "到期追蹤",
+      "description": "DTE 倒數、持有天數一目瞭然，不錯過任何平倉時機"
+    },
+    "history": {
+      "title": "績效記錄",
+      "description": "完整的已平倉記錄，計算實現報酬與年化收益率"
+    },
+    "interface": {
+      "title": "直覺介面",
+      "description": "深色主題、清晰配色，專為交易者設計的視覺體驗"
+    }
+  },
+  "screenshots": {
+    "title": "App 畫面",
+    "subtitle": "看看 BPS Tracker 如何幫助你管理持倉",
+    "performance": "績效總覽 — 勝率、盈虧、報酬率一目瞭然",
+    "position": "持倉詳情 — 完整 Greeks 與風險評估",
+    "closed": "平倉記錄 — 追蹤每筆交易的實際績效"
+  },
+  "howItWorks": {
+    "title": "如何使用",
+    "subtitle": "三個簡單步驟掌握你的 Bull Put Spread 持倉",
+    "step1": {
+      "title": "輸入持倉",
+      "description": "輸入你的 Bull Put Spread 資訊：標的、履約價、到期日、口數"
+    },
+    "step2": {
+      "title": "即時追蹤",
+      "description": "App 自動計算 Greeks、盈虧與風險指標，隨時掌握部位狀態"
+    },
+    "step3": {
+      "title": "管理平倉",
+      "description": "記錄平倉時機與結果，累積完整的交易績效歷史"
+    }
+  },
+  "cta": {
+    "title": "即將登陸 App Store",
+    "subtitle": "Coming 2025"
+  },
+  "footer": {
+    "tagline": "BPS Tracker by AI Muninn",
+    "description": "專為認真的選擇權交易者打造的 Bull Put Spread 持倉追蹤工具。",
+    "privacy": "隱私權政策",
+    "terms": "服務條款",
+    "contact": "聯絡我們",
+    "rights": "版權所有。"
+  }
+}

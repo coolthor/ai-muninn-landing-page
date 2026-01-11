@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "title": "BPS Tracker - Master Your Bull Put Spreads",
+    "description": "The position tracking tool designed for options traders. Real-time Greeks monitoring, risk assessment, and profit tracking."
+  },
+  "header": {
+    "features": "Features",
+    "screenshots": "Screenshots",
+    "howItWorks": "How It Works",
+    "comingSoon": "Coming Soon"
+  },
+  "hero": {
+    "tagline": "Master Your Bull Put Spreads at a Glance",
+    "description": "The position tracking tool designed for options traders. Real-time Greeks monitoring, risk assessment, and profit tracking — keep every trade under control.",
+    "cta": "Coming to App Store",
+    "learnMore": "Learn More"
+  },
+  "features": {
+    "title": "Key Features",
+    "subtitle": "Everything you need to manage your Bull Put Spread positions",
+    "portfolio": {
+      "title": "Portfolio Overview",
+      "description": "See all positions' P&L, win rate, and average returns at a glance"
+    },
+    "greeks": {
+      "title": "Greeks Analysis",
+      "description": "Full Delta, Gamma, Theta, Vega display to understand your risk exposure"
+    },
+    "risk": {
+      "title": "Risk Assessment",
+      "description": "Real-time calculation of max loss, breakeven, and safety margin"
+    },
+    "expiry": {
+      "title": "Expiry Tracking",
+      "description": "DTE countdown and holding days at a glance — never miss a closing opportunity"
+    },
+    "history": {
+      "title": "Performance History",
+      "description": "Complete closed position history with realized returns and annualized RoR"
+    },
+    "interface": {
+      "title": "Intuitive Interface",
+      "description": "Dark theme with clear colors — visual experience designed for traders"
+    }
+  },
+  "screenshots": {
+    "title": "App Screenshots",
+    "subtitle": "See how BPS Tracker helps you manage your positions",
+    "performance": "Performance Summary — Win rate, P&L, and returns at a glance",
+    "position": "Position Details — Full Greeks and risk assessment",
+    "closed": "Closed Positions — Track actual performance of every trade"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Three simple steps to master your Bull Put Spread positions",
+    "step1": {
+      "title": "Add Position",
+      "description": "Enter your Bull Put Spread details: underlying, strikes, expiry, contracts"
+    },
+    "step2": {
+      "title": "Track in Real-Time",
+      "description": "App automatically calculates Greeks, P&L, and risk metrics — stay informed"
+    },
+    "step3": {
+      "title": "Manage & Close",
+      "description": "Record closing timing and results, build complete trading performance history"
+    }
+  },
+  "cta": {
+    "title": "Coming Soon to App Store",
+    "subtitle": "Coming 2025"
+  },
+  "footer": {
+    "tagline": "BPS Tracker by AI Muninn",
+    "description": "Professional Bull Put Spread position tracking for serious options traders.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  }
+}

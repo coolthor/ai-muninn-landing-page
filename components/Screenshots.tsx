@@ -1,0 +1,198 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { motion, useInView } from 'framer-motion';
+import { useRef, useState } from 'react';
+import Image from 'next/image';
+
+const screenshots = [
+  {
+    key: 'performance',
+    src: '/screenshots/performance-summary.JPG',
+  },
+  {
+    key: 'position',
+    src: '/screenshots/position-detail.JPG',
+  },
+  {
+    key: 'closed',
+    src: '/screenshots/closed-position.JPG',
+  },
+];
+
+export default function Screenshots() {
+  const t = useTranslations('screenshots');
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  return (
+    <section id="screenshots" className="relative py-24 sm:py-32 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[var(--bg-primary)]" />
+      <div className="absolute inset-0 noise-overlay" />
+
+      {/* Gradient orbs */}
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--accent-primary)] rounded-full blur-[250px] opacity-[0.05]" />
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-[var(--accent-tertiary)] rounded-full blur-[200px] opacity-[0.03]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div ref={ref} className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border-accent)] bg-[var(--accent-muted)] mb-6"
+          >
+            <svg className="w-4 h-4 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span className="text-sm font-medium text-[var(--accent-primary)]">
+              {t('title')}
+            </span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+          >
+            {t('title')}
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto"
+          >
+            {t('subtitle')}
+          </motion.p>
+        </div>
+
+        {/* Desktop Screenshots */}
+        <div className="hidden md:flex justify-center items-end gap-6 lg:gap-10">
+          {screenshots.map((screenshot, index) => {
+            const isCenter = index === 1;
+            return (
+              <motion.div
+                key={screenshot.key}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                className={`relative group ${isCenter ? 'z-20' : 'z-10'}`}
+              >
+                {/* Glow effect */}
+                <div className={`absolute -inset-4 bg-[var(--accent-primary)] rounded-[40px] blur-2xl transition-opacity duration-500 ${
+                  isCenter ? 'opacity-30' : 'opacity-0 group-hover:opacity-20'
+                }`} />
+
+                {/* Screenshot frame */}
+                <div className={`relative rounded-[32px] overflow-hidden border-2 transition-all duration-500 ${
+                  isCenter
+                    ? 'border-[var(--border-accent)] shadow-2xl'
+                    : 'border-[var(--border-subtle)] group-hover:border-[var(--border-accent)]'
+                }`}>
+                  <Image
+                    src={screenshot.src}
+                    alt={t(screenshot.key)}
+                    width={isCenter ? 280 : 240}
+                    height={isCenter ? 600 : 520}
+                    className="object-cover"
+                  />
+
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-transparent opacity-30" />
+                </div>
+
+                {/* Caption */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                  className={`mt-6 text-center text-sm max-w-[240px] mx-auto ${
+                    isCenter ? 'text-[var(--accent-primary)]' : 'text-[var(--text-muted)]'
+                  }`}
+                >
+                  {t(screenshot.key)}
+                </motion.p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <div className="relative">
+            {/* Active Screenshot */}
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              className="flex justify-center"
+            >
+              <div className="relative">
+                <div className="absolute -inset-4 bg-[var(--accent-primary)] rounded-[40px] blur-2xl opacity-30" />
+                <div className="relative rounded-[32px] overflow-hidden border-2 border-[var(--border-accent)] shadow-2xl">
+                  <Image
+                    src={screenshots[activeIndex].src}
+                    alt={t(screenshots[activeIndex].key)}
+                    width={260}
+                    height={560}
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Caption */}
+            <p className="mt-6 text-center text-sm text-[var(--accent-primary)] px-4">
+              {t(screenshots[activeIndex].key)}
+            </p>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-3 mt-6">
+              {screenshots.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    index === activeIndex
+                      ? 'bg-[var(--accent-primary)] w-8'
+                      : 'bg-[var(--border-accent)] hover:bg-[var(--accent-tertiary)]'
+                  }`}
+                  aria-label={`View screenshot ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Navigation arrows */}
+            <div className="flex justify-center gap-4 mt-6">
+              <button
+                onClick={() => setActiveIndex((prev) => (prev === 0 ? 2 : prev - 1))}
+                className="p-3 rounded-full border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
+                aria-label="Previous screenshot"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setActiveIndex((prev) => (prev === 2 ? 0 : prev + 1))}
+                className="p-3 rounded-full border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
+                aria-label="Next screenshot"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
