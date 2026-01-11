@@ -7,5 +7,8 @@ export const config = {
   // Match all pathnames except for
   // - static files (/_next, /favicon.ico, etc.)
   // - API routes (/api)
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
+  // Use Node.js runtime instead of Edge to support __dirname
+  runtime: 'nodejs'
 };
+
