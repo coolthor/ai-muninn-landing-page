@@ -1,9 +1,16 @@
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
 
+// Import messages statically to avoid __dirname issues in Edge Runtime
+import en from '../messages/en.json';
+import zhTW from '../messages/zh-TW.json';
+
+const messages = {
+  en,
+  'zh-TW': zhTW
+};
+
 export default getRequestConfig(async ({ requestLocale }) => {
-  // Using a dynamic import for the messages is recommended.
-  // This will only load the messages for the given locale.
   let locale = await requestLocale;
 
   // Ensure that a valid locale is used
@@ -13,6 +20,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   return {
     locale,
-    messages: (await import(`../messages/${locale}.json`)).default
+    messages: messages[locale as keyof typeof messages]
   };
 });
