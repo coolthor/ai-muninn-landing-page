@@ -1,24 +1,9 @@
 import { getRequestConfig } from 'next-intl/server';
-import { routing } from './routing';
 
-export default getRequestConfig(async ({ requestLocale }) => {
-  let locale = await requestLocale;
-
-  // Ensure that a valid locale is used
-  if (!locale || !routing.locales.includes(locale as 'en' | 'zh-TW')) {
-    locale = routing.defaultLocale;
-  }
-
-  // Load messages based on locale
-  let messages;
-  if (locale === 'zh-TW') {
-    messages = (await import('../messages/zh-TW.json')).default;
-  } else {
-    messages = (await import('../messages/en.json')).default;
-  }
-
+export default getRequestConfig(async ({ locale }) => {
+  // Using a dynamic import for the messages is recommended.
+  // This will only load the messages for the given locale.
   return {
-    locale,
-    messages
+    messages: (await import(`../messages/${locale}.json`)).default
   };
 });
