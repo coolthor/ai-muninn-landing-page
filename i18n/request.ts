@@ -9,8 +9,16 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
+  // Load messages based on locale
+  let messages;
+  if (locale === 'zh-TW') {
+    messages = (await import('../messages/zh-TW.json')).default;
+  } else {
+    messages = (await import('../messages/en.json')).default;
+  }
+
   return {
     locale,
-    messages: (await import(`../messages/${locale}.json`)).default
+    messages
   };
 });
