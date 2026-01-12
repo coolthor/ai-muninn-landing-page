@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function TermsOfUse() {
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 py-16 px-4">
@@ -99,7 +101,7 @@ export default function TermsOfUse() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800">
-          <a href="/" className="text-cyan-400 hover:underline">&larr; Back to Home</a>
+          <Link href="/" className="text-cyan-400 hover:underline">&larr; Back to Home</Link>
         </div>
       </div>
     </div>

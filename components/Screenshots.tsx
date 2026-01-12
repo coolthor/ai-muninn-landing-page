@@ -39,10 +39,13 @@ export default function Screenshots() {
     }
   };
 
-  // Update scroll position for indicator
+  // Update scroll position for indicator and reset on screenshot change
   useEffect(() => {
     const viewer = mobileViewerRef.current;
     if (!viewer) return;
+
+    // Reset scroll position when switching screenshots
+    viewer.scrollTop = 0;
 
     const handleScrollEvent = () => {
       const maxScroll = viewer.scrollHeight - viewer.clientHeight;
@@ -50,16 +53,11 @@ export default function Screenshots() {
       setScrollY(scrollPercent);
     };
 
+    // Initialize scroll position
+    handleScrollEvent();
+
     viewer.addEventListener('scroll', handleScrollEvent);
     return () => viewer.removeEventListener('scroll', handleScrollEvent);
-  }, [activeIndex]);
-
-  // Reset scroll when switching screenshots
-  useEffect(() => {
-    if (mobileViewerRef.current) {
-      mobileViewerRef.current.scrollTop = 0;
-      setScrollY(0);
-    }
   }, [activeIndex]);
 
   return (
