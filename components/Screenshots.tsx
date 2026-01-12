@@ -1,8 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const screenshots = [
@@ -25,6 +25,42 @@ export default function Screenshots() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeIndex, setActiveIndex] = useState(1);
+  const [scrollY, setScrollY] = useState(0);
+  const mobileViewerRef = useRef<HTMLDivElement>(null);
+
+  // Handle vertical scroll within mobile viewer
+  const handleScroll = (direction: 'up' | 'down') => {
+    if (mobileViewerRef.current) {
+      const scrollAmount = 200;
+      mobileViewerRef.current.scrollBy({
+        top: direction === 'down' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Update scroll position for indicator
+  useEffect(() => {
+    const viewer = mobileViewerRef.current;
+    if (!viewer) return;
+
+    const handleScrollEvent = () => {
+      const maxScroll = viewer.scrollHeight - viewer.clientHeight;
+      const scrollPercent = maxScroll > 0 ? (viewer.scrollTop / maxScroll) * 100 : 0;
+      setScrollY(scrollPercent);
+    };
+
+    viewer.addEventListener('scroll', handleScrollEvent);
+    return () => viewer.removeEventListener('scroll', handleScrollEvent);
+  }, [activeIndex]);
+
+  // Reset scroll when switching screenshots
+  useEffect(() => {
+    if (mobileViewerRef.current) {
+      mobileViewerRef.current.scrollTop = 0;
+      setScrollY(0);
+    }
+  }, [activeIndex]);
 
   return (
     <section id="screenshots" className="relative py-24 sm:py-32 overflow-hidden">
@@ -85,16 +121,14 @@ export default function Screenshots() {
                 className={`relative group ${isCenter ? 'z-20' : 'z-10'}`}
               >
                 {/* Glow effect */}
-                <div className={`absolute -inset-4 bg-[var(--accent-primary)] rounded-[40px] blur-2xl transition-opacity duration-500 ${
-                  isCenter ? 'opacity-30' : 'opacity-0 group-hover:opacity-20'
-                }`} />
+                <div className={`absolute -inset-4 bg-[var(--accent-primary)] rounded-[40px] blur-2xl transition-opacity duration-500 ${isCenter ? 'opacity-30' : 'opacity-0 group-hover:opacity-20'
+                  }`} />
 
                 {/* Screenshot frame */}
-                <div className={`relative rounded-[32px] overflow-hidden border-2 transition-all duration-500 ${
-                  isCenter
+                <div className={`relative rounded-[32px] overflow-hidden border-2 transition-all duration-500 ${isCenter
                     ? 'border-[var(--border-accent)] shadow-2xl'
                     : 'border-[var(--border-subtle)] group-hover:border-[var(--border-accent)]'
-                }`}>
+                  }`}>
                   <Image
                     src={screenshot.src}
                     alt={t(screenshot.key)}
@@ -112,9 +146,8 @@ export default function Screenshots() {
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ delay: 0.6 + index * 0.1 }}
-                  className={`mt-6 text-center text-sm max-w-[240px] mx-auto ${
-                    isCenter ? 'text-[var(--accent-primary)]' : 'text-[var(--text-muted)]'
-                  }`}
+                  className={`mt-6 text-center text-sm max-w-[240px] mx-auto ${isCenter ? 'text-[var(--accent-primary)]' : 'text-[var(--text-muted)]'
+                    }`}
                 >
                   {t(screenshot.key)}
                 </motion.p>
@@ -123,56 +156,111 @@ export default function Screenshots() {
           })}
         </div>
 
-        {/* Mobile Carousel */}
+        {/* Mobile Carousel with vertical scroll */}
         <div className="md:hidden">
           <div className="relative">
-            {/* Active Screenshot */}
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="flex justify-center"
-            >
+            {/* Phone Frame Container */}
+            <div className="flex justify-center">
               <div className="relative">
-                <div className="absolute -inset-4 bg-[var(--accent-primary)] rounded-[40px] blur-2xl opacity-30" />
-                <div className="relative rounded-[32px] overflow-hidden border-2 border-[var(--border-accent)] shadow-2xl">
-                  <Image
-                    src={screenshots[activeIndex].src}
-                    alt={t(screenshots[activeIndex].key)}
-                    width={260}
-                    height={560}
-                    className="object-cover"
-                  />
+                {/* Glow effect */}
+                <div className="absolute -inset-4 bg-[var(--accent-primary)] rounded-[48px] blur-2xl opacity-30" />
+
+                {/* Phone Frame */}
+                <div className="relative rounded-[36px] overflow-hidden border-2 border-[var(--border-accent)] shadow-2xl bg-[var(--bg-secondary)]">
+                  {/* Screenshot Viewer - Scrollable Area */}
+                  <div
+                    ref={mobileViewerRef}
+                    className="relative w-[280px] h-[500px] overflow-y-auto overflow-x-hidden scrollbar-hide"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeIndex}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Image
+                          src={screenshots[activeIndex].src}
+                          alt={t(screenshots[activeIndex].key)}
+                          width={280}
+                          height={600}
+                          className="object-cover w-full"
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Scroll Progress Indicator */}
+                  <div className="absolute right-2 top-4 bottom-4 w-1 bg-[var(--bg-tertiary)] rounded-full overflow-hidden">
+                    <motion.div
+                      className="w-full bg-[var(--accent-primary)] rounded-full"
+                      style={{
+                        height: '30%',
+                        marginTop: `${scrollY * 0.7}%`
+                      }}
+                    />
+                  </div>
+
+                  {/* Top/Bottom Gradient Overlays */}
+                  <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[var(--bg-secondary)] to-transparent pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[var(--bg-secondary)] to-transparent pointer-events-none" />
+                </div>
+
+                {/* Vertical Scroll Hint */}
+                <div className="absolute -right-12 top-1/2 -translate-y-1/2 hidden xs:flex flex-col gap-2">
+                  <button
+                    onClick={() => handleScroll('up')}
+                    className="p-2 rounded-full border border-[var(--border-accent)] text-[var(--text-muted)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
+                    aria-label="Scroll up"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => handleScroll('down')}
+                    className="p-2 rounded-full border border-[var(--border-accent)] text-[var(--text-muted)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
+                    aria-label="Scroll down"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Caption */}
-            <p className="mt-6 text-center text-sm text-[var(--accent-primary)] px-4">
+            <motion.p
+              key={activeIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-6 text-center text-sm text-[var(--accent-primary)] px-4"
+            >
               {t(screenshots[activeIndex].key)}
-            </p>
+            </motion.p>
 
-            {/* Dots */}
+            {/* Horizontal Navigation - Dots */}
             <div className="flex justify-center gap-3 mt-6">
               {screenshots.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    index === activeIndex
+                  className={`h-2.5 rounded-full transition-all duration-300 ${index === activeIndex
                       ? 'bg-[var(--accent-primary)] w-8'
-                      : 'bg-[var(--border-accent)] hover:bg-[var(--accent-tertiary)]'
-                  }`}
+                      : 'bg-[var(--border-accent)] hover:bg-[var(--accent-tertiary)] w-2.5'
+                    }`}
                   aria-label={`View screenshot ${index + 1}`}
                 />
               ))}
             </div>
 
-            {/* Navigation arrows */}
+            {/* Left/Right Navigation Arrows */}
             <div className="flex justify-center gap-4 mt-6">
               <button
-                onClick={() => setActiveIndex((prev) => (prev === 0 ? 2 : prev - 1))}
+                onClick={() => setActiveIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1))}
                 className="p-3 rounded-full border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
                 aria-label="Previous screenshot"
               >
@@ -181,7 +269,7 @@ export default function Screenshots() {
                 </svg>
               </button>
               <button
-                onClick={() => setActiveIndex((prev) => (prev === 2 ? 0 : prev + 1))}
+                onClick={() => setActiveIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1))}
                 className="p-3 rounded-full border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
                 aria-label="Next screenshot"
               >
@@ -190,6 +278,11 @@ export default function Screenshots() {
                 </svg>
               </button>
             </div>
+
+            {/* Swipe Hint */}
+            <p className="text-center text-xs text-[var(--text-muted)] mt-4">
+              ← 左右切換截圖 · 上下滾動查看細節 →
+            </p>
           </div>
         </div>
       </div>
