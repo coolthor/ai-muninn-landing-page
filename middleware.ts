@@ -7,5 +7,6 @@ export const config = {
   // Match all pathnames except for
   // - static files (/_next, /favicon.ico, etc.)
   // - API routes (/api)
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
+  // - BPS Tracker legal pages (/bpstracker)
+  matcher: ['/((?!api|bpstracker|_next|_vercel|.*\\..*).*)']
 };
