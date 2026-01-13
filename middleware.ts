@@ -1,12 +1,12 @@
 import createMiddleware from 'next-intl/middleware';
-import { routing } from './i18n/routing';
 
-export default createMiddleware(routing);
+// Inline config to avoid Edge Runtime import issues
+export default createMiddleware({
+  locales: ['en', 'zh-TW'],
+  defaultLocale: 'zh-TW',
+  localePrefix: 'as-needed'
+});
 
 export const config = {
-  // Match all pathnames except for
-  // - static files (/_next, /favicon.ico, etc.)
-  // - API routes (/api)
-  // - BPS Tracker legal pages (/bpstracker)
   matcher: ['/((?!api|bpstracker|_next|_vercel|.*\\..*).*)']
 };

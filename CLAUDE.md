@@ -4,8 +4,9 @@ Product landing page for BPS Tracker - an iOS app for tracking Bull Put Spread o
 
 ## Tech Stack
 
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
+- **UI Library**: React 19
 - **Styling**: Tailwind CSS v4
 - **Internationalization**: next-intl (zh-TW / en)
 - **Animations**: Framer Motion
@@ -18,6 +19,17 @@ Product landing page for BPS Tracker - an iOS app for tracking Bull Put Spread o
 │   ├── [locale]/
 │   │   ├── layout.tsx    # Locale-specific layout with SEO
 │   │   └── page.tsx      # Main landing page
+│   ├── api/
+│   │   └── alpaca/
+│   │       └── token/
+│   │           └── route.ts  # OAuth token exchange endpoint
+│   ├── bpstracker/
+│   │   ├── callback/
+│   │   │   └── page.tsx  # OAuth callback handler (redirects to app)
+│   │   ├── privacy/
+│   │   │   └── page.tsx  # Privacy Policy page
+│   │   └── terms/
+│   │       └── page.tsx  # Terms of Use page
 │   ├── globals.css       # Global styles & design tokens
 │   └── layout.tsx        # Root layout
 ├── components/
@@ -39,7 +51,7 @@ Product landing page for BPS Tracker - an iOS app for tracking Bull Put Spread o
 │   ├── logo.svg          # Main logo with "TRACKER" text
 │   ├── logo-small.svg    # Small logo (icon only)
 │   └── screenshots/      # App screenshots (JPG)
-├── middleware.ts         # i18n middleware
+├── middleware.ts         # i18n middleware (excludes /bpstracker, /api)
 └── next.config.ts        # Next.js + next-intl config
 ```
 
@@ -103,13 +115,40 @@ npm run lint
 | Update SEO metadata | `app/[locale]/layout.tsx` |
 | Add new sections | `components/` + `app/[locale]/page.tsx` |
 | Change screenshots | `public/screenshots/` |
+| Update OAuth callback | `app/bpstracker/callback/page.tsx` |
+| Update legal pages | `app/bpstracker/privacy/page.tsx`, `app/bpstracker/terms/page.tsx` |
+| Modify OAuth token exchange | `app/api/alpaca/token/route.ts` |
+
+## API Routes
+
+### POST /api/alpaca/token
+OAuth token exchange endpoint for Alpaca authentication.
+
+**Request:**
+```json
+{ "code": "authorization_code", "redirect_uri": "https://..." }
+```
+
+**Response:**
+```json
+{ "access_token": "...", "token_type": "Bearer", "scope": "..." }
+```
+
+**Security:** Client secret is stored server-side in environment variables.
 
 ## Deployment
 
 The site deploys automatically to Vercel when pushing to the main branch.
 
 ### Environment Variables
-None required for basic deployment.
+Required for OAuth functionality:
+
+| Variable | Description |
+|----------|-------------|
+| `ALPACA_CLIENT_ID` | Alpaca OAuth application client ID |
+| `ALPACA_CLIENT_SECRET` | Alpaca OAuth application client secret |
+
+Set these in Vercel Dashboard → Settings → Environment Variables.
 
 ## Future Updates
 
@@ -119,8 +158,21 @@ When the app launches:
 3. Optionally add testimonials section
 4. Optionally add FAQ section
 
+## BPS Tracker App Routes
+
+Routes under `/bpstracker/` are excluded from i18n middleware and serve the iOS app:
+
+| Route | Purpose |
+|-------|---------|
+| `/bpstracker/callback` | OAuth callback - redirects to `bpstracker://` deep link |
+| `/bpstracker/privacy` | Privacy Policy (required for Alpaca OAuth registration) |
+| `/bpstracker/terms` | Terms of Use (required for Alpaca OAuth registration) |
+
+These pages use a standalone dark theme (not the main landing page layout).
+
 ## Notes
 
 - Screenshots are in JPG format (iOS screenshots)
 - The app is currently in development (Coming 2025)
 - Contact: info@ai-muninn.com
+- OAuth redirect URI: `https://ai-muninn.com/bpstracker/callback`
