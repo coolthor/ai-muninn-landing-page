@@ -63,7 +63,7 @@ export default function Footer() {
               <li>
                 <NextLink
                   href={locale === 'zh-TW' ? '/bpstracker/guide' : `/${locale}/bpstracker/guide`}
-                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200"
+                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:text-[var(--accent-primary)] focus-visible:underline"
                 >
                   {t('guide')}
                 </NextLink>
@@ -71,7 +71,7 @@ export default function Footer() {
               <li>
                 <NextLink
                   href="/bpstracker/privacy"
-                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200"
+                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:text-[var(--accent-primary)] focus-visible:underline"
                 >
                   {t('privacy')}
                 </NextLink>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li>
                 <NextLink
                   href="/bpstracker/terms"
-                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200"
+                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:text-[var(--accent-primary)] focus-visible:underline"
                 >
                   {t('terms')}
                 </NextLink>
@@ -100,7 +100,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:info@ai-muninn.com"
-                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200 flex items-center gap-2"
+                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200 flex items-center gap-2 focus-visible:outline-none focus-visible:text-[var(--accent-primary)] focus-visible:underline"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -118,7 +118,7 @@ export default function Footer() {
               <div className="flex gap-3">
                 <a
                   href="#"
-                  className="w-9 h-9 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--border-accent)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-all duration-200"
+                  className="w-9 h-9 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--border-accent)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-secondary)]"
                   aria-label="Twitter"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -127,7 +127,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="#"
-                  className="w-9 h-9 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--border-accent)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-all duration-200"
+                  className="w-9 h-9 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--border-accent)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-secondary)]"
                   aria-label="GitHub"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

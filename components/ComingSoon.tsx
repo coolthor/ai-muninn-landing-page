@@ -83,13 +83,13 @@ export default function ComingSoon() {
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group block"
+            className="relative group block focus-visible:outline-none"
           >
             {/* Glow effect */}
             <div className="absolute -inset-4 bg-[var(--accent-primary)] rounded-2xl blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
 
             {/* Badge */}
-            <div className="relative px-8 py-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] group-hover:border-[var(--accent-primary)] transition-all duration-300 group-hover:shadow-[var(--glow-md)]">
+            <div className="relative px-8 py-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] group-hover:border-[var(--accent-primary)] group-focus-visible:border-[var(--accent-primary)] group-focus-visible:ring-2 group-focus-visible:ring-[var(--accent-primary)] group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-[var(--bg-primary)] transition-colors duration-300 group-hover:shadow-[var(--glow-md)]">
               <div className="flex items-center gap-4 group-hover:scale-105 transition-transform duration-300">
                 {/* Apple Logo */}
                 <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">

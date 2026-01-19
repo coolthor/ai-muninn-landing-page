@@ -79,7 +79,7 @@ export default function Header() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * (index + 1), duration: 0.4 }}
-                className="relative text-[var(--text-secondary)] hover:text-white transition-colors duration-200 text-sm font-medium group"
+                className="relative text-[var(--text-secondary)] hover:text-white transition-colors duration-200 text-sm font-medium group focus-visible:outline-none focus-visible:text-[var(--accent-primary)]"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent-primary)] transition-all duration-300 group-hover:w-full" />
@@ -95,7 +95,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
               onClick={toggleLocale}
-              className="px-3 py-1.5 text-sm font-mono text-[var(--text-secondary)] hover:text-[var(--accent-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-accent)] rounded-md transition-all duration-200 hover:shadow-[var(--glow-sm)]"
+              className="px-3 py-1.5 text-sm font-mono text-[var(--text-secondary)] hover:text-[var(--accent-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-accent)] rounded-md transition-colors duration-200 hover:shadow-[var(--glow-sm)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
             >
               {locale === 'zh-TW' ? 'EN' : '中'}
             </motion.button>
@@ -108,7 +108,7 @@ export default function Header() {
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 px-5 py-2 bg-[var(--accent-primary)] text-[var(--bg-primary)] text-sm font-semibold rounded-full hover:bg-[var(--accent-secondary)] transition-all duration-200 hover:shadow-[var(--glow-md)]"
+              className="hidden md:flex items-center gap-2 px-5 py-2 bg-[var(--accent-primary)] text-[var(--bg-primary)] text-sm font-semibold rounded-full hover:bg-[var(--accent-secondary)] transition-colors duration-200 hover:shadow-[var(--glow-md)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -119,7 +119,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-[var(--text-secondary)] hover:text-white transition-colors"
+              className="md:hidden p-2 text-[var(--text-secondary)] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] rounded-md"
               aria-label="Toggle menu"
             >
               <svg
@@ -158,7 +158,7 @@ export default function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * index }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors py-2"
+                  className="block text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors py-2 focus-visible:outline-none focus-visible:text-[var(--accent-primary)]"
                 >
                   {item.label}
                 </motion.a>
@@ -171,7 +171,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--accent-primary)] text-[var(--bg-primary)] text-center font-semibold rounded-lg"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--accent-primary)] text-[var(--bg-primary)] text-center font-semibold rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-secondary)]"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>

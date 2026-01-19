@@ -210,7 +210,7 @@ export default function Screenshots() {
                 <div className="absolute -right-12 top-1/2 -translate-y-1/2 hidden xs:flex flex-col gap-2">
                   <button
                     onClick={() => handleScroll('up')}
-                    className="p-2 rounded-full border border-[var(--border-accent)] text-[var(--text-muted)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
+                    className="p-2 rounded-full border border-[var(--border-accent)] text-[var(--text-muted)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
                     aria-label="Scroll up"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -219,7 +219,7 @@ export default function Screenshots() {
                   </button>
                   <button
                     onClick={() => handleScroll('down')}
-                    className="p-2 rounded-full border border-[var(--border-accent)] text-[var(--text-muted)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
+                    className="p-2 rounded-full border border-[var(--border-accent)] text-[var(--text-muted)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
                     aria-label="Scroll down"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,7 +246,7 @@ export default function Screenshots() {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${index === activeIndex
+                  className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${index === activeIndex
                       ? 'bg-[var(--accent-primary)] w-8'
                       : 'bg-[var(--border-accent)] hover:bg-[var(--accent-tertiary)] w-2.5'
                     }`}
@@ -259,7 +259,7 @@ export default function Screenshots() {
             <div className="flex justify-center gap-4 mt-6">
               <button
                 onClick={() => setActiveIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1))}
-                className="p-3 rounded-full border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
+                className="p-3 rounded-full border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
                 aria-label="Previous screenshot"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -268,7 +268,7 @@ export default function Screenshots() {
               </button>
               <button
                 onClick={() => setActiveIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1))}
-                className="p-3 rounded-full border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
+                className="p-3 rounded-full border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
                 aria-label="Next screenshot"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -107,7 +107,7 @@ export default function Hero() {
                   href={APP_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[var(--accent-primary)] text-[var(--bg-primary)] font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[var(--glow-lg)]"
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[var(--accent-primary)] text-[var(--bg-primary)] font-semibold rounded-full overflow-hidden transition-shadow duration-300 hover:shadow-[var(--glow-lg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-secondary)] to-[var(--accent-primary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <svg className="relative w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@ export default function Hero() {
                 </a>
                 <a
                   href="#features"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] rounded-full transition-all duration-300 hover:shadow-[var(--glow-sm)]"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[var(--border-accent)] text-[var(--text-secondary)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] rounded-full transition-colors duration-300 hover:shadow-[var(--glow-sm)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
                 >
                   {t('learnMore')}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
