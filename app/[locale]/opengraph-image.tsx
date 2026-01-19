@@ -1,9 +1,19 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'BPS Tracker - Bull Put Spread Position Tracker';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
+
+export async function generateImageMetadata({ params }: { params: { locale: string } }) {
+  const isZh = params.locale === 'zh-TW';
+  return [
+    {
+      contentType: 'image/png',
+      size: { width: 1200, height: 630 },
+      alt: isZh ? 'BPS Tracker - Bull Put Spread 持倉追蹤工具' : 'BPS Tracker - Bull Put Spread Position Tracker',
+    },
+  ];
+}
 
 export default async function OGImage({ params }: { params: { locale: string } }) {
   const locale = params.locale;
@@ -81,7 +91,7 @@ export default async function OGImage({ params }: { params: { locale: string } }
             borderRadius: '100px',
           }}
         >
-          <span style={{ fontSize: '18px', color: '#00DEDE' }}>Available on App Store</span>
+          <span style={{ fontSize: '18px', color: '#00DEDE' }}>{isZh ? '現已在 App Store 上架' : 'Available on App Store'}</span>
         </div>
       </div>
     ),
