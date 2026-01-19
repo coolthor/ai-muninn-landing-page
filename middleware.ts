@@ -8,5 +8,7 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ['/((?!api|bpstracker|_next|_vercel|.*\\..*).*)']
+  // Exclude: api, _next, _vercel, static files, and non-localized bpstracker pages (privacy, terms, callback)
+  // Include: localized bpstracker paths (like /[locale]/bpstracker/guide)
+  matcher: ['/((?!api|_next|_vercel|bpstracker/privacy|bpstracker/terms|bpstracker/callback|.*\\..*).*)']
 };

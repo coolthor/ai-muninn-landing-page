@@ -29,11 +29,14 @@ export default function Header() {
     router.replace(pathname, { locale: newLocale });
   };
 
+  // For localePrefix: 'as-needed', default locale (zh-TW) doesn't need prefix
+  const guideHref = locale === 'zh-TW' ? '/bpstracker/guide' : `/${locale}/bpstracker/guide`;
+
   const navItems = [
     { href: '#features', label: t('features') },
     { href: '#screenshots', label: t('screenshots') },
     { href: '#how-it-works', label: t('howItWorks') },
-    { href: `/${locale}/bpstracker/guide`, label: t('guide'), isPage: true },
+    { href: guideHref, label: t('guide'), isPage: true },
   ];
 
   return (

@@ -62,7 +62,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <NextLink
-                  href={`/${locale}/bpstracker/guide`}
+                  href={locale === 'zh-TW' ? '/bpstracker/guide' : `/${locale}/bpstracker/guide`}
                   className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200"
                 >
                   {t('guide')}
