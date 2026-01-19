@@ -1,39 +1,22 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="glow3" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00ffc8" />
-      <stop offset="50%" style="stop-color:#00e0b0" />
-      <stop offset="100%" style="stop-color:#00b890" />
+    <!-- Diagonal gradient: purple (bottom-left) to teal (top-right) -->
+    <linearGradient id="barGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C084FC" />
+      <stop offset="50%" stop-color="#818CF8" />
+      <stop offset="100%" stop-color="#2DD4BF" />
     </linearGradient>
   </defs>
-  
-  <rect x="25" y="25" width="150" height="150" rx="32" 
-        stroke="url(#grad3)" stroke-width="3" fill="none" 
-        filter="url(#glow3)" opacity="0.5"/>
-  
-  <g filter="url(#glow3)">
-    <line x1="50" y1="130" x2="150" y2="130" stroke="#00ffc8" stroke-width="2" opacity="0.3"/>
-    <line x1="50" y1="110" x2="75" y2="110" stroke="#00ffc8" stroke-width="3"/>
-    <line x1="75" y1="110" x2="110" y2="70" stroke="#00ffc8" stroke-width="3"/>
-    <line x1="110" y1="70" x2="150" y2="70" stroke="#00ffc8" stroke-width="3"/>
-    <circle cx="75" cy="110" r="5" fill="#00ffc8"/>
-    <circle cx="110" cy="70" r="5" fill="#00ffc8"/>
-    <g opacity="0.8">
-      <circle cx="95" cy="87" r="12" stroke="#00ffc8" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
-      <circle cx="95" cy="87" r="4" fill="#00ffc8"/>
-      <line x1="95" y1="72" x2="95" y2="78" stroke="#00ffc8" stroke-width="2"/>
-      <line x1="95" y1="96" x2="95" y2="102" stroke="#00ffc8" stroke-width="2"/>
-      <line x1="80" y1="87" x2="86" y2="87" stroke="#00ffc8" stroke-width="2"/>
-      <line x1="104" y1="87" x2="110" y2="87" stroke="#00ffc8" stroke-width="2"/>
-    </g>
-  </g>
-  
-  <text x="100" y="155" text-anchor="middle" fill="#00ffc8" font-family="system-ui" font-size="12" font-weight="600" opacity="0.6">TRACKER</text>
+
+  <!-- Bar 1 (top, shortest) -->
+  <rect x="110" y="45" width="70" height="18" rx="5" fill="url(#barGradient)" />
+
+  <!-- Bar 2 -->
+  <rect x="70" y="78" width="110" height="18" rx="5" fill="url(#barGradient)" />
+
+  <!-- Bar 3 -->
+  <rect x="30" y="111" width="150" height="18" rx="5" fill="url(#barGradient)" />
+
+  <!-- Bar 4 (bottom, longest) -->
+  <rect x="10" y="144" width="170" height="18" rx="5" fill="url(#barGradient)" />
 </svg>
