@@ -33,7 +33,7 @@ export default function Header() {
     { href: '#features', label: t('features') },
     { href: '#screenshots', label: t('screenshots') },
     { href: '#how-it-works', label: t('howItWorks') },
-    { href: '/bpstracker/guide', label: t('guide'), external: true },
+    { href: `/${locale}/bpstracker/guide`, label: t('guide'), isPage: true },
   ];
 
   return (
@@ -73,18 +73,12 @@ export default function Header() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                {...(item.external ? {} : {})}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * (index + 1), duration: 0.4 }}
                 className="relative text-[var(--text-secondary)] hover:text-white transition-colors duration-200 text-sm font-medium group"
               >
                 {item.label}
-                {item.external && (
-                  <svg className="inline-block w-3 h-3 ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                )}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent-primary)] transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
@@ -164,11 +158,6 @@ export default function Header() {
                   className="block text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors py-2"
                 >
                   {item.label}
-                  {item.external && (
-                    <svg className="inline-block w-3 h-3 ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  )}
                 </motion.a>
               ))}
               <motion.a

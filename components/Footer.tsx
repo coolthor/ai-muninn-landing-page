@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
@@ -8,6 +8,7 @@ import NextLink from 'next/link';
 
 export default function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -61,7 +62,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <NextLink
-                  href="/bpstracker/guide"
+                  href={`/${locale}/bpstracker/guide`}
                   className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200"
                 >
                   {t('guide')}
