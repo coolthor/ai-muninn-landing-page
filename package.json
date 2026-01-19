@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:screenshots": "./scripts/sync-screenshots.sh"
   },
   "dependencies": {
     "framer-motion": "^12.25.0",
