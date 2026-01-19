@@ -17,6 +17,26 @@
     "cta": "Download on App Store",
     "learnMore": "Learn More"
   },
+  "whyBPS": {
+    "title": "Why BPS Tracker?",
+    "subtitle": "Built specifically for Bull Put Spread traders who want simplicity and clarity",
+    "focused": {
+      "title": "Purpose-Built for BPS",
+      "description": "Not a generic options tool. Every feature is optimized for Bull Put Spread strategy."
+    },
+    "fast": {
+      "title": "30-Second Setup",
+      "description": "Streamlined input flow. Add a new position in seconds, not minutes."
+    },
+    "clear": {
+      "title": "Instant Clarity",
+      "description": "See % of max profit earned and daily theta value at a glance. No manual calculations."
+    },
+    "privacy": {
+      "title": "Your Data, Your Device",
+      "description": "All data stored locally. No cloud uploads. Alpaca connection is optional."
+    }
+  },
   "features": {
     "title": "Key Features",
     "subtitle": "Everything you need to manage your Bull Put Spread positions",

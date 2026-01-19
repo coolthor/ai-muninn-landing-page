@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import WhyBPS from '@/components/WhyBPS';
 import Features from '@/components/Features';
 import Screenshots from '@/components/Screenshots';
 import HowItWorks from '@/components/HowItWorks';
@@ -21,6 +22,7 @@ export default async function HomePage({ params }: Props) {
     <main className="relative">
       <Header />
       <Hero />
+      <WhyBPS />
       <Features />
       <Screenshots />
       <HowItWorks />

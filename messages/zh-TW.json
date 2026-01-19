@@ -17,6 +17,26 @@
     "cta": "App Store 下載",
     "learnMore": "了解更多"
   },
+  "whyBPS": {
+    "title": "為什麼選擇 BPS Tracker？",
+    "subtitle": "專為追求簡潔與清晰的 Bull Put Spread 交易者打造",
+    "focused": {
+      "title": "專為 BPS 設計",
+      "description": "不是通用選擇權工具，每個功能都針對 Bull Put Spread 策略優化。"
+    },
+    "fast": {
+      "title": "30 秒建立持倉",
+      "description": "精簡的輸入流程，幾秒鐘就能新增一筆持倉。"
+    },
+    "clear": {
+      "title": "數據一目瞭然",
+      "description": "即時顯示已賺取利潤百分比與每日 Theta 收益，不用手動計算。"
+    },
+    "privacy": {
+      "title": "資料在你手中",
+      "description": "所有資料存在本機，不上傳雲端。Alpaca 連結為選擇性功能。"
+    }
+  },
   "features": {
     "title": "核心功能",
     "subtitle": "管理 Bull Put Spread 持倉所需的一切",
