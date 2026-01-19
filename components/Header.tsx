@@ -6,6 +6,8 @@ import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
+const APP_STORE_URL = 'https://apps.apple.com/tw/app/bpstracker/id6757736273';
+
 export default function Header() {
   const t = useTranslations('header');
   const locale = useLocale();
@@ -31,6 +33,7 @@ export default function Header() {
     { href: '#features', label: t('features') },
     { href: '#screenshots', label: t('screenshots') },
     { href: '#how-it-works', label: t('howItWorks') },
+    { href: '/bpstracker/guide', label: t('guide'), external: true },
   ];
 
   return (
@@ -70,12 +73,18 @@ export default function Header() {
               <motion.a
                 key={item.href}
                 href={item.href}
+                {...(item.external ? {} : {})}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * (index + 1), duration: 0.4 }}
                 className="relative text-[var(--text-secondary)] hover:text-white transition-colors duration-200 text-sm font-medium group"
               >
                 {item.label}
+                {item.external && (
+                  <svg className="inline-block w-3 h-3 ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                )}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--accent-primary)] transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
@@ -99,14 +108,15 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              href="#coming-soon"
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:flex items-center gap-2 px-5 py-2 bg-[var(--accent-primary)] text-[var(--bg-primary)] text-sm font-semibold rounded-full hover:bg-[var(--accent-secondary)] transition-all duration-200 hover:shadow-[var(--glow-md)]"
             >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--bg-primary)] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--bg-primary)]"></span>
-              </span>
-              {t('comingSoon')}
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+              </svg>
+              {t('download')}
             </motion.a>
 
             {/* Mobile Menu Button */}
@@ -154,17 +164,27 @@ export default function Header() {
                   className="block text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors py-2"
                 >
                   {item.label}
+                  {item.external && (
+                    <svg className="inline-block w-3 h-3 ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  )}
                 </motion.a>
               ))}
               <motion.a
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                href="#coming-soon"
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 bg-[var(--accent-primary)] text-[var(--bg-primary)] text-center font-semibold rounded-lg"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--accent-primary)] text-[var(--bg-primary)] text-center font-semibold rounded-lg"
               >
-                {t('comingSoon')}
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                {t('download')}
               </motion.a>
             </div>
           </motion.div>

@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
+import NextLink from 'next/link';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -55,24 +56,32 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h3 className="font-heading text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Legal
+              Resources
             </h3>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#"
+                <NextLink
+                  href="/bpstracker/guide"
+                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200"
+                >
+                  {t('guide')}
+                </NextLink>
+              </li>
+              <li>
+                <NextLink
+                  href="/bpstracker/privacy"
                   className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200"
                 >
                   {t('privacy')}
-                </a>
+                </NextLink>
               </li>
               <li>
-                <a
-                  href="#"
+                <NextLink
+                  href="/bpstracker/terms"
                   className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200"
                 >
                   {t('terms')}
-                </a>
+                </NextLink>
               </li>
             </ul>
           </motion.div>

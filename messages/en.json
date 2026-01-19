@@ -7,12 +7,14 @@
     "features": "Features",
     "screenshots": "Screenshots",
     "howItWorks": "How It Works",
-    "comingSoon": "Coming Soon"
+    "guide": "Guide",
+    "comingSoon": "Coming Soon",
+    "download": "Download"
   },
   "hero": {
     "tagline": "Master Your Bull Put Spreads at a Glance",
     "description": "The position tracking tool designed for options traders. Real-time Greeks monitoring, risk assessment, and profit tracking — keep every trade under control.",
-    "cta": "Coming to App Store",
+    "cta": "Download on App Store",
     "learnMore": "Learn More"
   },
   "features": {
@@ -67,12 +69,13 @@
     }
   },
   "cta": {
-    "title": "Coming Soon to App Store",
-    "subtitle": "Coming 2025"
+    "title": "Available Now on App Store",
+    "subtitle": "Free Download"
   },
   "footer": {
     "tagline": "BPS Tracker by AI Muninn",
     "description": "Professional Bull Put Spread position tracking for serious options traders.",
+    "guide": "User Guide",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "contact": "Contact",

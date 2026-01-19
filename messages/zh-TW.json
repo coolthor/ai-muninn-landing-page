@@ -7,12 +7,14 @@
     "features": "功能",
     "screenshots": "截圖",
     "howItWorks": "使用方式",
-    "comingSoon": "即將推出"
+    "guide": "使用教學",
+    "comingSoon": "即將推出",
+    "download": "下載"
   },
   "hero": {
     "tagline": "Bull Put Spread 持倉管理，一目瞭然",
     "description": "專為選擇權交易者設計的持倉追蹤工具。即時監控 Greeks、風險評估、獲利追蹤，讓每一筆交易都在掌握之中。",
-    "cta": "即將上架 App Store",
+    "cta": "App Store 下載",
     "learnMore": "了解更多"
   },
   "features": {
@@ -67,12 +69,13 @@
     }
   },
   "cta": {
-    "title": "即將登陸 App Store",
-    "subtitle": "Coming 2025"
+    "title": "現已上架 App Store",
+    "subtitle": "免費下載"
   },
   "footer": {
     "tagline": "BPS Tracker by AI Muninn",
     "description": "專為認真的選擇權交易者打造的 Bull Put Spread 持倉追蹤工具。",
+    "guide": "使用教學",
     "privacy": "隱私權政策",
     "terms": "服務條款",
     "contact": "聯絡我們",

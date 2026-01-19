@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+const APP_STORE_URL = 'https://apps.apple.com/tw/app/bpstracker/id6757736273';
+
 export default function Hero() {
   const t = useTranslations('hero');
 
@@ -102,7 +104,9 @@ export default function Hero() {
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
                 <a
-                  href="#coming-soon"
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[var(--accent-primary)] text-[var(--bg-primary)] font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[var(--glow-lg)]"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-secondary)] to-[var(--accent-primary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
