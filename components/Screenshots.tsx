@@ -8,15 +8,15 @@ import Image from 'next/image';
 const screenshots = [
   {
     key: 'performance',
-    src: '/screenshots/performance-summary.JPG',
+    src: '/screenshots/main-list.png',
   },
   {
     key: 'position',
-    src: '/screenshots/position-detail.JPG',
+    src: '/screenshots/ai-analysis.png',
   },
   {
     key: 'closed',
-    src: '/screenshots/closed-position.JPG',
+    src: '/screenshots/position-detail-new.png',
   },
 ];
 
