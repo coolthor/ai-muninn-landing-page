@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "BPS Tracker - Master Your Bull Put Spreads",
-    "description": "The position tracking tool designed for options traders. Real-time Greeks monitoring, risk assessment, and profit tracking."
+    "title": "BPS Tracker - AI-Powered Bull Put Spread Tracking",
+    "description": "The position tracking tool designed for options traders. AI risk analysis, real-time Greeks monitoring, and profit tracking."
   },
   "header": {
     "features": "Features",
@@ -12,8 +12,8 @@
     "download": "Download"
   },
   "hero": {
-    "tagline": "Master Your Bull Put Spreads at a Glance",
-    "description": "The position tracking tool designed for options traders. Real-time Greeks monitoring, risk assessment, and profit tracking — keep every trade under control.",
+    "tagline": "AI-Powered Bull Put Spread Tracking",
+    "description": "The position tracking tool designed for options traders. AI risk analysis, real-time Greeks monitoring, personalized alerts — keep every trade under control.",
     "cta": "Download on App Store",
     "learnMore": "Learn More"
   },
@@ -29,8 +29,8 @@
       "description": "Streamlined input flow. Add a new position in seconds, not minutes."
     },
     "clear": {
-      "title": "Instant Clarity",
-      "description": "See % of max profit earned and daily theta value at a glance. No manual calculations."
+      "title": "AI-Powered Insights",
+      "description": "Get instant portfolio risk analysis powered by Gemini AI. Identify high-risk positions automatically."
     },
     "privacy": {
       "title": "Your Data, Your Device",
@@ -38,31 +38,32 @@
     }
   },
   "features": {
+    "badge": "Powerful Features",
     "title": "Key Features",
     "subtitle": "Everything you need to manage your Bull Put Spread positions",
-    "portfolio": {
-      "title": "Portfolio Overview",
-      "description": "See all positions' P&L, win rate, and average returns at a glance"
+    "ai": {
+      "title": "AI Risk Analysis",
+      "description": "Gemini-powered portfolio analysis. Identify high-risk positions, track earnings events, and get personalized recommendations."
     },
     "greeks": {
-      "title": "Greeks Analysis",
-      "description": "Full Delta, Gamma, Theta, Vega display to understand your risk exposure"
+      "title": "Real-Time Greeks",
+      "description": "Full Delta, Gamma, Theta, Vega display. Compare opening vs current values to understand your risk exposure."
     },
     "risk": {
-      "title": "Risk Assessment",
-      "description": "Real-time calculation of max loss, breakeven, and safety margin"
+      "title": "Visual Risk Bar",
+      "description": "Intuitive risk visualization showing position safety at a glance. Color-coded alerts highlight positions needing attention."
     },
-    "expiry": {
-      "title": "Expiry Tracking",
-      "description": "DTE countdown and holding days at a glance — never miss a closing opportunity"
+    "alerts": {
+      "title": "Custom Alerts",
+      "description": "Set personalized thresholds for Delta, DTE, OTM%, and P&L. Get notified when positions need attention."
     },
-    "history": {
-      "title": "Performance History",
-      "description": "Complete closed position history with realized returns and annualized RoR"
+    "import": {
+      "title": "Screenshot Import",
+      "description": "Snap a screenshot of your broker and import positions instantly. AI-powered OCR extracts all details automatically."
     },
     "interface": {
-      "title": "Intuitive Interface",
-      "description": "Dark theme with clear colors — visual experience designed for traders"
+      "title": "Cyberpunk Interface",
+      "description": "Beautiful dark theme with neon accents. Breathing animations highlight AI-detected risk levels."
     }
   },
   "screenshots": {
@@ -70,31 +71,31 @@
     "subtitle": "See how BPS Tracker helps you manage your positions",
     "performance": "Performance Summary — Win rate, P&L, and returns at a glance",
     "position": "Position Details — Full Greeks and risk assessment",
-    "closed": "Closed Positions — Track actual performance of every trade"
+    "closed": "AI Analysis — Risk warnings and portfolio insights"
   },
   "howItWorks": {
     "title": "How It Works",
     "subtitle": "Three simple steps to master your Bull Put Spread positions",
     "step1": {
       "title": "Add Position",
-      "description": "Enter your Bull Put Spread details: underlying, strikes, expiry, contracts"
+      "description": "Enter manually or import via screenshot. Supports CSV import/export with OCC standard format."
     },
     "step2": {
-      "title": "Track in Real-Time",
-      "description": "App automatically calculates Greeks, P&L, and risk metrics — stay informed"
+      "title": "AI Analyzes Risk",
+      "description": "Gemini AI evaluates your portfolio, identifies high-risk positions, and provides personalized insights."
     },
     "step3": {
-      "title": "Manage & Close",
-      "description": "Record closing timing and results, build complete trading performance history"
+      "title": "Track & Manage",
+      "description": "Monitor Greeks in real-time, receive alerts, and record closing results for performance history."
     }
   },
   "cta": {
     "title": "Available Now on App Store",
-    "subtitle": "Free Download"
+    "subtitle": "Free Download • Pro Upgrade Available"
   },
   "footer": {
     "tagline": "BPS Tracker by AI Muninn",
-    "description": "Professional Bull Put Spread position tracking for serious options traders.",
+    "description": "AI-powered Bull Put Spread position tracking for serious options traders.",
     "guide": "User Guide",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",

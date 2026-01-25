@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "BPS Tracker - Bull Put Spread 持倉管理",
-    "description": "專為選擇權交易者設計的持倉追蹤工具。即時監控 Greeks、風險評估、獲利追蹤。"
+    "title": "BPS Tracker - AI 驅動的 Bull Put Spread 追蹤器",
+    "description": "專為選擇權交易者設計的持倉追蹤工具。AI 風險分析、即時 Greeks 監控、獲利追蹤。"
   },
   "header": {
     "features": "功能",
@@ -12,8 +12,8 @@
     "download": "下載"
   },
   "hero": {
-    "tagline": "Bull Put Spread 持倉管理，一目瞭然",
-    "description": "專為選擇權交易者設計的持倉追蹤工具。即時監控 Greeks、風險評估、獲利追蹤，讓每一筆交易都在掌握之中。",
+    "tagline": "AI 驅動的 Bull Put Spread 持倉追蹤",
+    "description": "專為選擇權交易者設計的持倉追蹤工具。AI 風險分析、即時 Greeks 監控、個人化告警，讓每一筆交易都在掌握之中。",
     "cta": "App Store 下載",
     "learnMore": "了解更多"
   },
@@ -29,8 +29,8 @@
       "description": "精簡的輸入流程，幾秒鐘就能新增一筆持倉。"
     },
     "clear": {
-      "title": "數據一目瞭然",
-      "description": "即時顯示已賺取利潤百分比與每日 Theta 收益，不用手動計算。"
+      "title": "AI 智能洞察",
+      "description": "Gemini AI 驅動的即時投資組合風險分析，自動識別高風險持倉。"
     },
     "privacy": {
       "title": "資料在你手中",
@@ -38,31 +38,32 @@
     }
   },
   "features": {
+    "badge": "強大功能",
     "title": "核心功能",
     "subtitle": "管理 Bull Put Spread 持倉所需的一切",
-    "portfolio": {
-      "title": "持倉總覽",
-      "description": "一眼掌握所有持倉的盈虧狀態、勝率與平均報酬"
+    "ai": {
+      "title": "AI 風險分析",
+      "description": "Gemini AI 驅動的投資組合分析。識別高風險持倉、追蹤財報事件、提供個人化建議。"
     },
     "greeks": {
-      "title": "Greeks 分析",
-      "description": "Delta、Gamma、Theta、Vega 完整呈現，掌握風險敞口"
+      "title": "即時 Greeks",
+      "description": "Delta、Gamma、Theta、Vega 完整呈現。比較開倉與現在數值，掌握風險敞口。"
     },
     "risk": {
-      "title": "風險評估",
-      "description": "即時計算最大損失、損益平衡點與安全邊際"
+      "title": "視覺化 Risk Bar",
+      "description": "直覺的風險視覺化指標，一眼看出持倉安全性。顏色標示提醒需要注意的持倉。"
     },
-    "expiry": {
-      "title": "到期追蹤",
-      "description": "DTE 倒數、持有天數一目瞭然，不錯過任何平倉時機"
+    "alerts": {
+      "title": "自訂告警",
+      "description": "設定個人化的 Delta、DTE、OTM%、P&L 門檻。持倉需要注意時即時通知。"
     },
-    "history": {
-      "title": "績效記錄",
-      "description": "完整的已平倉記錄，計算實現報酬與年化收益率"
+    "import": {
+      "title": "截圖匯入",
+      "description": "截取券商畫面即可快速匯入持倉。AI OCR 自動擷取所有細節。"
     },
     "interface": {
-      "title": "直覺介面",
-      "description": "深色主題、清晰配色，專為交易者設計的視覺體驗"
+      "title": "賽博朋克介面",
+      "description": "精美深色主題搭配霓虹色系。呼吸動畫標示 AI 偵測的風險等級。"
     }
   },
   "screenshots": {
@@ -70,31 +71,31 @@
     "subtitle": "看看 BPS Tracker 如何幫助你管理持倉",
     "performance": "績效總覽 — 勝率、盈虧、報酬率一目瞭然",
     "position": "持倉詳情 — 完整 Greeks 與風險評估",
-    "closed": "平倉記錄 — 追蹤每筆交易的實際績效"
+    "closed": "AI 分析 — 風險警示與投資組合洞察"
   },
   "howItWorks": {
     "title": "如何使用",
     "subtitle": "三個簡單步驟掌握你的 Bull Put Spread 持倉",
     "step1": {
       "title": "輸入持倉",
-      "description": "輸入你的 Bull Put Spread 資訊：標的、履約價、到期日、口數"
+      "description": "手動輸入或截圖匯入。支援 OCC 標準格式的 CSV 匯入匯出。"
     },
     "step2": {
-      "title": "即時追蹤",
-      "description": "App 自動計算 Greeks、盈虧與風險指標，隨時掌握部位狀態"
+      "title": "AI 分析風險",
+      "description": "Gemini AI 評估投資組合、識別高風險持倉、提供個人化洞察。"
     },
     "step3": {
-      "title": "管理平倉",
-      "description": "記錄平倉時機與結果，累積完整的交易績效歷史"
+      "title": "追蹤管理",
+      "description": "即時監控 Greeks、接收告警、記錄平倉結果累積績效歷史。"
     }
   },
   "cta": {
     "title": "現已上架 App Store",
-    "subtitle": "免費下載"
+    "subtitle": "免費下載 • 可升級 Pro"
   },
   "footer": {
     "tagline": "BPS Tracker by AI Muninn",
-    "description": "專為認真的選擇權交易者打造的 Bull Put Spread 持倉追蹤工具。",
+    "description": "專為認真的選擇權交易者打造的 AI 驅動 Bull Put Spread 持倉追蹤工具。",
     "guide": "使用教學",
     "privacy": "隱私權政策",
     "terms": "服務條款",
