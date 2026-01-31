@@ -1,5 +1,10 @@
 # BPS Tracker Website
 
+> **Shared Documentation:** For infrastructure, API endpoints, and cross-repo info, see:
+> `/Users/coolthor/ai-muninn-docs/CLAUDE.md`
+>
+> This file contains website-specific details only.
+
 Product landing page for BPS Tracker - an iOS app for tracking Bull Put Spread options positions.
 
 ---
