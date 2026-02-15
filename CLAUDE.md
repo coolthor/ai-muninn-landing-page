@@ -9,40 +9,6 @@ Product landing page for BPS Tracker - an iOS app for tracking Bull Put Spread o
 
 ---
 
-## Related Repos (AI Muninn Project)
-
-| Repo | Path | Description |
-|------|------|-------------|
-| **BPSTracker** | `/Users/coolthor/BPSTracker` | iOS App (Swift/SwiftUI) |
-| **ai-muninn-landing-page** | `/Users/coolthor/ai-muninn-landing-page` | Marketing Website (Next.js) |
-
-### Shared Constants
-
-```yaml
-App Store URL: https://apps.apple.com/tw/app/bpstracker/id6757736273
-Bundle ID: com.ai-muninn.BPSTracker
-Current Version: 1.0.0
-OAuth Redirect: https://ai-muninn.com/bpstracker/callback
-Contact: info@ai-muninn.com
-
-Brand Colors:
-  - Cyan (Primary): #00DEDE / #00ffc8
-  - Purple: #A361F5 / #C084FC
-  - Teal: #2DD4BF
-  - Background: #0a0a0f / #141618
-```
-
-### Cross-Repo Tasks
-
-| Task | Update In |
-|------|-----------|
-| Version bump | iOS `Info.plist` + Website `Footer.tsx` |
-| New feature | iOS app + Website `Features.tsx` + `messages/*.json` |
-| Screenshots | Export from iOS → `public/screenshots/` |
-| App Store URL | Both repos if changed |
-
----
-
 ## Tech Stack
 
 - **Framework**: Next.js 15 (App Router)
@@ -214,6 +180,6 @@ These pages use a standalone dark theme (not the main landing page layout).
 ## Notes
 
 - Screenshots are in JPG format (iOS screenshots)
-- The app is currently in development (Coming 2025)
+- The app is available on the App Store (v1.1)
 - Contact: info@ai-muninn.com
 - OAuth redirect URI: `https://ai-muninn.com/bpstracker/callback`
