@@ -36,6 +36,7 @@ export default function Header() {
     { href: '#features', label: t('features') },
     { href: '#screenshots', label: t('screenshots') },
     { href: '#how-it-works', label: t('howItWorks') },
+    { href: '#pricing', label: t('pricing') },
     { href: guideHref, label: t('guide'), isPage: true },
   ];
 

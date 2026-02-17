@@ -1,27 +1,53 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const screenshots = [
-  {
-    key: 'performance',
-    src: '/screenshots/main-list.png',
-  },
-  {
-    key: 'position',
-    src: '/screenshots/ai-analysis.png',
-  },
-  {
-    key: 'closed',
-    src: '/screenshots/position-detail-new.png',
-  },
+const screenshotKeys = [
+  { key: 'mainList', file: '01-positions-list-1.png' },
+  { key: 'ai',      file: '04-ai-analysis-1.png' },
+  { key: 'greeks',  file: '03-greeks-trend-delta.png' },
+  { key: 'detail',  file: '02-position-detail.png' },
+  { key: 'paywall', file: '05-paywall-1.png' },
 ];
+
+function useScreenshots(locale: string) {
+  return screenshotKeys.map(({ key, file }) => ({
+    key,
+    src: locale === 'en'
+      ? `/screenshots/en/${file}`
+      : `/screenshots/${file}`,
+    fallbackSrc: `/screenshots/${file}`,
+  }));
+}
+
+function LocaleImage({
+  src, fallbackSrc, alt, width, height, className,
+}: {
+  src: string; fallbackSrc: string; alt: string;
+  width: number; height: number; className?: string;
+}) {
+  const [imgSrc, setImgSrc] = useState(src);
+  useEffect(() => { setImgSrc(src); }, [src]);
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      width={width}
+      height={height}
+      className={className}
+      onError={() => setImgSrc(fallbackSrc)}
+    />
+  );
+}
 
 export default function Screenshots() {
   const t = useTranslations('screenshots');
+  const locale = useLocale();
+  const screenshots = useScreenshots(locale);
+  const desktopScreenshots = screenshots.slice(0, 3);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeIndex, setActiveIndex] = useState(1);
@@ -108,7 +134,7 @@ export default function Screenshots() {
 
         {/* Desktop Screenshots */}
         <div className="hidden md:flex justify-center items-end gap-6 lg:gap-10">
-          {screenshots.map((screenshot, index) => {
+          {desktopScreenshots.map((screenshot, index) => {
             const isCenter = index === 1;
             return (
               <motion.div
@@ -127,11 +153,12 @@ export default function Screenshots() {
                     ? 'border-[var(--border-accent)] shadow-2xl'
                     : 'border-[var(--border-subtle)] group-hover:border-[var(--border-accent)]'
                   }`}>
-                  <Image
+                  <LocaleImage
                     src={screenshot.src}
+                    fallbackSrc={screenshot.fallbackSrc}
                     alt={t(screenshot.key)}
-                    width={isCenter ? 280 : 240}
-                    height={isCenter ? 600 : 520}
+                    width={isCenter ? 270 : 230}
+                    height={isCenter ? 585 : 500}
                     className="object-cover"
                   />
 
@@ -144,7 +171,7 @@ export default function Screenshots() {
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ delay: 0.6 + index * 0.1 }}
-                  className={`mt-6 text-center text-sm max-w-[240px] mx-auto ${isCenter ? 'text-[var(--accent-primary)]' : 'text-[var(--text-muted)]'
+                  className={`mt-6 text-center text-sm max-w-[230px] mx-auto ${isCenter ? 'text-[var(--accent-primary)]' : 'text-[var(--text-muted)]'
                     }`}
                 >
                   {t(screenshot.key)}
@@ -179,8 +206,9 @@ export default function Screenshots() {
                         exit={{ opacity: 0, x: -50 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <Image
+                        <LocaleImage
                           src={screenshots[activeIndex].src}
+                          fallbackSrc={screenshots[activeIndex].fallbackSrc}
                           alt={t(screenshots[activeIndex].key)}
                           width={280}
                           height={600}

@@ -8,7 +8,8 @@
     "screenshots": "Screenshots",
     "howItWorks": "How It Works",
     "guide": "Guide",
-    "comingSoon": "Coming Soon",
+    "pricing": "Pricing",
+    "comingSoon": "Download",
     "download": "Download"
   },
   "hero": {
@@ -33,8 +34,8 @@
       "description": "Get instant portfolio risk analysis powered by Gemini AI. Identify high-risk positions automatically."
     },
     "privacy": {
-      "title": "Your Data, Your Device",
-      "description": "All data stored locally. No cloud uploads. Alpaca connection is optional."
+      "title": "Your Data on Device, Quotes from BPS",
+      "description": "Position data stays entirely on your device. Real-time quotes and Greeks are powered by the official BPS API — no third-party account required, works out of the box."
     }
   },
   "features": {
@@ -43,23 +44,23 @@
     "subtitle": "Everything you need to manage your Bull Put Spread positions",
     "ai": {
       "title": "AI Risk Analysis",
-      "description": "Gemini-powered portfolio analysis. Identify high-risk positions, track earnings events, and get personalized recommendations."
+      "description": "Gemini-powered portfolio analysis. Identify high-risk positions, track earnings events, get personalized recommendations. Free: 10/month, Pro: 200/month."
     },
     "greeks": {
-      "title": "Real-Time Greeks",
-      "description": "Full Delta, Gamma, Theta, Vega display. Compare opening vs current values to understand your risk exposure."
+      "title": "Real-Time Greeks + Trend Charts",
+      "description": "Full Delta, Gamma, Theta, Vega display with opening vs current comparison. Pro unlocks historical trend charts for Delta, IV, and Theta to track position evolution."
     },
     "risk": {
       "title": "Visual Risk Bar",
-      "description": "Intuitive risk visualization showing position safety at a glance. Color-coded alerts highlight positions needing attention."
+      "description": "Intuitive risk visualization showing position safety at a glance. Pro unlocks historical IV data for a more precise Risk Bar."
     },
     "alerts": {
       "title": "Custom Alerts",
-      "description": "Set personalized thresholds for Delta, DTE, OTM%, and P&L. Get notified when positions need attention."
+      "description": "Set personalized thresholds for Delta, DTE, OTM%, and P&L. Get notified when positions need attention. (Pro only)"
     },
     "import": {
       "title": "Screenshot Import",
-      "description": "Snap a screenshot of your broker and import positions instantly. AI-powered OCR extracts all details automatically."
+      "description": "Snap a screenshot of your broker and import positions instantly. AI-powered OCR extracts all details. Free: 8/month, Pro: 80/month."
     },
     "interface": {
       "title": "Cyberpunk Interface",
@@ -69,9 +70,11 @@
   "screenshots": {
     "title": "App Screenshots",
     "subtitle": "See how BPS Tracker helps you manage your positions",
-    "performance": "Performance Summary — Win rate, P&L, and returns at a glance",
-    "position": "Position Details — Full Greeks and risk assessment",
-    "closed": "AI Analysis — Risk warnings and portfolio insights"
+    "mainList": "Portfolio Overview — 19 open positions, real-time P&L and Theta income at a glance",
+    "ai": "AI Analysis Report — Identify high-risk positions with actionable recommendations",
+    "greeks": "Greeks Trend Chart (Pro) — Track historical changes in Delta, IV, and Theta",
+    "detail": "Position Details — Full Greeks, OTM%, breakeven, and risk indicators",
+    "paywall": "Pro Plan — $19.99/month, unlock all advanced features"
   },
   "howItWorks": {
     "title": "How It Works",
@@ -88,6 +91,46 @@
       "title": "Track & Manage",
       "description": "Monitor Greeks in real-time, receive alerts, and record closing results for performance history."
     }
+  },
+  "pricing": {
+    "badge": "Simple, Transparent Pricing",
+    "title": "Choose Your Plan",
+    "subtitle": "Free forever, or unlock the full toolkit with Pro",
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "period": "Forever free",
+      "cta": "Download Now",
+      "features": [
+        "Up to 3 positions",
+        "15-minute price updates",
+        "Basic Greeks display",
+        "10 AI analyses / month",
+        "8 screenshot imports / month",
+        "Full position details"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "badge": "Recommended",
+      "priceMonthly": "$19.99",
+      "priceYearly": "$179.99",
+      "periodMonthly": "/ month",
+      "periodYearly": "/ year",
+      "savingLabel": "Save 20%",
+      "cta": "Upgrade to Pro",
+      "features": [
+        "Up to 20 positions",
+        "1-minute real-time price updates",
+        "Greeks trend charts (Delta / IV / Theta)",
+        "Historical IV & advanced Risk Bar",
+        "Custom risk alerts",
+        "200 AI analyses / month",
+        "80 screenshot imports / month"
+      ]
+    },
+    "monthly": "Monthly",
+    "yearly": "Yearly"
   },
   "cta": {
     "title": "Available Now on App Store",

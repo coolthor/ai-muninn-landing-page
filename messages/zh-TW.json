@@ -8,7 +8,8 @@
     "screenshots": "截圖",
     "howItWorks": "使用方式",
     "guide": "使用教學",
-    "comingSoon": "即將推出",
+    "pricing": "定價",
+    "comingSoon": "下載",
     "download": "下載"
   },
   "hero": {
@@ -33,8 +34,8 @@
       "description": "Gemini AI 驅動的即時投資組合風險分析，自動識別高風險持倉。"
     },
     "privacy": {
-      "title": "資料在你手中",
-      "description": "所有資料存在本機，不上傳雲端。Alpaca 連結為選擇性功能。"
+      "title": "持倉存裝置，報價由官方提供",
+      "description": "持倉資料完全保存在你的裝置上。即時報價與 Greeks 由 BPS 官方 API 提供，不需要連結任何第三方帳號，開箱即用。"
     }
   },
   "features": {
@@ -43,23 +44,23 @@
     "subtitle": "管理 Bull Put Spread 持倉所需的一切",
     "ai": {
       "title": "AI 風險分析",
-      "description": "Gemini AI 驅動的投資組合分析。識別高風險持倉、追蹤財報事件、提供個人化建議。"
+      "description": "Gemini AI 驅動的投資組合分析。識別高風險持倉、追蹤財報事件、提供個人化建議。Free 版每月 10 次，Pro 每月 200 次。"
     },
     "greeks": {
-      "title": "即時 Greeks",
-      "description": "Delta、Gamma、Theta、Vega 完整呈現。比較開倉與現在數值，掌握風險敞口。"
+      "title": "即時 Greeks + 趨勢圖",
+      "description": "Delta、Gamma、Theta、Vega 完整呈現，比較開倉與現在數值。Pro 版更有 Delta / IV / Theta 歷史趨勢圖，追蹤倉位演變。"
     },
     "risk": {
       "title": "視覺化 Risk Bar",
-      "description": "直覺的風險視覺化指標，一眼看出持倉安全性。顏色標示提醒需要注意的持倉。"
+      "description": "直覺的風險視覺化指標，一眼看出持倉安全性。Pro 版解鎖歷史 IV 數據，讓 Risk Bar 更精準。"
     },
     "alerts": {
       "title": "自訂告警",
-      "description": "設定個人化的 Delta、DTE、OTM%、P&L 門檻。持倉需要注意時即時通知。"
+      "description": "設定個人化的 Delta、DTE、OTM%、P&L 門檻。持倉需要注意時即時通知。（Pro 專屬）"
     },
     "import": {
       "title": "截圖匯入",
-      "description": "截取券商畫面即可快速匯入持倉。AI OCR 自動擷取所有細節。"
+      "description": "截取券商畫面即可快速匯入持倉。AI OCR 自動擷取所有細節。Free 版每月 8 次，Pro 每月 80 次。"
     },
     "interface": {
       "title": "賽博朋克介面",
@@ -69,9 +70,11 @@
   "screenshots": {
     "title": "App 畫面",
     "subtitle": "看看 BPS Tracker 如何幫助你管理持倉",
-    "performance": "績效總覽 — 勝率、盈虧、報酬率一目瞭然",
-    "position": "持倉詳情 — 完整 Greeks 與風險評估",
-    "closed": "AI 分析 — 風險警示與投資組合洞察"
+    "mainList": "投資組合總覽 — 19 個開倉、實時盈虧、Theta 收益一目瞭然",
+    "ai": "AI 分析報告 — 識別高風險持倉，提供具體行動建議",
+    "greeks": "Greeks 趨勢圖（Pro）— 追蹤 Delta、IV、Theta 的歷史演變",
+    "detail": "持倉詳情 — 完整 Greeks 指標、OTM%、損益平衡點",
+    "paywall": "Pro 方案 — $19.99/月，解鎖所有進階功能"
   },
   "howItWorks": {
     "title": "如何使用",
@@ -88,6 +91,46 @@
       "title": "追蹤管理",
       "description": "即時監控 Greeks、接收告警、記錄平倉結果累積績效歷史。"
     }
+  },
+  "pricing": {
+    "badge": "簡單透明的定價",
+    "title": "選擇適合你的方案",
+    "subtitle": "Free 版永遠免費，Pro 版解鎖完整功能",
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "period": "永久免費",
+      "cta": "立即下載",
+      "features": [
+        "最多 3 個持倉",
+        "15 分鐘價格更新",
+        "基本 Greeks 顯示",
+        "每月 10 次 AI 分析",
+        "每月 8 次截圖匯入",
+        "完整持倉詳情"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "badge": "推薦",
+      "priceMonthly": "$19.99",
+      "priceYearly": "$179.99",
+      "periodMonthly": "/ 月",
+      "periodYearly": "/ 年",
+      "savingLabel": "省 20%",
+      "cta": "升級 Pro",
+      "features": [
+        "最多 20 個持倉",
+        "1 分鐘即時價格更新",
+        "Greeks 趨勢圖（Delta / IV / Theta）",
+        "歷史 IV 及進階 Risk Bar",
+        "自訂風險告警",
+        "每月 200 次 AI 分析",
+        "每月 80 次截圖匯入"
+      ]
+    },
+    "monthly": "月付",
+    "yearly": "年付"
   },
   "cta": {
     "title": "現已上架 App Store",

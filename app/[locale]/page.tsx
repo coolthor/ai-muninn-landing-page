@@ -5,6 +5,7 @@ import WhyBPS from '@/components/WhyBPS';
 import Features from '@/components/Features';
 import Screenshots from '@/components/Screenshots';
 import HowItWorks from '@/components/HowItWorks';
+import Pricing from '@/components/Pricing';
 import ComingSoon from '@/components/ComingSoon';
 import Footer from '@/components/Footer';
 
@@ -26,6 +27,7 @@ export default async function HomePage({ params }: Props) {
       <Features />
       <Screenshots />
       <HowItWorks />
+      <Pricing />
       <ComingSoon />
       <Footer />
     </main>
