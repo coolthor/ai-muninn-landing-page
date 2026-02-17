@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -8,6 +8,8 @@ const APP_STORE_URL = 'https://apps.apple.com/tw/app/bpstracker/id6757736273';
 
 export default function Hero() {
   const t = useTranslations('hero');
+  const locale = useLocale();
+  const screenshotFolder = locale === 'en' ? 'en' : 'zh';
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
@@ -33,7 +35,7 @@ export default function Hero() {
               >
                 <div className="relative rounded-[28px] overflow-hidden border border-[var(--border-subtle)]">
                   <Image
-                    src="/screenshots/position-detail.JPG"
+                    src={`/screenshots/${screenshotFolder}/02_position_detail.png`}
                     alt=""
                     width={220}
                     height={475}
@@ -145,8 +147,8 @@ export default function Hero() {
                 <div className="absolute -inset-4 bg-[var(--accent-primary)] opacity-20 blur-2xl rounded-3xl" />
                 <div className="relative rounded-[32px] overflow-hidden border-2 border-[var(--border-subtle)] shadow-2xl">
                   <Image
-                    src="/screenshots/performance-summary.JPG"
-                    alt="Performance Summary"
+                    src={`/screenshots/${screenshotFolder}/06_history.png`}
+                    alt="Trading History"
                     width={240}
                     height={520}
                     className="object-cover"
@@ -170,8 +172,8 @@ export default function Hero() {
                 <div className="absolute -inset-6 bg-[var(--accent-primary)] opacity-30 blur-3xl rounded-3xl" />
                 <div className="relative rounded-[36px] overflow-hidden border-2 border-[var(--border-accent)] shadow-2xl">
                   <Image
-                    src="/screenshots/position-detail.JPG"
-                    alt="Position Detail"
+                    src={`/screenshots/${screenshotFolder}/01_positions_list.png`}
+                    alt="Positions List"
                     width={280}
                     height={600}
                     className="object-cover"
@@ -196,8 +198,8 @@ export default function Hero() {
                 <div className="absolute -inset-4 bg-[var(--accent-tertiary)] opacity-20 blur-2xl rounded-3xl" />
                 <div className="relative rounded-[32px] overflow-hidden border-2 border-[var(--border-subtle)] shadow-2xl">
                   <Image
-                    src="/screenshots/closed-position.JPG"
-                    alt="Closed Position"
+                    src={`/screenshots/${screenshotFolder}/02_position_detail.png`}
+                    alt="Position Detail"
                     width={240}
                     height={520}
                     className="object-cover"

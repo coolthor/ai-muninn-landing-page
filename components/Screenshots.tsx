@@ -6,20 +6,19 @@ import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const screenshotKeys = [
-  { key: 'mainList', file: '01-positions-list-1.png' },
-  { key: 'ai',      file: '04-ai-analysis-1.png' },
-  { key: 'greeks',  file: '03-greeks-trend-delta.png' },
-  { key: 'detail',  file: '02-position-detail.png' },
-  { key: 'paywall', file: '05-paywall-1.png' },
+  { key: 'positions', file: '01_positions_list.png' },
+  { key: 'detail',   file: '02_position_detail.png' },
+  { key: 'market',   file: '03_market_view.png' },
+  { key: 'import',   file: '05_screenshot_import.png' },
+  { key: 'history',  file: '06_history.png' },
 ];
 
 function useScreenshots(locale: string) {
+  const folder = locale === 'en' ? 'en' : 'zh';
   return screenshotKeys.map(({ key, file }) => ({
     key,
-    src: locale === 'en'
-      ? `/screenshots/en/${file}`
-      : `/screenshots/${file}`,
-    fallbackSrc: `/screenshots/${file}`,
+    src: `/screenshots/${folder}/${file}`,
+    fallbackSrc: `/screenshots/en/${file}`,
   }));
 }
 
@@ -307,7 +306,9 @@ export default function Screenshots() {
 
             {/* Swipe Hint */}
             <p className="text-center text-xs text-[var(--text-muted)] mt-4">
-              ← 左右切換截圖 · 上下滾動查看細節 →
+              {locale === 'en'
+                ? '← Swipe to switch · Scroll to see details →'
+                : '← 左右切換截圖 · 上下滾動查看細節 →'}
             </p>
           </div>
         </div>

@@ -62,19 +62,19 @@
       "title": "Screenshot Import",
       "description": "Snap a screenshot of your broker and import positions instantly. AI-powered OCR extracts all details. Free: 8/month, Pro: 80/month."
     },
-    "interface": {
-      "title": "Cyberpunk Interface",
-      "description": "Beautiful dark theme with neon accents. Breathing animations highlight AI-detected risk levels."
+    "market": {
+      "title": "Market View",
+      "description": "Real-time VIX gauge, Fear & Greed Index, CBOE SKEW, and earnings calendar. See market conditions at a glance to time your entries with confidence."
     }
   },
   "screenshots": {
     "title": "App Screenshots",
     "subtitle": "See how BPS Tracker helps you manage your positions",
-    "mainList": "Portfolio Overview — 19 open positions, real-time P&L and Theta income at a glance",
-    "ai": "AI Analysis Report — Identify high-risk positions with actionable recommendations",
-    "greeks": "Greeks Trend Chart (Pro) — Track historical changes in Delta, IV, and Theta",
-    "detail": "Position Details — Full Greeks, OTM%, breakeven, and risk indicators",
-    "paywall": "Pro Plan — $19.99/month, unlock all advanced features"
+    "positions": "Portfolio Overview — 19 open positions, real-time P&L and Theta income at a glance",
+    "detail": "Position Details — Full Greeks, OTM%, breakeven, Delta & IV trend charts (Pro)",
+    "market": "Market View — VIX gauge, Fear & Greed Index, CBOE SKEW, earnings calendar",
+    "import": "Screenshot Import — AI-powered OCR extracts position details from broker screenshots",
+    "history": "Trading History — 29 closed trades, win rate and cumulative P&L summary"
   },
   "howItWorks": {
     "title": "How It Works",

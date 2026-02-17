@@ -62,19 +62,19 @@
       "title": "截圖匯入",
       "description": "截取券商畫面即可快速匯入持倉。AI OCR 自動擷取所有細節。Free 版每月 8 次，Pro 每月 80 次。"
     },
-    "interface": {
-      "title": "賽博朋克介面",
-      "description": "精美深色主題搭配霓虹色系。呼吸動畫標示 AI 偵測的風險等級。"
+    "market": {
+      "title": "市場視圖",
+      "description": "即時 VIX 儀表盤、Fear & Greed 指數、CBOE SKEW 與財報日曆。一眼掌握市場情緒，精準選擇建倉時機。"
     }
   },
   "screenshots": {
     "title": "App 畫面",
     "subtitle": "看看 BPS Tracker 如何幫助你管理持倉",
-    "mainList": "投資組合總覽 — 19 個開倉、實時盈虧、Theta 收益一目瞭然",
-    "ai": "AI 分析報告 — 識別高風險持倉，提供具體行動建議",
-    "greeks": "Greeks 趨勢圖（Pro）— 追蹤 Delta、IV、Theta 的歷史演變",
-    "detail": "持倉詳情 — 完整 Greeks 指標、OTM%、損益平衡點",
-    "paywall": "Pro 方案 — $19.99/月，解鎖所有進階功能"
+    "positions": "投資組合總覽 — 19 個開倉、實時盈虧、Theta 收益一目瞭然",
+    "detail": "持倉詳情 — 完整 Greeks 指標、OTM%、損益平衡、Delta & IV 趨勢圖（Pro）",
+    "market": "市場視圖 — VIX 儀表盤、Fear & Greed 指數、CBOE SKEW、財報日曆",
+    "import": "截圖匯入 — AI OCR 自動從券商截圖擷取持倉細節",
+    "history": "交易紀錄 — 29 筆平倉、勝率統計與累計盈虧績效摘要"
   },
   "howItWorks": {
     "title": "如何使用",
