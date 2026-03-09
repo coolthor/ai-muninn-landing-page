@@ -19,12 +19,7 @@ This was the most surprising result.
 
 Our initial assumption: "Enter only when IV Rank is elevated — richer premium, better odds." We tested three IVR thresholds:
 
-| Filter | Trades | CAGR |
-|--------|--------|------|
-| No filter | 846 | 133.5% |
-| IVR > 10% | 789 | 128.3% |
-| IVR > 20% | 547 | 101.4% |
-| IVR > 30% | 391 | 79.2% |
+<IVRFilterChart lang="en" />
 
 **The higher the IVR threshold, the worse the outcome.**
 
@@ -43,8 +38,8 @@ High IV does mean you collect more premium — but it also means you **abandon l
 We tested five delta stop thresholds (|Δ| > 0.25, 0.30, 0.35, 0.40, 0.50) against a dataset of 36,815 SB2 trades. Every single threshold made things worse: lower win rate, lower profit factor, lower total PnL.
 
 Using |Δ| > 0.30 as an example:
-- **Winners killed** (trades that would have closed profitably): 12,553
-- **Losers saved** (actual losing trades avoided): 2,990
+
+<DeltaStopChart lang="en" />
 
 That's a **4:1 kill ratio**. For every loser the stop prevented, it killed four winners.
 
@@ -58,10 +53,7 @@ The reason: BPS relies on **Theta decay**, not direction. When the market dips s
 
 We compared two exit strategies across the same dataset:
 
-| Strategy | Rule | Win Rate | Profit Factor | CAGR | Max Drawdown |
-|----------|------|----------|--------------|------|-------------|
-| SB | Close at 50% profit | ~95% | ~3.5 | ~110% | ~7% |
-| **SB2** | **Close at 50% profit + force close at DTE ≤ 2** | **96.8%** | **4.58** | **133.5%** | **6.29%** |
+<SB2CompareChart lang="en" />
 
 SB2 adds exactly one rule to SB: **force close when 2 days remain to expiration, regardless of P&L**.
 

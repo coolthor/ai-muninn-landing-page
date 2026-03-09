@@ -5,6 +5,11 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
+import IVRFilterChart from '@/components/blog/IVRFilterChart';
+import DeltaStopChart from '@/components/blog/DeltaStopChart';
+import ThetaDecayCurve from '@/components/blog/ThetaDecayCurve';
+import IVRMeter from '@/components/blog/IVRMeter';
+import SB2CompareChart from '@/components/blog/SB2CompareChart';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -38,6 +43,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       tags: post.tags,
     },
+  };
+}
+
+// chart components are injected per-render with locale bound
+function makeMdxComponents(locale: string) {
+  const lang = locale === 'zh-TW' ? 'zh' : 'en';
+  return {
+    IVRFilterChart: () => <IVRFilterChart lang={lang} />,
+    DeltaStopChart: () => <DeltaStopChart lang={lang} />,
+    ThetaDecayCurve: () => <ThetaDecayCurve lang={lang} />,
+    IVRMeter: () => <IVRMeter lang={lang} />,
+    SB2CompareChart: () => <SB2CompareChart lang={lang} />,
+    ...mdxComponents,
   };
 }
 
@@ -239,7 +257,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="prose-custom">
           <MDXRemote
             source={post.content}
-            components={mdxComponents}
+            components={makeMdxComponents(locale)}
             options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
           />
         </div>
