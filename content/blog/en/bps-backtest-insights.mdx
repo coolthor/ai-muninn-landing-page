@@ -1,0 +1,129 @@
+---
+title: "We Backtested 846 BPS Trades: 5 Findings That Changed Our Strategy"
+description: "Real findings from 20 months of Bull Put Spread backtesting data — including why IV Rank filtering hurts performance, why delta stops kill winners, and why AAPL and MSFT are bad for BPS."
+date: "2025-02-15"
+tags: ["BPS Backtest", "Options Strategy", "Backtesting", "Bull Put Spread", "IV Rank"]
+---
+
+We spent several months backtesting the Bull Put Spread strategy using Alpaca historical options data. The dataset spans February 2024 through January 2026 — roughly 20 months, 846 completed trades.
+
+This isn't a performance showcase. It's about the findings that **changed what we thought we knew** — including some that directly contradicted our initial assumptions.
+
+> **Data caveat**: Alpaca historical options data only goes back to February 2024, limiting our backtest window. These results should be treated as short-term evidence, not long-term proof. High-volatility regimes (VIX > 25) were nearly absent during this period — those results are statistically thin.
+
+---
+
+## Finding 1: IV Rank Filtering Hurts Performance
+
+This was the most surprising result.
+
+Our initial assumption: "Enter only when IV Rank is elevated — richer premium, better odds." We tested three IVR thresholds:
+
+| Filter | Trades | CAGR |
+|--------|--------|------|
+| No filter | 846 | 133.5% |
+| IVR > 10% | 789 | 128.3% |
+| IVR > 20% | 547 | 101.4% |
+| IVR > 30% | 391 | 79.2% |
+
+**The higher the IVR threshold, the worse the outcome.**
+
+We dug into why. Looking at the IVR distribution of winning vs. losing trades: winners had a median IVR of 22.3%, losers had 21.5%. IV Rank had almost no predictive power over individual trade outcomes.
+
+High IV does mean you collect more premium — but it also means you **abandon large numbers of profitable low-IV trades**. For BPS sellers, waiting for high IV is an expensive opportunity cost.
+
+**Practical change**: Our system still shows IVR as an informational signal. We no longer use it as an entry filter.
+
+---
+
+## Finding 2: Delta Stops Kill More Winners Than They Save Losers
+
+"Close when the short put Delta exceeds -0.30" — sounds like prudent risk management.
+
+We tested five delta stop thresholds (|Δ| > 0.25, 0.30, 0.35, 0.40, 0.50) against a dataset of 36,815 SB2 trades. Every single threshold made things worse: lower win rate, lower profit factor, lower total PnL.
+
+Using |Δ| > 0.30 as an example:
+- **Winners killed** (trades that would have closed profitably): 12,553
+- **Losers saved** (actual losing trades avoided): 2,990
+
+That's a **4:1 kill ratio**. For every loser the stop prevented, it killed four winners.
+
+The reason: BPS relies on **Theta decay**, not direction. When the market dips sharply, your short put Delta spikes — but as long as the underlying recovers, time value continues to erode toward zero. Cutting early interrupts that process.
+
+**Practical change**: No delta stops. We hold through temporary volatility spikes and let Theta do its job.
+
+---
+
+## Finding 3: Exit Timing Matters More Than Entry
+
+We compared two exit strategies across the same dataset:
+
+| Strategy | Rule | Win Rate | Profit Factor | CAGR | Max Drawdown |
+|----------|------|----------|--------------|------|-------------|
+| SB | Close at 50% profit | ~95% | ~3.5 | ~110% | ~7% |
+| **SB2** | **Close at 50% profit + force close at DTE ≤ 2** | **96.8%** | **4.58** | **133.5%** | **6.29%** |
+
+SB2 adds exactly one rule to SB: **force close when 2 days remain to expiration, regardless of P&L**.
+
+Why this matters:
+- Gamma risk spikes dramatically in the final 2 days — small moves cause outsized P&L swings
+- The remaining time value in those last 2 days isn't worth the assignment risk
+- At Firstrade and similar brokers, assignment creates additional complexity and cost
+
+**Practical change**: Always build a hard expiry floor into your exit plan. The last 2 days aren't worth it.
+
+---
+
+## Finding 4: Not Every Stock Is Good for BPS
+
+We tested 80+ symbols. Several well-known blue chips consistently lost money:
+
+| Symbol | Issue |
+|--------|-------|
+| AAPL | Low IV = thin premium, but tail risk is disproportionate |
+| MSFT | Similar to AAPL — drawdowns are deep and slow to recover |
+| AMZN | Consistently unprofitable; reason unclear |
+| NFLX | Earnings volatility too extreme; backtest PF near zero |
+
+Meanwhile, some less obvious names outperformed significantly — GDX (gold miners ETF), SMH (semiconductor ETF), COST (Costco).
+
+**Why**: Good BPS candidates need "high but mean-reverting volatility" — stocks that dip frequently but recover quickly. AAPL and MSFT tend to trend smoothly when things are good and fall hard and slow when they don't. Their IV is also too low in normal conditions to compensate for the tail risk.
+
+**Practical change**: Don't enter BPS just because a company is large and well-known. Check historical Profit Factor for that specific symbol first.
+
+---
+
+## Finding 5: DTE 30–40 Is Genuinely the Sweet Spot
+
+We tested multiple entry DTE windows:
+
+| Entry DTE | Annualized Return | Max Drawdown |
+|-----------|------------------|-------------|
+| 7–14 days | Weak, volatile | High |
+| 20–25 days | ~66% | Elevated |
+| **30–40 days** | **79%+** | **Lowest** |
+| 45–60 days | More premium, lower capital efficiency | Acceptable |
+
+DTE 30–40 isn't arbitrary. It sits at the point where Theta acceleration begins (roughly 30 days out), while Gamma risk hasn't yet become extreme. You have time for Theta to work, with enough buffer to absorb short-term moves.
+
+**Practical change**: We fixed our entry window at DTE 30–40 and don't mix in shorter or longer expirations.
+
+---
+
+## The Bigger Lesson: Consistency Is the Edge
+
+The most important takeaway wasn't finding a better entry signal. It was realizing that **consistent rule execution is itself the edge**.
+
+- Don't filter by IVR — enter consistently when eligible
+- No delta stops — trust Theta
+- Take profit at 50%, don't hold to expiration
+- Open 2–3 spreads per day, spread across symbols
+- DTE 30–40, no deviation
+
+None of these rules look clever in isolation. But applied consistently together, they produce repeatable outcomes.
+
+BPS Tracker helps us track whether each open position still follows these rules — making execution the easy part.
+
+---
+
+*This article reflects our own strategy research. Backtest results do not guarantee future performance. Options trading involves substantial risk. Make decisions based on your own risk tolerance and financial situation.*
