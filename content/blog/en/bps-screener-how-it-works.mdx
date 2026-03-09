@@ -1,0 +1,92 @@
+---
+title: "BPS Screener Explained: How It Reads the Market and Surfaces Trade Candidates"
+description: "The BPS Screener automatically detects market regime from VIX, selects the right parameter set, and outputs ranked spread candidates with probability data. Here's exactly how it works."
+date: "2026-03-09"
+tags: ["BPS Screener", "Bull Put Spread", "Options Trading", "Trade Selection", "VIX Regime"]
+---
+
+Every trading day, the BPS Screener runs a multi-step pipeline: it reads the VIX, classifies the market regime, selects the right spread parameters, scans hundreds of options chains, and delivers a ranked list of candidates — with probability data baked in.
+
+This article walks through a real screener report and explains what every number means.
+
+## Step 1: Market Regime Detection
+
+The screener starts by reading **VIX** — the market's implied volatility gauge.
+
+| VIX Level | Regime | Approach |
+|---|---|---|
+| Low | LOW | Conservative — tighter spreads, smaller delta |
+| Moderate | MID | Balanced — standard spread width |
+| Elevated | HIGH | Aggressive — wider DTE, more premium available |
+
+In the report above, VIX was **27.10** → **HIGH regime** → param set **D4_W2_SB2** was selected automatically. No manual adjustment needed.
+
+The logic is simple: when volatility spikes, options premiums are richer, so you can afford to go further out-of-the-money and still collect meaningful credit. The parameter set adapts accordingly.
+
+## Step 2: Parameter Selection
+
+Under HIGH regime, the screener uses:
+- **DTE ~35**: 35 days to expiration
+- **Width $5**: $5-wide spreads
+- **7 contracts**: position sizing per candidate
+- **Delta range**: short put delta range, tuned per regime
+
+These aren't arbitrary numbers — they're tuned against historical data to balance win rate against average credit collected.
+
+## Reading the Screener Report
+
+![BPS Screener Report — March 6, 2026](/screenshots/screener-report.png)
+
+The report surfaces 9 candidates across 6 eligible symbols.
+
+### The Columns Explained
+
+**Symbol / Price / Spread**
+The underlying, its current price, and the specific strikes. `$623/$618` means sell the $623 Put, buy the $618 Put.
+
+**OTM%**
+How far out-of-the-money the short put is. `7.5%` means the short strike is 7.5% below the current price. Higher OTM% = more buffer before the trade goes wrong.
+
+**Delta**
+The short put's delta — a proxy for probability of going in-the-money. `-0.178` means roughly 17.8% chance the short strike is breached at expiration.
+
+**Credit / Credit $**
+Premium collected. `$0.55` per share = `$385` for 7 contracts of a $5-wide spread. This is your maximum profit.
+
+**ROC%**
+Return on Capital. `Credit ÷ (Width − Credit) × 100`. An 11% ROC% means you earn 11% on the capital at risk for this trade.
+
+**Liq**
+Liquidity score (0–100). Values near 99% indicate very tight bid-ask spreads — fills close to mid are realistic.
+
+**IVR**
+IV Rank — where current implied volatility sits relative to the past 365 days. Higher = richer premiums. The `1 low IVR` note in the header flags candidates below the preferred threshold.
+
+**TP50%**
+Probability of reaching 50% profit target before expiration (Monte Carlo simulation). `84.7%` means 8-in-10 chance the trade hits your profit target early.
+
+**Asgn%**
+Early assignment probability for the short put. Values under 5% indicate low risk of being assigned before expiration.
+
+**Brch%**
+Breach probability — probability that the short strike is tested at any point before expiration (not just at expiry). More conservative than delta alone. `15.8%` means roughly 1-in-6 chance of a scare, even if the trade ultimately expires worthless.
+
+**Inv**
+Inventory — existing position size. `22% / 45c` means you already hold 22% of your max allocation in QQQ. This prevents over-concentration.
+
+## Picking a Trade from the Candidates
+
+Candidates are already ranked by ROC%. Before entering, verify:
+
+1. **IVR ≥ 30** — avoid low-IVR candidates (flagged in the header)
+2. **Brch% ≤ 20%** — keeps breach risk manageable in HIGH regime
+3. **Inv is blank or low** — don't over-concentrate in one symbol
+4. **Liq ≥ 90%** — ensures clean fills
+
+In the report above, the top SPY and QQQ entries check all boxes. GLD at IVR 75 is particularly attractive — high IV, very low Brch%, minimal assignment risk.
+
+## Why Automate This?
+
+Manually scanning options chains for 70+ symbols, computing Greeks, running Monte Carlo, and cross-checking against existing inventory takes 30–60 minutes per day. The screener compresses this into ~27 seconds and delivers the output to your inbox before market open.
+
+The human decision is still yours. The screener just makes sure you're not missing the best setup of the day.
