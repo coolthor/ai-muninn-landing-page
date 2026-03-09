@@ -1,0 +1,45 @@
+# BPS Tracker
+
+> BPS Tracker is a native iOS app for tracking Bull Put Spread (BPS) options positions. It provides real-time Greeks monitoring, IV Rank analysis, AI-powered position analysis, and risk management tools for options traders.
+
+BPS Tracker is available on the App Store (App ID: 6757736273) and supports iOS 17+.
+
+## About
+
+BPS Tracker helps options traders manage Bull Put Spread positions with data-driven insights:
+
+- Real-time Greeks: Delta, Theta, Vega for each position
+- IV Rank (IVR) history and visualization
+- AI analysis of position health (10 analyses/month free, 200/month Pro)
+- Alert thresholds for critical Greeks levels (Pro)
+- Greeks trend charts (Pro)
+- Historical spread cost and P&L tracking
+- Supports up to 3 positions free, 20 positions Pro
+
+## Key Concepts
+
+- **Bull Put Spread (BPS)**: Sell a higher-strike put + buy a lower-strike put. Collect premium when the underlying is stable or rising. Max loss is capped at spread width minus net credit.
+- **IV Rank (IVR)**: (Current IV - 1yr Low) / (1yr High - 1yr Low) × 100. IVR > 50% signals elevated options premiums — favorable for selling strategies.
+- **Delta**: Probability proxy for assignment. Target -0.10 to -0.16 for balanced BPS risk/reward.
+- **Theta Decay**: Daily time value erosion; positive for sellers. BPS benefits from Theta accumulation.
+- **Vega**: Sensitivity to IV changes. Entering BPS at high IV Rank exploits mean reversion (IV Crush benefit).
+
+## Pricing
+
+- Free: 3 positions, 10 AI analyses/month, 15-min data refresh
+- Pro: 20 positions, 200 AI analyses/month, 1-min refresh, Greeks charts, alert thresholds
+
+## Developer
+
+BPS Tracker is developed by AI Muninn.
+Contact: info@ai-muninn.com
+Website: https://bpstracker.com
+Privacy Policy: https://ai-muninn.com/bpstracker/privacy
+Terms of Use: https://ai-muninn.com/bpstracker/terms
+
+## Blog
+
+Educational guides on options trading strategies:
+- https://bpstracker.com/blog/bull-put-spread-complete-guide
+- https://bpstracker.com/blog/iv-rank-options-trading
+- https://bpstracker.com/blog/options-greeks-explained

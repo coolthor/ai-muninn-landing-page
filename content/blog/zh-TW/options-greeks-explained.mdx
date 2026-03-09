@@ -1,0 +1,128 @@
+---
+title: "選擇權 Greeks 完全解析：Delta、Theta、Vega、Gamma 實戰指南"
+description: "用白話文解釋 Delta、Theta、Vega、Gamma 四大 Greeks，以及它們對 Bull Put Spread 策略的實際影響。不需要數學背景也能看懂。"
+date: "2025-02-01"
+tags: ["選擇權Greeks", "Delta", "Theta", "Vega", "Gamma", "期權教學"]
+---
+
+選擇權 Greeks 是衡量期權價格對各種變數敏感度的指標。對於 Bull Put Spread 交易者，理解 Greeks 能讓你更精準地管理風險、選擇進出場時機。
+
+## Delta（Δ）— 方向敏感度
+
+**Delta 衡量：標的每移動 $1，期權價格改變多少**
+
+- Call 的 Delta：0 到 +1（正值）
+- Put 的 Delta：-1 到 0（負值）
+
+**BPS 的 Net Delta**
+
+Bull Put Spread 有兩個腿：
+```
+Net Delta = Long Put Delta - Short Put Delta
+例：-0.13 - (-0.16) = +0.03
+```
+
+Net Delta 為正，表示你的倉位稍微看多。標的上漲對你有利（微小），但重點是標的**不要下跌**。
+
+**Delta 作為機率指標**
+
+Short Put 的 Delta 大約等於「被指派的機率」：
+- Delta = -0.10 → 約 10% 機率被指派（標的跌破履約價）
+- Delta = -0.15 → 約 15% 機率
+
+選 Delta -0.10 to -0.16 的 BPS，讓自己站在 85-90% 勝率那一邊。
+
+## Theta（Θ）— 時間價值衰減
+
+**Theta 衡量：每天流逝，期權損失多少價值**
+
+對買方是負的（每天損失），對賣方是正的（每天收入）。
+
+**BPS 的 Theta 是正值** — 你是時間的受益者。
+
+```
+每天估計獲利 ≈ Theta × 天數
+例：Theta = 0.05 → 每天約獲利 $5（以 100 股為基礎）
+```
+
+**Theta 加速衰減**
+
+時間價值不是線性衰減的，越接近到期日衰減越快。這是為什麼 21-35 DTE 是甜蜜點：
+
+- 距到期還有 60 天：Theta 慢
+- 距到期還有 30 天：Theta 加速
+- 距到期還有 7 天：Theta 極快，但 Gamma 風險也極高
+
+## Vega（V）— 波動率敏感度
+
+**Vega 衡量：IV 每變動 1%，期權價格改變多少**
+
+BPS 的 Vega 是**負的**（賣方不喜歡 IV 上升）：
+- IV 上升 → 期權變貴 → Short Put 虧損（你需要更多錢買回）
+- IV 下降 → 期權變便宜 → Short Put 獲利（你用更少錢買回）
+
+這就是為什麼在**高 IV Rank 時進場**如此重要：進場後 IV 自然回落，Vega 負值讓你受益。
+
+**IV Crush（波動率崩塌）**
+
+財報後 IV 通常急跌 30-50%。這對持有 BPS 的賣方是好事，但要注意：
+- 財報前不要輕易進場（IV 贵是有原因的）
+- 財報後方向確定後再進場，可獲得 IV Crush 的額外收益
+
+## Gamma（Γ）— Delta 的變化速度
+
+**Gamma 衡量：標的每移動 $1，Delta 改變多少**
+
+Gamma 是賣方最需要注意的風險。當倉位接近 Short Put 履約價時，Gamma 急速上升，導致 Delta 快速惡化。
+
+**BPS 的 Gamma 特性**
+
+- 到期日遠（> 30 DTE）：Gamma 小，倉位穩定
+- 到期日近（< 7 DTE）：Gamma 大，標的小幅移動都可能讓損益劇烈波動
+
+**這也是 7 DTE 以內要特別謹慎的原因。**
+
+## 用 Greeks 管理 BPS 倉位
+
+### 進場時
+
+| 指標 | 建議範圍 | 用途 |
+|------|----------|------|
+| Short Put Delta | -0.10 to -0.16 | 控制機率 |
+| IVR | > 40% | 確保溢價豐富 |
+| Theta | > $3/天 | 確保有足夠時間收入 |
+
+### 持倉中
+
+**何時警戒**：
+- Short Put Delta 超過 -0.30（標的接近你的履約價）
+- Net Vega 虧損超過預期（IV 突然急升）
+
+**何時加速平倉**：
+- 獲利已達 50-75%（Theta 繼續累積，但剩餘風險相對大）
+- 到期日只剩 7 天，Gamma 風險上升
+
+## 實例：用 Greeks 追蹤一個 SPY BPS
+
+**進場**：SPY $520，賣出 $500/$495 Put Spread，收 $1.00
+- Short Put Delta: -0.12
+- Net Theta: +$8/天
+- Net Vega: -$15
+
+**一週後，SPY $525**：
+- Short Put Delta 縮小到 -0.07（遠離履約價）
+- 已收到約 $56 的 Theta（$8 × 7 天）
+- 倉位獲利約 $60（考慮 Vega 少許影響）
+- 已獲利 60%，考慮平倉
+
+## BPS Tracker 如何顯示 Greeks
+
+BPS Tracker 的倉位明細頁顯示：
+- Net Delta（淨方向暴露）
+- 每日 Theta 收入
+- Net Vega（波動率風險）
+- Greeks 趨勢圖表（Pro 功能），直觀看出倉位隨時間的健康狀況
+
+---
+
+**總結**：理解 Greeks 讓你從「猜測」進化到「量化管理」。Theta 是你的收入來源，Delta 是你的方向指南，Vega 提醒你進場時機，Gamma 告訴你何時要特別謹慎。

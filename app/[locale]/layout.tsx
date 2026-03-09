@@ -17,16 +17,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
   const isZh = locale === 'zh-TW';
-  const baseUrl = 'https://ai-muninn.com';
+  const baseUrl = 'https://bpstracker.com';
 
   return {
     metadataBase: new URL(baseUrl),
     title: isZh ? 'BPS Tracker - Bull Put Spread 持倉管理' : 'BPS Tracker - Master Your Bull Put Spreads',
     description: isZh
       ? '專為選擇權交易者設計的持倉追蹤工具。即時監控 Greeks、風險評估、獲利追蹤。'
-      : 'The position tracking tool designed for options traders. Real-time Greeks monitoring, risk assessment, and profit tracking.',
-    keywords: ['options trading', 'bull put spread', 'BPS', 'options tracker', 'Greeks', 'theta decay', 'options portfolio', '選擇權', 'Bull Put Spread', '期權'],
-    authors: [{ name: 'AI Muninn' }],
+      : 'Track Bull Put Spread positions with real-time Greeks, IV Rank, risk analysis, and profit tracking. The iOS app for serious options traders.',
+    keywords: ['options trading', 'bull put spread', 'BPS', 'options tracker', 'Greeks', 'theta decay', 'options portfolio', '選擇權', 'Bull Put Spread', '期權', 'iv rank', 'implied volatility', 'options Greeks tracker', 'theta decay tracker', 'put spread tracker', 'options position tracker', 'bull put spread app', 'iOS options app', '選擇權追蹤', '期權持倉', 'BPS追蹤器', '波動率'],
+    authors: [{ name: 'BPS Tracker' }],
     openGraph: {
       title: isZh ? 'BPS Tracker - Bull Put Spread 持倉管理' : 'BPS Tracker - Master Your Bull Put Spreads',
       description: isZh
@@ -87,13 +87,18 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'MobileApplication',
+    '@type': 'SoftwareApplication',
     name: 'BPS Tracker',
     operatingSystem: 'iOS',
     applicationCategory: 'FinanceApplication',
     description: isZh
       ? '專為選擇權交易者設計的 Bull Put Spread 持倉追蹤工具'
       : 'Track your Bull Put Spread positions with real-time Greeks and risk analysis',
+    softwareVersion: '1.1',
+    downloadUrl: 'https://apps.apple.com/app/id6757736273',
+    screenshot: [
+      'https://bpstracker.com/screenshots/screenshot-1.jpg',
+    ],
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -106,9 +111,40 @@ export default async function LocaleLayout({ children, params }: Props) {
     },
     author: {
       '@type': 'Organization',
-      name: 'AI Muninn',
-      url: 'https://ai-muninn.com',
+      name: 'BPS Tracker',
+      url: 'https://bpstracker.com',
     },
+  };
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '什麼是 Bull Put Spread？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Bull Put Spread 是一種選擇權策略，透過賣出較高履約價的 Put + 買入較低履約價的 Put，在標的穩漲或盤整時獲取權金收入，風險和報酬都有限制。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'BPS Tracker 是免費的嗎？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'BPS Tracker 提供免費版本，可追蹤最多 3 個倉位，並享有每月 10 次 AI 分析。Pro 版解鎖 20 個倉位、200 次 AI 分析、Greeks 趨勢圖表和警報功能。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is Bull Put Spread?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A Bull Put Spread is an options strategy where you sell a higher-strike put and buy a lower-strike put to collect premium income when the underlying is stable or rising. Both risk and reward are limited.',
+        },
+      },
+    ],
   };
 
   return (
@@ -122,6 +158,10 @@ export default async function LocaleLayout({ children, params }: Props) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body className="antialiased">

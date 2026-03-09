@@ -1,0 +1,94 @@
+---
+title: "What Is IV Rank? The Options Trader's Essential Volatility Metric"
+description: "A clear breakdown of IV Rank (IVR): how it's calculated, how to read it, and why it's the core entry signal for premium-selling strategies like Bull Put Spreads and Iron Condors."
+date: "2025-01-22"
+tags: ["IV Rank", "Implied Volatility", "IVR", "Options Metrics", "Options Education"]
+---
+
+If you trade premium-selling strategies — Bull Put Spreads, Iron Condors, Covered Calls — **IV Rank (IVR)** is arguably the single most important metric to monitor. It tells you whether options are currently expensive or cheap relative to their historical range, which directly impacts your probability of profit and the premium you collect.
+
+## What Is IV Rank?
+
+**IV Rank = (Current IV - 52-week Low IV) ÷ (52-week High IV - 52-week Low IV) × 100**
+
+Example:
+- SPY's IV range over the past year: Low 12%, High 35%
+- Today's IV: 28%
+- IV Rank = (28 - 12) ÷ (35 - 12) × 100 = **69.6%**
+
+Interpretation: **SPY's current IV is at the 69.6th percentile of its 1-year range** — historically elevated.
+
+## Why IV Rank Matters for Sellers
+
+Options pricing is driven largely by **implied volatility (IV)**. Higher IV → more expensive options. Lower IV → cheaper options.
+
+The premium seller's playbook: **sell overpriced options, let them decay.**
+
+- **High IV Rank (> 50%)**: Options are expensive, you collect more premium — ideal for selling
+- **Low IV Rank (< 20%)**: Options are cheap, poor risk/reward — wait for better conditions
+
+> **Core principle**: Sell when IV is high (sell expensive), buy back when IV normalizes (buy cheap).
+
+## IV Rank vs. IV Percentile
+
+These are often confused:
+
+| Metric | Calculation | Characteristics |
+|--------|-------------|-----------------|
+| **IV Rank** | Based on high/low range | Sensitive to extreme outliers |
+| **IV Percentile** | % of days in past year with lower IV | More stable, less affected by extremes |
+
+**BPS Tracker uses IV Rank (IVR)**, calculated as:
+`IVR = (IV_now - IV_min) ÷ (IV_max - IV_min) × 100`
+Rolling 365-day window.
+
+## Reading the IVR Color System
+
+BPS Tracker uses a three-tier color system:
+
+- 🟢 **IVR < 20%**: Low volatility, options cheap — avoid selling
+- 🟡 **IVR 20-60%**: Moderate, evaluate other factors
+- 🔴 **IVR > 60%**: High volatility, options rich — favorable for sellers
+
+## Practical Application: Screening With IVR
+
+When scanning for BPS candidates, IVR is your first filter:
+
+1. **IVR > 40%**: Worth evaluating
+2. **IVR > 60%**: Priority entry signal
+3. **IVR spike (+20% in a single day)**: May signal an event (earnings, news) — proceed with caution
+
+### VIX and Individual Stock IVR
+
+When VIX (the market's "fear index") rises, individual stock IVRs typically follow. That's because:
+- Market fear → investors rush to buy puts → IV spikes
+
+But VIX falling doesn't guarantee individual stock IVR falls equally. Each symbol has its own volatility profile.
+
+## Limitations of IV Rank
+
+IVR is powerful but not omniscient:
+
+1. **Pre-earnings IV is naturally elevated**: After earnings, IV collapses (IV Crush). Don't enter BPS just because IVR is high before a known event.
+2. **Newly public stocks**: Insufficient history means IVR may be unreliable.
+3. **IVR measures richness, not direction**: High IVR tells you options are expensive — not which way the stock will move.
+
+## Combining IVR With Other Signals
+
+IVR works best alongside:
+
+- **Delta**: Confirm strike placement gives acceptable probability
+- **DTE**: Match expiration to your time horizon
+- **Technical levels**: Use support as your short put strike
+- **VRP (Volatility Risk Premium)**: IV relative to Historical Volatility — confirms options are truly overpriced
+
+## Tracking IVR in BPS Tracker
+
+In BPS Tracker, every position shows:
+- Current IVR (color-coded)
+- IVR history chart (Pro): visualize IV cycles to time your entries
+- Entry IVR recorded: compare your entry conditions to outcome in post-trade review
+
+---
+
+**Summary**: IV Rank is the options seller's most reliable entry signal. Enter BPS when IVR > 50%, benefit from mean reversion as IV normalizes. When IVR is low, patience beats forced trades.

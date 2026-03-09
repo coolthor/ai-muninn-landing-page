@@ -570,8 +570,6 @@ export default function GuidePage() {
   const params = useParams();
   const locale = (params.locale as Locale) || 'en';
   const t = content[locale] || content.en;
-  const isZH = locale === 'zh-TW';
-
   const [activeSection, setActiveSection] = useState('getting-started');
 
   const scrollToSection = (id: string) => {

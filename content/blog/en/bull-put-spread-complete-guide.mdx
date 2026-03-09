@@ -1,0 +1,127 @@
+---
+title: "Bull Put Spread Complete Guide: Strategy Logic to Live Trading"
+description: "A comprehensive breakdown of the Bull Put Spread (BPS) strategy: how it works, when to enter, how to manage risk, and how to calculate profit. Perfect for options traders who want defined-risk premium selling."
+date: "2025-01-15"
+tags: ["Bull Put Spread", "BPS Strategy", "Options Trading", "Options Education"]
+---
+
+The Bull Put Spread (BPS) is one of the most popular premium-selling strategies in options trading. It lets you collect income when the market is stable or rising — with a hard cap on your maximum loss.
+
+## What Is a Bull Put Spread?
+
+A BPS consists of two put options:
+
+- **Sell a higher-strike put** (Short Put): collect premium, take on downside risk
+- **Buy a lower-strike put** (Long Put): pay premium, acts as a hedge
+
+Both legs share the same expiration date, underlying, and quantity — but different strike prices.
+
+**Example**: SPY is at $520, you expect it won't crash:
+- Sell SPY $500 Put, collect $3.00
+- Buy SPY $495 Put, pay $2.00
+- **Net credit = $1.00 × 100 = $100**
+
+## Why Trade Bull Put Spreads?
+
+### 1. Defined Risk
+
+Maximum loss = spread width - net credit
+`$5.00 - $1.00 = $4.00 × 100 = $400`
+
+Even if SPY goes to zero, you only lose $400. Compare that to a naked short put with theoretically unlimited loss.
+
+### 2. You Don't Need a Big Rally to Profit
+
+As long as SPY **stays above $500**, you keep all $100. That's why BPS works well in rangy or slowly trending markets.
+
+### 3. Time Is Your Ally (Positive Theta)
+
+Options decay over time. As a seller, Theta Decay works in your favor — the longer your position stays profitable, the more time value you collect.
+
+## Ideal Entry Conditions
+
+Finding the right setup requires checking a few factors:
+
+### IV Rank (Implied Volatility Rank)
+
+IV Rank measures where current IV sits relative to its 1-year range.
+
+- **IV Rank > 50%**: IV is elevated, options are rich — prime time for sellers
+- **IV Rank < 20%**: IV is cheap, options are thin — avoid selling
+
+> **Rule of thumb**: Enter BPS when IV Rank is high, exit when IV normalizes.
+
+### Delta Selection
+
+Short Put Delta roughly equals the probability of being assigned:
+
+| Delta | Approx. Prob. | Risk/Reward |
+|-------|--------------|-------------|
+| -0.08 to -0.12 | ~10% | Conservative |
+| -0.12 to -0.16 | ~14% | Balanced, most common |
+| -0.16 to -0.20 | ~18% | Aggressive, needs conviction |
+
+Most traders target Delta -0.10 to -0.16 for a balanced risk/reward profile.
+
+### DTE (Days to Expiration)
+
+**Sweet spot: 21-45 DTE**
+
+- **7-14 DTE**: Fast Theta, but high Gamma risk (vulnerable to sudden moves)
+- **21-35 DTE**: Best balance of Theta decay vs. Gamma risk
+- **45+ DTE**: More premium collected, but capital tied up longer
+
+## Risk Management
+
+### Stop-Loss Rules
+
+Don't let a loss exceed 2-3× your maximum credit:
+- If you collected $100, consider closing when the position is down $200-$300
+
+### Where to Place Your Short Strike
+
+Use technical levels as your short put strike:
+- Recent support levels
+- 52-week lows
+- Round numbers ($500, $450)
+
+### VIX Impact on BPS
+
+If VIX spikes sharply (above 25), your BPS will temporarily show a loss because implied volatility has risen. This doesn't mean your strategy is broken — it means the market is temporarily pricing in more fear.
+
+## Profit Calculation
+
+```
+Max profit    = Net credit received
+Max loss      = Spread width - Net credit
+Breakeven     = Short put strike - Net credit
+Return        = Max profit ÷ Max loss
+```
+
+**Example**:
+- Credit: $1.00, Spread width: $5.00
+- Max profit: $100
+- Max loss: $400
+- Return on risk: 25%
+- Breakeven: $500 - $1.00 = $499
+
+## When to Close the Position
+
+**Target 50-75% profit, then close.** Don't hold to expiration. Here's why:
+
+1. The remaining 25-50% profit isn't worth the added risk
+2. Closing frees capital for the next setup
+3. Gamma risk accelerates sharply in the final week before expiration
+
+## Tracking BPS Positions With BPS Tracker
+
+Manually tracking Delta, IV Rank, P&L, and breakevens across multiple positions is tedious and error-prone. BPS Tracker does it automatically:
+
+- Real-time Greeks (Delta, Theta, Vega) for every position
+- IV Rank history charts to time your entries
+- AI position analysis
+- Alert thresholds when a position needs attention
+
+---
+
+**Summary**: Bull Put Spread is a robust strategy for most market environments. The keys: enter at high IV Rank, choose Delta -0.10 to -0.16, and close at 50-75% profit with discipline.

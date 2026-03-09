@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/bpstracker/callback'],
     },
-    sitemap: 'https://ai-muninn.com/sitemap.xml',
+    sitemap: 'https://bpstracker.com/sitemap.xml',
   };
 }

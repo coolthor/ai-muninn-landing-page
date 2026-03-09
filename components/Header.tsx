@@ -31,6 +31,7 @@ export default function Header() {
 
   // For localePrefix: 'as-needed', default locale (zh-TW) doesn't need prefix
   const guideHref = locale === 'zh-TW' ? '/bpstracker/guide' : `/${locale}/bpstracker/guide`;
+  const blogHref = locale === 'zh-TW' ? '/blog' : `/${locale}/blog`;
 
   const navItems = [
     { href: '#features', label: t('features') },
@@ -38,6 +39,7 @@ export default function Header() {
     { href: '#how-it-works', label: t('howItWorks') },
     { href: '#pricing', label: t('pricing') },
     { href: guideHref, label: t('guide'), isPage: true },
+    { href: blogHref, label: t('blog'), isPage: true },
   ];
 
   return (
