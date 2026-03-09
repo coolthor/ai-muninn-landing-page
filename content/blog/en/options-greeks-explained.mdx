@@ -1,0 +1,127 @@
+---
+title: "Options Greeks Explained: Delta, Theta, Vega, Gamma in Plain English"
+description: "No math degree required. A plain-English breakdown of Delta, Theta, Vega, and Gamma — and what each one actually means for Bull Put Spread traders."
+date: "2025-02-01"
+tags: ["Options Greeks", "Delta", "Theta", "Vega", "Gamma", "Options Education"]
+---
+
+Greeks are where most options beginners hit a wall.
+
+Delta, Theta, Vega, Gamma — they sound intimidating. But they're really just answers to four simple questions. Once you know the questions, the answers are obvious.
+
+## The One Thing to Remember First
+
+Greeks tell you: **"If something changes, how much does my option price move?"**
+
+- Stock moves up or down → **Delta** tells you the impact
+- Time passes → **Theta** tells you what you lose (or gain)
+- Market gets nervous → **Vega** tells you the impact
+- Stock moves fast and far → **Gamma** tells you how Delta shifts
+
+Four questions. Four answers. That's it.
+
+---
+
+## Delta — If the Stock Moves $1, You Make/Lose How Much?
+
+**The most intuitive Greek.**
+
+A put's Delta is negative, between -1 and 0:
+
+- Delta **-0.10**: stock drops $1 → this put gains $0.10
+- Delta **-0.50**: stock drops $1 → this put gains $0.50
+
+**For BPS sellers:**
+
+You sold a put, so you inherit its Delta — but flipped. Sell a Delta -0.12 put, your position Delta is +0.12.
+
+In plain English: you want the stock to stay flat or rise. Stock goes up, you're happy. Stock drops, you're not.
+
+**Delta also works as a probability estimate.**
+
+A put with Delta -0.12 has roughly a **12% chance** of expiring in the money (stock finishes below the strike). That's why BPS traders target Delta -0.10 to -0.16 — it puts you on the right side of an 85–90% win rate.
+
+---
+
+## Theta — Every Day That Passes, You Automatically Make How Much?
+
+**The premium seller's favorite Greek.**
+
+Theta is the daily rate of time value decay. For option **buyers**, Theta eats your investment every day. For option **sellers** (BPS), Theta puts money in your pocket every day.
+
+**Example**: Your BPS position has Theta = +$8.
+
+All else equal, **your position gains $8 in value every day just from time passing.**
+
+This is why options sellers say "time is on my side."
+
+**Important: Theta isn't linear.**
+
+Decay accelerates as expiration approaches. The closer to expiry, the faster the erosion. This is why DTE 30–40 is the sweet spot — Theta has started accelerating, but you're not yet in the danger zone of the final week.
+
+<ThetaDecayCurve lang="en" />
+
+---
+
+## Vega — When the Market Gets Scared, How Much Does It Hurt You?
+
+**Vega measures the impact of volatility changes.**
+
+When the market panics (VIX spikes), options get more expensive — everyone rushes to buy puts as insurance. This is great for buyers. For sellers, it's the opposite.
+
+BPS has **negative Vega**. That means:
+- Market panics, IV rises → your position shows a paper loss
+- Market calms, IV falls → your position gains
+
+This is why entering at **high IV Rank** matters — after entry, IV tends to normalize (mean reversion), and your negative Vega turns that into profit.
+
+**About earnings:**
+
+Pre-earnings IV spikes. After earnings, IV collapses — this is called **IV Crush**. For BPS sellers holding through earnings, a crush can be a bonus. But the directional risk from the event itself is real. Tread carefully.
+
+---
+
+## Gamma — The Greek That Keeps Sellers Up at Night
+
+**Gamma measures how fast Delta changes.**
+
+Here's a concrete example:
+
+Your short put has Delta -0.12 (safely out of the money). But if the stock drops sharply, Delta might jump to -0.35 or -0.50. The speed of that jump is what Gamma controls.
+
+**When is Gamma most dangerous?**
+
+The closer to expiration, the higher the Gamma. In the final few days, a small stock move can dramatically shift your Delta — and your P&L swings wildly.
+
+This is why **closing 2 days before expiration** is smart risk management. Not because of the remaining premium — because the Gamma risk in those final days is disproportionate to the potential reward.
+
+---
+
+## All Four Greeks at a Glance
+
+| Greek | Measures | BPS Seller Wants |
+|-------|----------|-----------------|
+| Delta | Stock price impact | Near 0 — safe distance from the strike |
+| Theta | Daily time decay | High — more daily income |
+| Vega | Volatility impact | Negative — enter high IV, profit as it falls |
+| Gamma | Rate of Delta change | Low — stay away from expiration |
+
+---
+
+## What to Actually Watch in Practice
+
+**At entry:**
+- Short Put Delta between -0.10 and -0.16 (not too close to the stock price)
+- Positive Theta — worth holding for the daily decay
+- IV Rank as context (not a filter — see our [IV Rank article](/en/blog/iv-rank-options-trading))
+
+**While holding:**
+- Short Put Delta creeping past -0.30? (stock getting close to your strike)
+- DTE approaching 2? Time to close.
+
+**Taking profit:**
+- 50% of premium collected → consider closing. Don't hold to expiration.
+
+Greeks aren't academic tools — they're your position's vital signs. Once you're fluent in them, you stop asking "am I making money?" and start asking "is this position healthy?"
+
+BPS Tracker shows all four Greeks in real time on every position. Pro adds trend charts so you can see how each Greek has evolved since entry.
