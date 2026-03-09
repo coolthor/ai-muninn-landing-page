@@ -1,5 +1,6 @@
 import { getPost, getAllSlugs } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -107,6 +108,47 @@ const mdxComponents = {
   hr: () => (
     <hr className="my-8" style={{ borderColor: 'rgba(0,255,200,0.1)' }} />
   ),
+  table: (props: React.HTMLAttributes<HTMLTableElement>) => (
+    <div className="overflow-x-auto my-6">
+      <table
+        className="w-full text-sm border-collapse"
+        style={{ borderColor: 'rgba(0,255,200,0.15)' }}
+        {...props}
+      />
+    </div>
+  ),
+  thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead style={{ background: 'rgba(0,255,200,0.06)' }} {...props} />
+  ),
+  th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
+    <th
+      className="px-4 py-2 text-left font-semibold"
+      style={{
+        color: 'var(--accent-primary)',
+        borderBottom: '1px solid rgba(0,255,200,0.2)',
+        fontFamily: 'JetBrains Mono, monospace',
+        fontSize: '0.8rem',
+      }}
+      {...props}
+    />
+  ),
+  td: (props: React.TdHTMLAttributes<HTMLTableCellElement>) => (
+    <td
+      className="px-4 py-2"
+      style={{
+        color: 'var(--text-secondary)',
+        borderBottom: '1px solid rgba(0,255,200,0.06)',
+      }}
+      {...props}
+    />
+  ),
+  tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr
+      className="transition-colors"
+      style={{ background: 'transparent' }}
+      {...props}
+    />
+  ),
 };
 
 export default async function BlogPostPage({ params }: Props) {
@@ -195,7 +237,11 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Content */}
         <div className="prose-custom">
-          <MDXRemote source={post.content} components={mdxComponents} />
+          <MDXRemote
+            source={post.content}
+            components={mdxComponents}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          />
         </div>
 
         {/* CTA */}
