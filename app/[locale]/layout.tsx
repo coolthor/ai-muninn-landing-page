@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isZh
       ? '專為選擇權交易者設計的持倉追蹤工具。即時監控 Greeks、風險評估、獲利追蹤。'
       : 'Track Bull Put Spread positions with real-time Greeks, IV Rank, risk analysis, and profit tracking. The iOS app for serious options traders.',
-    keywords: ['options trading', 'bull put spread', 'BPS', 'options tracker', 'Greeks', 'theta decay', 'options portfolio', '選擇權', 'Bull Put Spread', '期權', 'iv rank', 'implied volatility', 'options Greeks tracker', 'theta decay tracker', 'put spread tracker', 'options position tracker', 'bull put spread app', 'iOS options app', '選擇權追蹤', '期權持倉', 'BPS追蹤器', '波動率'],
+    keywords: ['options trading', 'bull put spread', 'BPS', 'options tracker', 'Greeks', 'theta decay', 'options portfolio', '選擇權', 'Bull Put Spread', '期權', 'iv rank', 'implied volatility', 'options Greeks tracker', 'theta decay tracker', 'put spread tracker', 'options position tracker', 'bull put spread app', 'iOS options app', '選擇權追蹤', '期權持倉', 'BPS追蹤器', '波動率', 'bull put spread tracker', 'options income', 'premium selling', 'options income strategy', 'systematic options trading', 'sell puts for income', 'options premium income', 'defined risk options', 'BPS screener', 'options income app', '選擇權被動收入', '賣 Put 策略', '選擇權收入', '系統化選擇權', '權金收入'],
     icons: {
       icon: [
         { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },

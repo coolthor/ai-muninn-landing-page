@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "BPS Tracker - AI-Powered Bull Put Spread Tracking",
-    "description": "The position tracking tool designed for options traders. AI risk analysis, real-time Greeks monitoring, and profit tracking."
+    "description": "The Bull Put Spread tracker built for options traders who sell premium systematically. Real-time Greeks, IV Rank, AI risk analysis, and options income tracking — all in one iOS app."
   },
   "header": {
     "features": "Features",
@@ -15,7 +15,7 @@
   },
   "hero": {
     "tagline": "AI-Powered Bull Put Spread Tracking",
-    "description": "The position tracking tool designed for options traders. AI risk analysis, real-time Greeks monitoring, personalized alerts — keep every trade under control.",
+    "description": "Systematic options income tracking for Bull Put Spread traders. Real-time Greeks, IV Rank monitoring, AI risk analysis, and personalized alerts — keep every trade under control.",
     "cta": "Download on App Store",
     "learnMore": "Learn More"
   },

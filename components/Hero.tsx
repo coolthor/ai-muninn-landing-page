@@ -76,6 +76,7 @@ export default function Hero() {
               >
                 <span className="text-white">BPS</span>
                 <span className="text-accent"> Tracker</span>
+                <span className="sr-only"> — Bull Put Spread Position Tracker App for Options Traders</span>
               </motion.h1>
 
               {/* Tagline */}
