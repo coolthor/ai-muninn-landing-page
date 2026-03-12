@@ -1,0 +1,120 @@
+---
+title: "How to Read BPS P&L on Your Broker: A Line-by-Line Breakdown"
+description: "Most brokers — including Firstrade — show each leg of a Bull Put Spread separately, with opposite signs, and no combined total. Here's exactly how to add them up and know what you're actually making."
+date: "2026-03-12"
+tags: ["BPS P&L", "options profit loss", "Firstrade", "Bull Put Spread", "options for beginners"]
+---
+
+Bull Put Spread is a two-leg trade. But most brokers — including Firstrade — don't show you a combined P&L for the whole spread.
+
+What you actually see looks like this:
+
+| Contract | Qty | Cost Basis | Market Value | P&L |
+|----------|-----|-----------|--------------|-----|
+| SPY Mar $500 Put | -1 | -$300 | -$120 | +$180 |
+| SPY Mar $495 Put | +1 | +$200 | +$80 | -$120 |
+
+Two rows. Opposite signs. No total.
+
+Are you up $180? Down $120? Something else?
+
+---
+
+## What Each Line Actually Means
+
+### Row 1: The Sell Put (your short leg)
+
+**Qty -1**: You're short — hence negative.
+
+**Cost basis -$300**: When you opened, you *received* $3.00 in premium ($300). Accounting treats this as a liability — someone paid you $300, and you owe them a future obligation. So it shows as -$300.
+
+**Market value -$120**: Buying this contract back right now would cost $1.20 ($120). Your liability has shrunk from $300 to $120.
+
+**P&L +$180**: Your liability shrank by $180. That's the profit on this leg.
+
+### Row 2: The Buy Put (your long leg)
+
+**Qty +1**: You're long — positive.
+
+**Cost basis +$200**: You paid $2.00 ($200) for this put at entry.
+
+**Market value +$80**: This contract is currently worth $0.80 ($80).
+
+**P&L -$120**: You paid $200, it's now worth $80 — down $120 on this leg.
+
+---
+
+## Adding Them Together
+
+Total BPS P&L = Row 1 P&L + Row 2 P&L
+
+```
++$180 + (−$120) = +$60
+```
+
+**Your full position is up $60 — which is 60% of your $100 max profit.**
+
+---
+
+## A Second Way to Verify
+
+You can also check with the "what I collected vs. what it costs to close" formula:
+
+```
+Net credit at open   = $300 − $200 = $100
+Current close cost   = $120 − $80  = $40
+Current profit       = $100 − $40  = $60  ✓
+```
+
+Same answer. Use whichever framing clicks better for you.
+
+---
+
+## The Scenario That Fools People
+
+Stock drops a little. You open the positions page. The Sell Put row now shows P&L of -$50. The Buy Put row shows +$30.
+
+Your first reaction: "I'm losing $50."
+
+Add them: -$50 + $30 = **-$20**. Your whole position is only down $20, not $50.
+
+**Looking at just one row will always mislead you.** The short leg always shows the most dramatic number — because that's the direction your liability moves.
+
+---
+
+## The Routine
+
+Every time you check your BPS position:
+
+1. Find your two legs (same underlying, same expiration)
+2. Add the two P&L numbers together
+3. That's your actual spread P&L
+
+Or use the formula: original net credit received − current cost to close.
+
+---
+
+## Why Brokers Don't Show a Combined View
+
+This isn't a broker bug — it's a design choice. Most brokerage platforms track each contract as an independent position record. For professional traders running complex books, this makes sense. For someone running BPS on a few names, it creates unnecessary mental overhead.
+
+Options-focused platforms like Thinkorswim (TD Ameritrade) and Tastytrade typically display multi-leg strategies as a single combined position with one P&L line. But not every broker does this.
+
+---
+
+## What BPS Tracker Shows Instead
+
+The two confusing rows you see in your broker become one number in BPS Tracker:
+
+```
+SPY Mar $500/$495 BPS
+Opened: $1.00  |  Current: $0.40  |  Profit: 60%  |  DTE: 22
+```
+
+No mental addition. No looking up what you collected at entry. Enter once, track in real time.
+
+---
+
+Once you know the two-row addition logic, your broker display stops being confusing.
+
+The rule is simple: **your BPS P&L = Sell Put P&L + Buy Put P&L. Both rows together tell the truth. Either one alone is misleading.**

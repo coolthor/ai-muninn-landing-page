@@ -1,0 +1,115 @@
+---
+title: "What Is Options Skew? Why Downside Protection Always Costs More"
+description: "Same underlying, same expiration, same distance from current price — why does selling puts always pay more than selling calls? It's not random. It's market structure."
+date: "2026-03-12"
+tags: ["skew", "volatility skew", "implied volatility", "options structure", "Bull Put Spread"]
+---
+
+> This article assumes you're familiar with IV (Implied Volatility). Not yet? Start here: [What Is Implied Volatility (IV)?](/blog/implied-volatility-explained)
+
+If you've traded a few Bull Put Spreads, you've probably noticed something:
+
+On the same underlying, with strikes equidistant from current price, the put side almost always pays more than the call side.
+
+That's not random. It's market structure. It has a name: **Skew**.
+
+## Start With an Observation
+
+Say SPY is at $540.
+
+- Sell the $510 Put (5.6% below current price) — collect $3.50
+- Sell the $570 Call (5.6% above current price) — collect $1.80
+
+Same distance from spot. Why does the put pay almost twice as much?
+
+---
+
+## The Reason: Markets Fear Crashes More Than Rallies
+
+The market's fear of a large drop is much stronger than its fear of a large rally.
+
+The logic is straightforward:
+- Institutions, funds, and large holders are long equities. They buy puts to hedge downside exposure.
+- Nobody needs to buy calls to "protect against a market rally."
+
+This asymmetric demand keeps implied volatility elevated on low-strike puts and relatively suppressed on high-strike calls.
+
+Plotted out, it looks like this:
+
+```
+IV
+ |  *
+ |    *
+ |      *
+ |          *
+ |               *  *  *
+ +-----------------------------→ Strike
+Low Put         ATM       High Call
+```
+
+Lower strikes, higher IV. That slope is Skew.
+
+---
+
+## Market Skew vs. Individual Stock Skew
+
+**Market Skew (SPY / SPX)**
+
+Market skew reflects the aggregate hedging demand against broad market declines. The **CBOE SKEW Index** quantifies this directly.
+
+Reading the SKEW Index:
+- Normal range: 100 – 120
+- Above 130: Rising fear of tail risk (rare but large crashes)
+- Below 100 (rare): Market barely pricing in any downside tail
+
+High market skew doesn't mean a crash is coming. It means someone is paying up to protect against one.
+
+**Individual Stock Skew**
+
+The logic is the same, but the drivers differ:
+
+- **Earnings**: Market uncertainty about direction inflates ATM IV, but downside fear makes low-strike puts expensive. Skew gets steep before reports.
+- **Event risk** (FDA decisions, lawsuits, macro data): Same pattern.
+- **Normal conditions**: Put skew exists at all times, but is less extreme.
+
+---
+
+## What This Means If You Sell Bull Put Spreads
+
+BPS positions live in exactly where skew is steepest — selling low-strike puts.
+
+A few things this implies:
+
+**You're a natural beneficiary of skew**
+
+The put you sell has skew premium built in. You're collecting more than "fair value" according to realized vol. This is part of why selling put spreads has a structural positive expected value over time — you're being paid to absorb hedging demand.
+
+**High skew deserves more scrutiny, not less**
+
+Elevated skew means the market is pricing in meaningful downside risk. Smart money is buying protection for a reason. Yes, you'll collect more — but the risk you're taking is also higher.
+
+A sharp skew spike before earnings is a warning sign: the market expects a big move. The question isn't "can I collect more?" It's "does this premium actually compensate for the event risk?"
+
+**Individual stock skew matters more than market skew**
+
+You're not trading SPY — you're trading individual names. NVDA's skew structure is completely different from SPY's.
+
+High-beta growth stocks, biotech, leveraged names — these tend to have much steeper skew curves. The same entry logic applied to these stocks carries more risk than you might think from looking at the numbers alone.
+
+---
+
+## A Simple Pre-Trade Check
+
+Before opening, look at whether the IV on your target put strike is significantly higher than the ATM IV.
+
+If the low-strike put's IV is 1.5x+ the ATM IV, skew is steep. Ask yourself: why is the market paying that much to protect against this level?
+
+You don't need to calculate it precisely. Just internalize this: **your put costs more because someone is genuinely afraid of it getting hit.**
+
+---
+
+Now you understand market skew — the aggregate direction of fear. But individual stock skew is a different animal: why does a Delta -0.15 BPS on NVDA feel nothing like the same position on JNJ?
+
+That's what the next piece covers.
+
+[Individual Stock Skew: Why the Same Delta Carries Different Risk on Different Stocks →](/en/blog/individual-stock-skew)

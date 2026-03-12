@@ -30,6 +30,10 @@ Maximum loss = spread width - net credit
 
 Even if SPY goes to zero, you only lose $400. Compare that to a naked short put with theoretically unlimited loss.
 
+This isn't theoretical. On February 5, 2018, U.S. markets flash-crashed, and VIX futures surged more than 100% in after-hours trading. An inverse volatility ETF called XIV — which was essentially running a naked short on VIX — lost over 90% of its value in a single day and announced forced liquidation two days later. Holders were nearly wiped out. Retail traders who had sold naked puts that day faced margin calls that cleared their accounts.
+
+The Long Put leg of a Bull Put Spread is your protection against exactly this scenario. You will never get blown out by a single black swan.
+
 ### 2. You Don't Need a Big Rally to Profit
 
 As long as SPY **stays above $500**, you keep all $100. That's why BPS works well in rangy or slowly trending markets.
@@ -113,6 +117,8 @@ Return        = Max profit ÷ Max loss
 2. Closing frees capital for the next setup
 3. Gamma risk accelerates sharply in the final week before expiration
 
+The 50% rule comes from Tastyworks (now Tastytrade). Their research team ran extensive backtests comparing "hold to expiration" vs. "close at 50% profit." The conclusion: annualized returns were roughly equivalent, but maximum drawdown was significantly lower with the 50% rule. The last few percent of premium isn't worth the Gamma exposure in the final week.
+
 ## Tracking BPS Positions With BPS Tracker
 
 Manually tracking Delta, IV Rank, P&L, and breakevens across multiple positions is tedious and error-prone. BPS Tracker does it automatically:
@@ -125,3 +131,9 @@ Manually tracking Delta, IV Rank, P&L, and breakevens across multiple positions 
 ---
 
 **Summary**: Bull Put Spread is a robust strategy for most market environments. The keys: enter at high IV Rank, choose Delta -0.10 to -0.16, and close at 50-75% profit with discipline.
+
+---
+
+Once you understand the strategy logic, the next step is learning to read the health of your positions. Delta, Theta, Vega, Gamma — four numbers that tell you everything about what's happening inside your trade.
+
+[Options Greeks Explained: Delta, Theta, Vega, Gamma in Plain English →](/en/blog/options-greeks-explained)

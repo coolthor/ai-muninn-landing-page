@@ -1,0 +1,132 @@
+---
+title: "Individual Stock Skew: Why the Same Delta Carries Different Risk on Different Stocks"
+description: "A Delta -0.15 BPS on JNJ and a Delta -0.15 BPS on NVDA are not the same trade. Individual stock skew reveals what the market is pricing into your specific name — and how much hidden risk is baked into your premium."
+date: "2026-03-12"
+tags: ["individual stock skew", "volatility skew", "implied volatility", "options risk", "Bull Put Spread"]
+---
+
+> This is an extension of [What Is Options Skew?](/blog/options-skew). If you haven't read that, start there.
+
+Two BPS trades. Both Delta -0.15. Both 30 DTE. Same position size.
+
+One is on JNJ (Johnson & Johnson). One is on NVDA (NVIDIA).
+
+Open the confirmation screen for each, and one feels routine. The other makes you second-guess everything.
+
+That's not intuition — it's information. Individual stock skew explains the difference.
+
+---
+
+## What Skew Looks Like on a Single Stock
+
+Market-level skew (measured through SPX) reflects aggregate fear of a broad market crash. Individual stock skew is more direct: it reflects how much the market fears a sharp **downside move in this specific stock**.
+
+The simplest way to read it:
+
+**25-delta Put IV ÷ ATM IV = Skew ratio**
+
+- JNJ: 25-delta Put IV = 18%, ATM IV = 16% → Skew ratio ≈ **1.1x** (very flat)
+- NVDA: 25-delta Put IV = 65%, ATM IV = 40% → Skew ratio ≈ **1.6x** (steep)
+
+Same distance from the current price. On NVDA, the OTM put's IV is 60% higher than ATM. On JNJ, only 10% higher.
+
+When you sell that OTM put on NVDA, you're not selling something priced for "40% annualized vol." You're selling something priced for "65% annualized vol." You collect more — but you're absorbing more.
+
+---
+
+## What Drives Individual Stock Skew?
+
+### 1. Earnings (the biggest driver)
+
+Earnings are the single most powerful catalyst for individual skew.
+
+NVDA's May 2024 earnings, for example:
+- Pre-earnings: 30-day ATM IV ≈ 75%. But the Delta -0.15 OTM put IV could reach 100%+.
+- Skew ratio could push to 1.5x–2x before the report
+- Post-earnings: ATM IV collapsed back toward 40%, and the entire skew curve compressed with it
+
+The elevated pre-earnings skew isn't just "IV is high." It's the market specifically pricing in the question: **what if it gaps down hard?**
+
+This is why entering a BPS right before earnings requires extra scrutiny — not because IV is elevated (that's theoretically good for sellers), but because a steep skew means directional downside risk has been explicitly priced in.
+
+### 2. The Stock's Structural Character
+
+Different types of stocks carry structurally different skew baselines:
+
+| Category | Skew Profile | Examples |
+|----------|-------------|---------|
+| Defensive / dividend stocks | Flat (1.0–1.2x) | JNJ, KO, WMT |
+| Large-cap tech | Moderate (1.2–1.5x) | AAPL, MSFT |
+| High-beta growth | Steep (1.4–1.8x) | NVDA, META |
+| EV / crypto-adjacent | Very steep (1.5–2.5x) | TSLA, COIN |
+| Clinical-stage biotech | Extreme (can reach 2x–4x) | Pre-approval drug companies |
+
+This isn't situational. TSLA's skew is structurally steeper than JNJ's in almost any market environment — because the market has always priced more downside risk into TSLA. It's baked in.
+
+### 3. Specific Event Risk
+
+- **FDA decisions**: A drug company awaiting an approval ruling will show explosive downside skew. The market is pricing "what if this gets rejected?"
+- **Major litigation**: Pending lawsuits inflate put skew as uncertainty rises.
+- **Company-specific catalysts**: CEO departures, accounting investigations, regulatory probes.
+
+---
+
+## A Story That Changes How You See This: Biotech Skew
+
+In June 2021, Biogen was waiting on FDA approval for Aduhelm (aducanumab), an Alzheimer's drug. The advisory committee had voted against it — but the FDA had the final word.
+
+Going into the decision, the OTM put skew on Biogen was extreme. The market was pricing in "if the FDA says no, this stock drops 50-70%." The skew wasn't reflecting uncertainty about volatility — it was reflecting a very specific fear about a binary outcome.
+
+The FDA approved it anyway, against the committee's recommendation. The stock surged 38%.
+
+But here's what matters for put sellers: if you had sold a low-delta put before the decision — even a seemingly "safe" Delta -0.10 — the premium you collected was that high precisely because of the downside risk priced in. The skew wasn't a gift. It was compensation.
+
+**In biotech, pre-event skew premium is payment for binary risk. Treat it accordingly.**
+
+---
+
+## Why the Same Delta Feels Different
+
+Back to the original question: why does the JNJ position feel calm and the NVDA position feel uncomfortable, when the Delta is identical?
+
+Because **Delta tells you the probability of being assigned. It doesn't tell you how fast or how far the stock falls if things go wrong.**
+
+On JNJ, a sudden 10% drop might push your Delta -0.15 put to around -0.25. Painful, but manageable.
+
+On NVDA, the same 10% drop might push your Delta -0.15 put to -0.40 — because Gamma is higher and the skew is steeper. As the stock moves toward your strike, the IV on that strike is rising at the same time. The loss accelerates faster.
+
+Steep skew makes bad scenarios worse. Not by a little.
+
+---
+
+## A Pre-Trade Skew Check
+
+Before opening a position:
+
+1. **Compare OTM put IV to ATM IV**: If your target strike's IV is 1.5x+ the ATM IV, ask yourself why the market is paying that much to protect against that level.
+
+2. **Check for nearby events**: Earnings, FDA decisions, litigation? Elevated skew before known events is usually not random.
+
+3. **Know the stock's baseline**: TSLA's skew is always steep — that's normal. If a stock that typically runs 1.2x suddenly shows 1.8x, that's a signal.
+
+4. **Size accordingly**: A steeper skew name carries more hidden risk per dollar of premium. Consider reducing position size versus the same entry on a lower-skew name.
+
+---
+
+## You Don't Need to Calculate It — Just Be Aware
+
+Most options platforms display IV by strike. You don't need to run precise skew ratios before every trade. You just need one habit: **before entering, glance at the IV on your target put strike and compare it to ATM.**
+
+Close to the same? Comfortable.
+
+Significantly higher? Understand why.
+
+The BPS Tracker Screener integrates IV structure into the symbol-level view so you can compare names side by side — not just by IV Rank, but by how that IV is distributed across strikes. Useful before you commit.
+
+---
+
+You now have the full framework: IV tells you whether options are expensive, IV Rank puts that in historical context, skew tells you the direction and intensity of market fear, and individual stock skew tells you the specific risk structure of the name you're trading.
+
+The next step is pulling all of this into an actual selection workflow — which is exactly what the BPS Tracker Screener is built to do.
+
+[How the BPS Screener Works: From Signal to Setup →](/en/blog/bps-screener-how-it-works)

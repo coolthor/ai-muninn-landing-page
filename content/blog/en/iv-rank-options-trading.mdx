@@ -5,6 +5,8 @@ date: "2025-01-22"
 tags: ["IV Rank", "Implied Volatility", "IVR", "Options Metrics", "Options Education"]
 ---
 
+> This article assumes you understand what IV (Implied Volatility) is. Not yet? Start here: [What Is Implied Volatility (IV)?](/blog/implied-volatility-explained)
+
 If you trade Bull Put Spreads or any premium-selling strategy, you've probably heard "enter when IV is high." But what exactly is IV Rank — and why IV Rank instead of IV itself?
 
 ## An Analogy That Makes It Click
@@ -32,6 +34,20 @@ In the dry season, umbrellas go on sale for $60. **IV Rank is low** — cheaper 
 - Translation: SPY options are more expensive than 70% of all days in the past year.
 
 IV Rank gives you instant context. No need to look up historical data manually.
+
+---
+
+## A Real Example
+
+March 16, 2020. COVID crash. SPY dropped 12% in a single session. VIX closed at 82.69 — the second highest reading in history, behind only 2008.
+
+SPY's IV Rank that day was essentially **100%** — more expensive than any point in the prior year. Options were priced 4–5x higher than normal.
+
+If you had sold a 30-day SPY put that morning, the premium was enormous. But it was also the scariest morning to do it, because the market looked like it was going to zero.
+
+This is the dual nature of IV Rank. It tells you how much you can collect. It doesn't tell you which way things will move. Sellers who positioned far enough out (low Delta) made good money over the following weeks. Those who got too close, or panicked out early, did not.
+
+**High IV Rank = good structural setup. Not a guarantee.**
 
 ---
 
@@ -82,3 +98,15 @@ Don't enter BPS just because IVR is high before a known event.
 > **IV Rank tells you whether options are expensive. It does not tell you which way the stock will move.**
 
 It's one input among several — pair it with Delta for strike selection, DTE for expiration timing, and technical levels for your short put placement.
+
+---
+
+All of this — IV Rank, IV Percentile, and historical range for every watchlist symbol — is what the **BPS Tracker Screener** calculates automatically. You don't need to manually look up each stock's 52-week IV range. The Screener scans your watchlist in real time and surfaces which names are showing elevated IV today.
+
+---
+
+IV Rank tells you whether options are expensive on a given stock. But there's another dimension it doesn't capture: is the market specifically afraid of *downside*, rather than volatility in general?
+
+That's what Skew measures — and if you sell puts, it's worth understanding.
+
+[What Is Options Skew? Why Downside Protection Always Costs More →](/blog/options-skew)

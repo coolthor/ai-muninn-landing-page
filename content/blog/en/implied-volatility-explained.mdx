@@ -1,0 +1,120 @@
+---
+title: "What Is Implied Volatility (IV)? A Story-First Explanation"
+description: "IV is the core of options pricing and the main edge source for sellers. Explained with real market stories and concrete numbers."
+date: "2026-03-12"
+tags: ["implied volatility", "IV", "options pricing", "options education", "options sellers"]
+---
+
+On March 16, 2020, SPY opened down 12%.
+
+VIX closed at 82.69 that day — the second highest in history, just behind the 2008 financial crisis.
+
+If you had sold a 30-day SPY put that morning, you would have collected four to five times the usual premium.
+
+Why? Because **Implied Volatility (IV)** had exploded.
+
+---
+
+## What IV Actually Is
+
+An option's price is determined by several inputs: stock price, strike, expiration, interest rates, dividends.
+
+These are all known. But there's one variable that isn't — the market's expectation of future volatility.
+
+Take an option's market price and plug it backwards into a pricing model (Black-Scholes). The volatility number you'd need to produce that price is the **Implied Volatility**.
+
+It's not historical data. It's not a technical indicator. **It's what the market is paying right now for uncertainty about how much this stock will move.**
+
+---
+
+## A Concrete Example
+
+NVDA is at $900. Two options, same strike and expiration:
+
+**Option A**: 30 days out, $850 Put, IV = 40%
+**Option B**: Same terms, IV = 80%
+
+Option B costs significantly more.
+
+Because IV 80% means the market is pricing in annualized volatility of 80% for NVDA — that's roughly ±23% over 30 days. IV 40% is ±16%.
+
+Someone buying Option B thinks NVDA might fall hard. If you sell it, you collect the higher premium — but you're betting NVDA won't drop that much.
+
+---
+
+## IV Moves in Two Directions
+
+**IV expansion**: Fear, uncertainty, events on the horizon. Options get expensive.
+
+Common triggers:
+- Earnings (no one knows which way it'll go)
+- Macro events (Fed decisions, CPI prints)
+- Geopolitical events (2022 Russia-Ukraine, 2020 COVID)
+- Company-specific events (FDA decisions, lawsuits, CEO departures)
+
+**IV Crush**: Uncertainty disappears, IV collapses, options suddenly get cheap.
+
+The clearest example is post-earnings.
+
+Take NVDA's earnings in May 2024:
+- Day before: 30-day ATM put IV ≈ 75%
+- Day after: same terms, IV ≈ 40%
+
+NVDA beat expectations. Stock jumped 9%. People who bought puts expecting a crash lost money — obviously. But here's the brutal part: people who bought calls also lost money. Even if they got direction right, the IV crush cut their option value nearly in half before the price move could compensate.
+
+**That's IV Crush: right direction, wrong outcome. IV dropping on you can cause a loss even when the stock moves your way.**
+
+---
+
+## A Story: GameStop, January 2021
+
+Reddit discovered that GME had 140% short interest. They started buying.
+
+In a few days, GME went from $20 to $483.
+
+At the peak, GME's options IV exceeded **1,000%**.
+
+Let that sink in. Annualized volatility of 1,000% means the market was pricing in GME potentially moving to 10x current price — or zero — within a year.
+
+Anyone selling GME puts during that period collected absurd premium. Some of them made fortunes. Others got caught on the wrong side of the squeeze and lost everything.
+
+The lesson isn't "IV can go crazy." The lesson is: **IV is an emotion meter, not a rational calculation.** It reflects what buyers are willing to pay, and sometimes buyers are panicking.
+
+---
+
+## Historical Volatility vs. Implied Volatility
+
+There's a related concept called **Historical Volatility (HV)** — how much the stock has actually moved, calculated after the fact.
+
+- **HV**: backward-looking, what actually happened
+- **IV**: forward-looking, what the market expects
+
+Here's an observation that holds up over decades: **IV runs about 4–5 percentage points above HV on average.**
+
+The market chronically overpays for uncertainty. It prices in more volatility than actually happens.
+
+That's the structural edge for options sellers. You sell what the market is overestimating. When realized volatility comes in lower than IV — which it usually does — you keep the difference.
+
+Statistics are on the seller's side over time. Not always. But structurally.
+
+---
+
+## What This Means in Practice
+
+1. **Sell when IV is high**: More uncertainty means more premium. Your edge is bigger.
+
+2. **Low IV = thin margins**: When markets are calm, options are cheap. The same return requires more risk.
+
+3. **Be careful around earnings**: IV inflates before reports, then collapses after. Opening a position the day before earnings means buying at peak IV. Even if the stock doesn't move against you, the IV crush can hurt your P&L.
+
+4. **IV doesn't predict direction**: It measures uncertainty, not which way things will go.
+
+---
+
+There's one problem with IV as a standalone number: it has no context.
+
+If NVDA's IV is 60%, is that high or low? You don't know — unless you know what it usually is.
+
+That's why IV Rank exists. It puts IV in historical context, telling you exactly where current IV sits relative to the past year.
+
+[What Is IV Rank? A Simple Analogy That Makes It Click →](/blog/iv-rank-options-trading)

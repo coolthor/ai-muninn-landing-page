@@ -1,0 +1,150 @@
+---
+title: "Options Liquidity and BPS: The Hidden Cost You're Probably Ignoring"
+description: "Bid-ask spreads, open interest, volume — these numbers look boring until you enter a Bull Put Spread on a thinly traded name and realize the market maker just took a third of your premium before you even started."
+date: "2026-03-12"
+tags: ["options liquidity", "bid-ask spread", "open interest", "Bull Put Spread", "options trading costs"]
+---
+
+Most people learn BPS in this order: entry conditions, Greeks, IV Rank, risk management.
+
+Liquidity gets skipped — until the first time you trade a thinly-traded name, see the trade go in your direction, and still barely make money.
+
+The bid-ask spread ate your profit.
+
+---
+
+## What the Bid-Ask Spread Actually Costs You
+
+Every market has two prices: what sellers want (Ask) and what buyers will pay (Bid). Trades happen somewhere between those two numbers.
+
+The gap is the spread. In liquid markets, it's negligible. In illiquid options, it's a material cost.
+
+| Underlying | ATM Put Spread | Cost on $3.00 Premium |
+|------------|---------------|----------------------|
+| SPY | $0.02 | 0.7% |
+| AAPL | $0.05 | 1.7% |
+| Mid-cap tech | $0.30 | 10% |
+| Thinly traded stock | $1.00+ | 33%+ |
+
+**You think you're collecting $3.00. But mid-price fills require a willing counterparty at that price.** In illiquid options, you often have to concede — selling closer to the Bid, buying closer to the Ask. That concession is your hidden cost.
+
+---
+
+## The BPS Problem: You're Moving Two Legs
+
+A Bull Put Spread has two contracts: short the higher-strike put, long the lower-strike put.
+
+Each leg has its own bid-ask spread. Two legs means the hidden cost doubles.
+
+**Example**: Mid-cap stock, combined spread on both legs = $0.60. Net credit is supposed to be $1.00.
+
+- Entry: you concede $0.15 to get filled → actually collect $0.85
+- Exit: you concede $0.15 again → actually pay $0.15 more to close
+- Net drag: $0.30 round-trip on a trade where the max profit was $100
+
+You didn't do anything wrong. The market maker extracted 30% of your potential profit before expiration even entered the picture.
+
+---
+
+## Three Metrics That Measure Liquidity
+
+### 1. Bid-Ask Spread
+
+The most direct measure. Check the quotes on your target strike before entering.
+
+**Rough benchmarks**:
+- Spread < 5% of premium: good
+- 5–15%: acceptable, but use limit orders
+- > 15%: warning — consider switching to a different symbol or strike
+
+### 2. Open Interest
+
+The total number of contracts currently outstanding. Higher open interest = more participants = tighter spreads and easier fills.
+
+**Rough benchmark**: Target strike should have at least **500 open interest**, ideally 1,000+.
+
+If the strike you're eyeing has 30 open contracts, getting in and out will be painful.
+
+### 3. Volume
+
+How many contracts traded today. Low today-volume doesn't necessarily mean illiquid (open interest might be high), but strong daily volume almost always means healthy liquidity.
+
+---
+
+## The Lesson From February 5, 2018
+
+On February 5, 2018, U.S. markets flash-crashed after hours. VIX futures surged 100%+.
+
+That day, options liquidity in many names effectively evaporated. Bid-ask spreads that had been a few cents wide exploded to multiples.
+
+Traders who wanted to close positions — even at a loss — found there was no one on the other side. Or if there was, the price was extreme.
+
+This wasn't an anomaly. Every major market panic compresses liquidity. The moment you most need to exit, the market makes it hardest to do so.
+
+**Liquidity is worst exactly when you need it most. That's not a bug in the system — it's the system.**
+
+Which is why choosing liquid underlyings is a form of risk management, not a preference.
+
+---
+
+## Where Liquidity Is Good
+
+A simple framework:
+
+**High liquidity** (best for BPS):
+- Major index ETFs: SPY, QQQ, IWM
+- Top 50 U.S. large-caps: AAPL, MSFT, NVDA, AMZN, etc.
+- These names trade millions of options contracts daily
+
+**Medium liquidity** (proceed carefully):
+- Mid-cap S&P 500 components
+- Check spreads on every entry — don't assume
+
+**Low liquidity** (avoid or stay small):
+- Small caps
+- Companies under $5B market cap
+- Recent IPOs, SPACs
+- Anything without a visible options chain
+
+---
+
+## Always Use Limit Orders
+
+On anything other than the most liquid names, never use market orders for options. Always limit.
+
+**The approach**:
+- Calculate mid-price for the spread (average of bid and ask on both legs)
+- Enter your limit at mid or slightly better (for a credit trade, that means a slightly higher credit)
+- Wait 3–5 minutes. If no fill, adjust by $0.05 and try again
+- Don't chase fills unless you have strong conviction about timing
+
+Every cent you concede to get filled faster is a cent that comes directly out of your profit. Patience is free alpha.
+
+---
+
+## An Underrated Connection: Liquidity and Skew
+
+There's a subtle interaction between liquidity and skew that's worth knowing.
+
+OTM puts on thinly traded stocks often show steep skew — not because the market is particularly afraid of that stock, but because the market maker pricing the options is compensating for inventory risk. They don't know if they'll be able to hedge what they sell you. So they widen IV.
+
+When you see extreme skew on a low-liquidity stock, ask yourself: **is this skew the market's fear, or the market maker's protection?**
+
+The answer changes how much that elevated premium is actually worth to you.
+
+---
+
+## Pre-Trade Liquidity Checklist
+
+- [ ] Bid-ask spread on both target strikes < 10% of net premium
+- [ ] Open interest on each leg ≥ 500
+- [ ] Enter with a limit order starting at mid-price
+- [ ] Net credit > $0.50 (thin premium isn't worth the effort or risk)
+
+These four don't guarantee a profitable trade. They ensure you don't start the trade already behind.
+
+---
+
+Once you've filtered for liquid names with favorable IV structure, the question becomes: which specific setups are worth acting on right now?
+
+[How the BPS Screener Works: From Signal to Setup →](/en/blog/bps-screener-how-it-works)
