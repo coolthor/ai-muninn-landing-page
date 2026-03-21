@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const post = getPost('zh-TW', slug);
     return {
       url: `${baseUrl}/blog/${slug}`,
-      lastModified: post?.date ? new Date(post.date) : new Date(),
+      lastModified: post?.updatedAt ? new Date(post.updatedAt) : post?.date ? new Date(post.date) : new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
       alternates: {
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const post = getPost('en', slug);
       return {
         url: `${baseUrl}/en/blog/${slug}`,
-        lastModified: post?.date ? new Date(post.date) : new Date(),
+        lastModified: post?.updatedAt ? new Date(post.updatedAt) : post?.date ? new Date(post.date) : new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
       };

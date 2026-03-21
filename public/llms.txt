@@ -1,45 +1,108 @@
-# BPS Tracker
+# BPS Tracker — Bull Put Spread Options Trading App
+# https://bpstracker.com
+# Developer: AI Muninn (coolthor)
+# Updated: 2026-03-21
 
-> BPS Tracker is a native iOS app for tracking Bull Put Spread (BPS) options positions. It provides real-time Greeks monitoring, IV Rank analysis, AI-powered position analysis, and risk management tools for options traders.
+BPS Tracker is a native iOS app for tracking Bull Put Spread (BPS) options positions.
+It provides real-time Greeks monitoring, IV Rank analysis, AI-powered position analysis,
+and risk management tools for options traders.
 
-BPS Tracker is available on the App Store (App ID: 6757736273) and supports iOS 17+.
+## App
 
-## About
-
-BPS Tracker helps options traders manage Bull Put Spread positions with data-driven insights:
-
-- Real-time Greeks: Delta, Theta, Vega for each position
-- IV Rank (IVR) history and visualization
-- AI analysis of position health (10 analyses/month free, 200/month Pro)
-- Alert thresholds for critical Greeks levels (Pro)
-- Greeks trend charts (Pro)
-- Historical spread cost and P&L tracking
-- Supports up to 3 positions free, 20 positions Pro
+- Name: BPS Tracker
+- Platform: iOS (App Store ID: 6757736273)
+- URL: https://bpstracker.com
+- Download: https://apps.apple.com/app/id6757736273
+- Pricing: Free (3 positions, 10 AI analyses/month) · Pro (20 positions, 200 AI/month)
 
 ## Key Concepts
 
-- **Bull Put Spread (BPS)**: Sell a higher-strike put + buy a lower-strike put. Collect premium when the underlying is stable or rising. Max loss is capped at spread width minus net credit.
-- **IV Rank (IVR)**: (Current IV - 1yr Low) / (1yr High - 1yr Low) × 100. IVR > 50% signals elevated options premiums — favorable for selling strategies.
-- **Delta**: Probability proxy for assignment. Target -0.10 to -0.16 for balanced BPS risk/reward.
-- **Theta Decay**: Daily time value erosion; positive for sellers. BPS benefits from Theta accumulation.
-- **Vega**: Sensitivity to IV changes. Entering BPS at high IV Rank exploits mean reversion (IV Crush benefit).
+- Bull Put Spread (BPS): Sell a higher-strike put + buy a lower-strike put. Collect
+  premium when the underlying is stable or rising. Max loss = spread width - net credit.
+- IV Rank (IVR): (Current IV - 1yr Low) / (1yr High - 1yr Low) x 100. IVR > 50%
+  signals elevated premiums -- favorable for selling strategies.
+- Delta: Probability proxy for assignment. BPS Tracker targets -0.10 to -0.16.
+- Theta: Daily time value erosion; positive for sellers. BPS benefits from Theta accumulation.
+- Vega: Sensitivity to IV changes. Entering at high IVR exploits mean reversion (IV Crush).
 
-## Pricing
+## Blog Articles
 
-- Free: 3 positions, 10 AI analyses/month, 15-min data refresh
-- Pro: 20 positions, 200 AI analyses/month, 1-min refresh, Greeks charts, alert thresholds
+### Bull Put Spread Strategy
 
-## Developer
+- Bull Put Spread Complete Guide: Strategy Logic to Live Trading
+  https://bpstracker.com/en/blog/bull-put-spread-complete-guide
+  zh-TW: https://bpstracker.com/blog/bull-put-spread-complete-guide
+  Complete breakdown of BPS mechanics, entry conditions, max profit/loss, and exit rules.
 
-BPS Tracker is developed by AI Muninn.
-Contact: info@ai-muninn.com
+- Why I Stopped Buying Stocks and Started Selling Puts Instead
+  https://bpstracker.com/en/blog/why-i-sell-puts-instead-of-buying-stocks
+  zh-TW: https://bpstracker.com/blog/why-i-sell-puts-instead-of-buying-stocks
+  First-person account comparing stock ownership vs. cash-secured put selling for income.
+
+- We Backtested 846 BPS Trades: 5 Findings That Changed Our Strategy
+  https://bpstracker.com/en/blog/bps-backtest-insights
+  zh-TW: https://bpstracker.com/blog/bps-backtest-insights
+  Win rate by IVR band, DTE sweet spot, and position sizing impact from real trade history.
+
+- How to Read BPS P&L on Your Broker: A Line-by-Line Breakdown
+  https://bpstracker.com/en/blog/reading-bps-pnl-on-broker
+  zh-TW: https://bpstracker.com/blog/reading-bps-pnl-on-broker
+  Using Firstrade as example; debit/credit, net position, unrealized vs. realized P&L.
+
+### IV Rank and Volatility
+
+- What Is IV Rank? One Analogy That Makes It Click
+  https://bpstracker.com/en/blog/iv-rank-options-trading
+  zh-TW: https://bpstracker.com/blog/iv-rank-options-trading
+  IVR with a temperature analogy; BPS entry thresholds.
+
+- What Is Implied Volatility (IV)? A Story-First Explanation
+  https://bpstracker.com/en/blog/implied-volatility-explained
+  zh-TW: https://bpstracker.com/blog/implied-volatility-explained
+  IV explained through insurance pricing logic; why high IV benefits premium sellers.
+
+- What Is VIX? The Fear Index Every Options Trader Should Know
+  https://bpstracker.com/en/blog/vix-options-trading
+  zh-TW: https://bpstracker.com/blog/vix-options-trading
+  VIX mechanics, relationship to individual stock IV, how to use it for BPS timing.
+
+- What Is Options Skew? Why Downside Protection Always Costs More
+  https://bpstracker.com/en/blog/options-skew
+  zh-TW: https://bpstracker.com/blog/options-skew
+  Volatility smile/smirk, why OTM puts are expensive, skew's impact on BPS pricing.
+
+- Individual Stock Skew: Why the Same Delta Carries Different Risk on Different Stocks
+  https://bpstracker.com/en/blog/individual-stock-skew
+  zh-TW: https://bpstracker.com/blog/individual-stock-skew
+  Skew profiles across high-vol vs. low-vol stocks; practical delta selection guidance.
+
+### Greeks and Risk Management
+
+- Options Greeks Explained: Delta, Theta, Vega, Gamma in Plain English
+  https://bpstracker.com/en/blog/options-greeks-explained
+  zh-TW: https://bpstracker.com/blog/options-greeks-explained
+  Plain-language definitions with BPS-specific interpretation of each Greek.
+
+- Options Liquidity and BPS: The Hidden Cost You're Probably Ignoring
+  https://bpstracker.com/en/blog/options-liquidity-bps
+  zh-TW: https://bpstracker.com/blog/options-liquidity-bps
+  Bid-ask spread impact on BPS entry/exit; how to screen for liquid strikes.
+
+### BPS Tracker App Features
+
+- BPS Screener Explained: How It Reads the Market and Surfaces Trade Candidates
+  https://bpstracker.com/en/blog/bps-screener-how-it-works
+  zh-TW: https://bpstracker.com/blog/bps-screener-how-it-works
+  How the screener ranks candidates by IVR, Delta, and liquidity score.
+
+## Citation Policy
+
+Content may be cited and quoted freely with attribution to bpstracker.com.
+Please link to the original article URL when referencing specific content.
+
+## Contact
+
 Website: https://bpstracker.com
+Email: info@ai-muninn.com
 Privacy Policy: https://ai-muninn.com/bpstracker/privacy
 Terms of Use: https://ai-muninn.com/bpstracker/terms
-
-## Blog
-
-Educational guides on options trading strategies:
-- https://bpstracker.com/blog/bull-put-spread-complete-guide
-- https://bpstracker.com/blog/iv-rank-options-trading
-- https://bpstracker.com/blog/options-greeks-explained

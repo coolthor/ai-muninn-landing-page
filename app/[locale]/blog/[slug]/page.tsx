@@ -52,6 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       type: 'article',
       publishedTime: post.date,
+      modifiedTime: post.updatedAt ?? post.date,
       tags: post.tags,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
@@ -205,6 +206,7 @@ export default async function BlogPostPage({ params }: Props) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
+    dateModified: post.updatedAt ?? post.date,
     author: { '@type': 'Organization', name: 'BPS Tracker' },
     publisher: {
       '@type': 'Organization',
@@ -290,6 +292,12 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Meta */}
         <div className="flex items-center gap-4 mb-10 text-sm" style={{ color: 'rgba(160,160,176,0.6)' }}>
           <span>{post.date}</span>
+          {post.updatedAt && post.updatedAt !== post.date && (
+            <>
+              <span>·</span>
+              <span>{isZh ? `更新 ${post.updatedAt}` : `updated ${post.updatedAt}`}</span>
+            </>
+          )}
           <span>·</span>
           <span>{post.readingTime} {isZh ? '分鐘閱讀' : 'min read'}</span>
         </div>
