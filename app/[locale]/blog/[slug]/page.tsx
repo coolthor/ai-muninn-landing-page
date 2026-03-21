@@ -26,7 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
 
   const baseUrl = 'https://bpstracker.com';
-  const url = locale === 'zh-TW' ? `${baseUrl}/blog/${slug}` : `${baseUrl}/en/blog/${slug}`;
+  const isZh = locale === 'zh-TW';
+  const url = isZh ? `${baseUrl}/blog/${slug}` : `${baseUrl}/en/blog/${slug}`;
+  const otherLocale = isZh ? 'en' : 'zh-TW';
+  const otherPost = getPost(otherLocale, slug);
+  const otherUrl = isZh ? `${baseUrl}/en/blog/${slug}` : `${baseUrl}/blog/${slug}`;
+  const ogImage = `${baseUrl}/${locale}/opengraph-image`;
 
   return {
     title: `${post.title} | BPS Tracker`,
@@ -34,6 +39,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: post.tags,
     alternates: {
       canonical: url,
+      ...(otherPost && {
+        languages: {
+          [locale]: url,
+          [otherLocale]: otherUrl,
+        },
+      }),
     },
     openGraph: {
       title: post.title,
@@ -42,6 +53,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       publishedTime: post.date,
       tags: post.tags,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [ogImage],
     },
   };
 }
@@ -178,6 +196,9 @@ export default async function BlogPostPage({ params }: Props) {
 
   const isZh = locale === 'zh-TW';
 
+  const baseUrl = 'https://bpstracker.com';
+  const articleUrl = isZh ? `${baseUrl}/blog/${slug}` : `${baseUrl}/en/blog/${slug}`;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -188,13 +209,36 @@ export default async function BlogPostPage({ params }: Props) {
     publisher: {
       '@type': 'Organization',
       name: 'BPS Tracker',
-      url: 'https://bpstracker.com',
+      url: baseUrl,
     },
     keywords: post.tags.join(', '),
     inLanguage: locale,
-    url: locale === 'zh-TW'
-      ? `https://bpstracker.com/blog/${slug}`
-      : `https://bpstracker.com/en/blog/${slug}`,
+    url: articleUrl,
+  };
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: isZh ? '首頁' : 'Home',
+        item: isZh ? baseUrl : `${baseUrl}/en`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: isZh ? '部落格' : 'Blog',
+        item: isZh ? `${baseUrl}/blog` : `${baseUrl}/en/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: articleUrl,
+      },
+    ],
   };
 
   return (
@@ -202,6 +246,10 @@ export default async function BlogPostPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       {/* Header */}

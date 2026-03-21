@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllSlugs } from '@/lib/blog';
+import { getAllSlugs, getPost } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://bpstracker.com';
@@ -7,27 +7,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const zhSlugs = getAllSlugs('zh-TW');
   const enSlugs = getAllSlugs('en');
 
-  const blogPostsZh: MetadataRoute.Sitemap = zhSlugs.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-    alternates: {
-      languages: {
-        'zh-TW': `${baseUrl}/blog/${slug}`,
-        'en': `${baseUrl}/en/blog/${slug}`,
+  const blogPostsZh: MetadataRoute.Sitemap = zhSlugs.map((slug) => {
+    const post = getPost('zh-TW', slug);
+    return {
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: post?.date ? new Date(post.date) : new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+      alternates: {
+        languages: {
+          'zh-TW': `${baseUrl}/blog/${slug}`,
+          'en': `${baseUrl}/en/blog/${slug}`,
+        },
       },
-    },
-  }));
+    };
+  });
 
   const blogPostsEn: MetadataRoute.Sitemap = enSlugs
     .filter((slug) => !zhSlugs.includes(slug))
-    .map((slug) => ({
-      url: `${baseUrl}/en/blog/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }));
+    .map((slug) => {
+      const post = getPost('en', slug);
+      return {
+        url: `${baseUrl}/en/blog/${slug}`,
+        lastModified: post?.date ? new Date(post.date) : new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      };
+    });
 
   return [
     {
