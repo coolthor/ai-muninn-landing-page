@@ -3,12 +3,21 @@ title: "選擇權 Greeks 是什麼？用白話解釋 Delta、Theta、Vega、Gamm
 description: "不需要數學背景：用生活化的比喻解釋 Delta、Theta、Vega、Gamma，以及它們對 Bull Put Spread 交易者的實際意義。"
 date: "2025-02-01"
 updatedAt: "2025-02-01"
+faq:
+  - q: "選擇權 Greeks 是什麼？"
+    a: "Greeks 是衡量選擇權價格對各種變數敏感度的指標：Delta（股價變動）、Theta（時間流逝）、Vega（波動率變化）、Gamma（Delta 本身的變化速度）。對 BPS 賣方來說，最重要的是每天追蹤 Theta 和 Delta。"
+  - q: "Delta 對 Bull Put Spread 交易者代表什麼？"
+    a: "Short Put 的 Delta 同時反映價格敏感度和到期時跌破履約價的機率。Delta -0.12 的 Put 大約有 12% 的機率在到期時跌破。BPS 交易者通常選 Delta -0.10 到 -0.16，讓自己站在 85–90% 勝率的那一邊。"
+  - q: "Theta 衰減是什麼？為什麼賣方喜歡它？"
+    a: "Theta 是時間價值每日衰減的速度。對選擇權賣方（BPS），Theta 每天都在幫你賺錢——倉位的 Theta = +$8，代表在其他條件不變下每天自動獲利 $8。Theta 越靠近到期日加速越快，這是 DTE 30–40 成為甜蜜點的原因。"
+  - q: "為什麼到期日附近的 Gamma 風險特別高？"
+    a: "Gamma 衡量 Delta 的變化速度。到期前最後幾天 Gamma 最大，股票一點小動作就可能讓 Delta 劇烈改變，造成損益暴衝。這就是 BPS 賣方標準做法中「到期前 2 天強制平倉」的原因。"
 tags: ["選擇權Greeks", "Delta", "Theta", "Vega", "Gamma", "期權教學"]
 ---
 
 學選擇權的人幾乎都卡在同一關：Greeks。
 
-Delta、Theta、Vega、Gamma——這四個字看起來很嚇人，但它們其實只是回答四個簡單問題的指標。這篇文章用最生活化的方式解釋，不需要任何數學背景。
+Delta、Theta、Vega、Gamma——這四個字看起來很嚇人，但它們其實只是回答四個簡單問題的指標。這篇文章用最生活化的方式解釋，不需要任何數學背景。BPS 交易者把 Delta 控制在 -0.10 到 -0.16，就能站在 85–90% 勝率的那一邊——Greeks 就是告訴你現在的倉位是否還在這個安全範圍內的導航儀。
 
 ## 先記住一件事
 
@@ -117,7 +126,7 @@ BPS 的 Vega 是**負值**。意思是：
 
 ---
 
-## 實際操作時，你需要看哪些？
+## 實際操作時，你應該看哪些 Greek？
 
 **進場時確認**：
 - Short Put Delta 在 -0.10 到 -0.16 之間（不要太貼近股價）

@@ -1,4 +1,4 @@
-# BPS Tracker Website
+# BPS Tracker Website (ai-muninn-landing-page)
 
 > **Shared Documentation:** For infrastructure, API endpoints, and cross-repo info, see:
 > `/Users/coolthor/ai-muninn-docs/CLAUDE.md`
@@ -6,6 +6,42 @@
 > This file contains website-specific details only.
 
 Product landing page for BPS Tracker - an iOS app for tracking Bull Put Spread options positions.
+
+---
+
+## ⚠️ Domain Architecture — 重要背景
+
+### 現狀（2026-03-12）
+
+```
+ai-muninn.com        → 這個 Next.js 專案（BPSTracker 官網，歷史命名遺留）
+bpstracker.com       → 同一個 Vercel deployment（剛補註冊的）
+api.ai-muninn.com    → BPSTracker-API 後端（iOS app 硬編碼，不要隨便改）
+bpstracker.app       → 已購入，尚未設定
+bfproof.com          → BFProof 新專案，尚未設定
+bfproof.app          → BFProof 新專案，尚未設定
+```
+
+### 規劃方向：渡鴉工作室架構（方案 A，未著急執行）
+
+```
+ai-muninn.com        → 長期目標：渡鴉 (Raven) studio 首頁，展示旗下所有 app
+bpstracker.com       → BPSTracker 產品頁（已設定，指向同一個 Vercel deployment）
+bfproof.com          → BFProof 產品頁（待建）
+api.ai-muninn.com    → 維持，待下一個 iOS 大版本才考慮遷移至 api.bpstracker.com
+```
+
+### 目前什麼都不用動
+
+- `bpstracker.com` 現在 CNAME/指向同一個 Vercel deployment 就好
+- studio 首頁（`ai-muninn.com` 改版）**沒有排程**，等有空再說
+- `api.ai-muninn.com` 動了要改 iOS app，成本高，先不動
+- OAuth redirect URI 也還是 `https://ai-muninn.com/bpstracker/callback`，不動
+
+### 注意事項
+
+- `info@ai-muninn.com` 是目前的 contact email，還沒換
+- 如果要加 `bfproof.com` 的 landing page，另開一個 repo，不要放在這個 repo 裡
 
 ---
 

@@ -3,6 +3,15 @@ title: "We Backtested 846 BPS Trades: 5 Findings That Changed Our Strategy"
 description: "Real findings from 20 months of Bull Put Spread backtesting data — including why IV Rank filtering hurts performance, why delta stops kill winners, and why AAPL and MSFT are bad for BPS."
 date: "2025-02-15"
 updatedAt: "2025-02-15"
+faq:
+  - q: "Does IV Rank filter improve Bull Put Spread performance?"
+    a: "No — our backtest of 846 BPS trades found the opposite. Filtering entries by IV Rank made performance worse. Winners had a median IVR of 22.3% and losers 21.5%, so IVR had almost no predictive power over individual trade outcomes."
+  - q: "What is the best DTE for Bull Put Spreads?"
+    a: "30–40 DTE produced the highest annualized return (79%+) and the lowest max drawdown in our backtest. It sits at the point where Theta acceleration begins while Gamma risk hasn't yet become extreme."
+  - q: "Do Delta stop-losses help BPS traders?"
+    a: "No. Testing 5 delta stop thresholds across 36,815 trades found every threshold made performance worse — using |Δ| > 0.30 killed 4 winners for every loser it prevented."
+  - q: "Which stocks are bad for Bull Put Spreads?"
+    a: "AAPL, MSFT, AMZN, and NFLX consistently lost money in our backtest. Good BPS candidates need high but mean-reverting volatility — stocks like GDX, SMH, and COST outperformed."
 tags: ["BPS Backtest", "Options Strategy", "Backtesting", "Bull Put Spread", "IV Rank"]
 ---
 

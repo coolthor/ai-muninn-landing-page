@@ -3,6 +3,15 @@ title: "Individual Stock Skew: Why the Same Delta Carries Different Risk on Diff
 description: "A Delta -0.15 BPS on JNJ and a Delta -0.15 BPS on NVDA are not the same trade. Individual stock skew reveals what the market is pricing into your specific name — and how much hidden risk is baked into your premium."
 date: "2026-03-12"
 updatedAt: "2026-03-12"
+faq:
+  - q: "What is individual stock skew in options trading?"
+    a: "Individual stock skew measures how much more expensive OTM put options are relative to ATM options on the same stock. A skew ratio of 1.6x (like NVDA's) means the 25-delta put IV is 60% higher than ATM IV — reflecting the market's specific fear of a sharp downside move in that name."
+  - q: "Why does the same Delta carry different risk on different stocks?"
+    a: "Delta tells you the probability of being assigned, but not how fast or far a stock falls if things go wrong. On a high-skew stock like NVDA, a 10% drop can push a Delta -0.15 put to -0.40 because Gamma is higher and IV rises as the stock approaches your strike — losses accelerate faster than on a flat-skew stock like JNJ."
+  - q: "What types of stocks have the steepest options skew?"
+    a: "Steep skew is structural in high-beta growth stocks (NVDA, META: 1.4–1.8x), EV/crypto names (TSLA, COIN: 1.5–2.5x), and clinical-stage biotech (can reach 2–4x before FDA decisions). Defensive stocks like JNJ or KO typically show flat skew of 1.0–1.2x."
+  - q: "How should I adjust BPS position sizing for high-skew stocks?"
+    a: "A steeper skew means more hidden risk per dollar of premium. Consider reducing position size versus an equivalent entry on a lower-skew name — particularly if the OTM put IV exceeds 1.5x the ATM IV or if a known event (earnings, FDA decision) is approaching."
 tags: ["individual stock skew", "volatility skew", "implied volatility", "options risk", "Bull Put Spread"]
 ---
 
@@ -10,7 +19,7 @@ tags: ["individual stock skew", "volatility skew", "implied volatility", "option
 
 Two BPS trades. Both Delta -0.15. Both 30 DTE. Same position size.
 
-One is on JNJ (Johnson & Johnson). One is on NVDA (NVIDIA).
+One is on JNJ (Johnson & Johnson). One is on NVDA (NVIDIA). JNJ's 25-delta put IV runs about 1.1x its ATM IV. NVDA's runs 1.6x — the OTM put is priced for 65% annualized vol while ATM sits at 40%.
 
 Open the confirmation screen for each, and one feels routine. The other makes you second-guess everything.
 
@@ -18,7 +27,7 @@ That's not intuition — it's information. Individual stock skew explains the di
 
 ---
 
-## What Skew Looks Like on a Single Stock
+## What Does Skew Look Like on a Single Stock?
 
 Market-level skew (measured through SPX) reflects aggregate fear of a broad market crash. Individual stock skew is more direct: it reflects how much the market fears a sharp **downside move in this specific stock**.
 
@@ -100,7 +109,7 @@ Steep skew makes bad scenarios worse. Not by a little.
 
 ---
 
-## A Pre-Trade Skew Check
+## How to Do a Pre-Trade Skew Check
 
 Before opening a position:
 

@@ -3,18 +3,27 @@ title: "Options Liquidity and BPS: The Hidden Cost You're Probably Ignoring"
 description: "Bid-ask spreads, open interest, volume — these numbers look boring until you enter a Bull Put Spread on a thinly traded name and realize the market maker just took a third of your premium before you even started."
 date: "2026-03-12"
 updatedAt: "2026-03-12"
+faq:
+  - q: "How does options liquidity affect Bull Put Spread profitability?"
+    a: "Poor liquidity means wide bid-ask spreads. On a thinly traded stock, the combined spread on both BPS legs can reach $0.60 — costing you $0.30 round-trip on a trade where max profit was only $100, effectively eliminating 30% of your potential gain before expiration."
+  - q: "What is a good minimum open interest for options trading?"
+    a: "Target strikes should have at least 500 open interest, ideally 1,000+. SPY and top large-caps trade millions of option contracts daily (bid-ask spread as tight as $0.02), while thinly traded stocks may show spreads exceeding $1.00 — over 33% of a typical $3.00 premium."
+  - q: "Should I use market orders or limit orders for options?"
+    a: "Always use limit orders for options, even on liquid names. Start at mid-price, wait 3–5 minutes, then adjust by $0.05 increments if needed. Every cent you concede to get filled faster comes directly out of your profit."
+  - q: "Which options underlyings have the best liquidity for BPS?"
+    a: "Major index ETFs (SPY, QQQ, IWM) and top 50 U.S. large-caps offer the best liquidity for BPS. Avoid small caps, stocks under $5B market cap, recent IPOs, and SPACs — their options chains often lack the open interest needed for clean fills."
 tags: ["options liquidity", "bid-ask spread", "open interest", "Bull Put Spread", "options trading costs"]
 ---
 
 Most people learn BPS in this order: entry conditions, Greeks, IV Rank, risk management.
 
-Liquidity gets skipped — until the first time you trade a thinly-traded name, see the trade go in your direction, and still barely make money.
+Liquidity gets skipped — until the first time you trade a thinly-traded name, see the trade go in your direction, and still barely make money. On an illiquid underlying, the combined bid-ask spread on both BPS legs can exceed $0.60 — costing you $0.30 round-trip on a trade where max profit was only $100.
 
 The bid-ask spread ate your profit.
 
 ---
 
-## What the Bid-Ask Spread Actually Costs You
+## What Does the Bid-Ask Spread Actually Cost You?
 
 Every market has two prices: what sellers want (Ask) and what buyers will pay (Bid). Trades happen somewhere between those two numbers.
 
@@ -88,7 +97,7 @@ Which is why choosing liquid underlyings is a form of risk management, not a pre
 
 ---
 
-## Where Liquidity Is Good
+## Where Is Options Liquidity Good Enough for BPS?
 
 A simple framework:
 

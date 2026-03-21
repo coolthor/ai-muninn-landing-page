@@ -3,12 +3,21 @@ title: "Options Greeks Explained: Delta, Theta, Vega, Gamma in Plain English"
 description: "No math degree required. A plain-English breakdown of Delta, Theta, Vega, and Gamma — and what each one actually means for Bull Put Spread traders."
 date: "2025-02-01"
 updatedAt: "2025-02-01"
+faq:
+  - q: "What are options Greeks?"
+    a: "Greeks are sensitivity measures that tell you how an option's price changes when one variable shifts: Delta (stock price moves), Theta (time passes), Vega (volatility changes), Gamma (how fast Delta itself changes). For BPS sellers, Theta and Delta are the most important to track daily."
+  - q: "What does Delta mean for Bull Put Spread traders?"
+    a: "Delta on a short put represents both price sensitivity and probability of expiring in-the-money. A Delta -0.12 put has roughly a 12% chance of expiring below the strike. BPS traders typically target Delta -0.10 to -0.16 to stay on the right side of an 85–90% win rate."
+  - q: "What is Theta decay and why do options sellers benefit from it?"
+    a: "Theta is the daily rate of time value decay. For options sellers (BPS), Theta puts money in your pocket every day — a position with Theta = +$8 gains $8 daily just from time passing. Theta accelerates as expiration approaches, which is why DTE 30–40 is the sweet spot."
+  - q: "Why is Gamma dangerous near options expiration?"
+    a: "Gamma measures how fast Delta changes. In the final days before expiration, Gamma is high — a small stock move can dramatically shift your Delta and cause outsized P&L swings. This is why closing 2 days before expiration is standard risk management for BPS sellers."
 tags: ["Options Greeks", "Delta", "Theta", "Vega", "Gamma", "Options Education"]
 ---
 
 Greeks are where most options beginners hit a wall.
 
-Delta, Theta, Vega, Gamma — they sound intimidating. But they're really just answers to four simple questions. Once you know the questions, the answers are obvious.
+Delta, Theta, Vega, Gamma — they sound intimidating. But they're really just answers to four simple questions. Once you know the questions, the answers are obvious. BPS traders targeting Delta -0.10 to -0.16 put themselves on the right side of an 85–90% win rate — Greeks are the numbers that tell you whether your current position still sits in that range.
 
 ## The One Thing to Remember First
 
@@ -117,7 +126,7 @@ Then Russia defaulted on its debt. Liquidity vanished. Their models completely f
 
 ---
 
-## What to Actually Watch in Practice
+## What Should You Actually Watch in Practice?
 
 **At entry:**
 - Short Put Delta between -0.10 and -0.16 (not too close to the stock price)

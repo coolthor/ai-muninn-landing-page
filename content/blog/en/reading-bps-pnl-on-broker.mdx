@@ -3,6 +3,15 @@ title: "How to Read BPS P&L on Your Broker: A Line-by-Line Breakdown"
 description: "Most brokers — including Firstrade — show each leg of a Bull Put Spread separately, with opposite signs, and no combined total. Here's exactly how to add them up and know what you're actually making."
 date: "2026-03-12"
 updatedAt: "2026-03-12"
+faq:
+  - q: "Why does my broker show two separate rows for a Bull Put Spread?"
+    a: "Most brokers track each options contract as an independent position record. Your short put shows as a negative quantity and your long put as positive — each with its own cost basis, market value, and P&L. There is no combined total shown."
+  - q: "How do I calculate the total P&L of a Bull Put Spread on my broker?"
+    a: "Add the P&L from both rows together: short put P&L + long put P&L = total BPS P&L. Alternatively: net credit received at open minus current cost to close. On a trade where you collected $100 and it now costs $40 to close, your profit is $60 — 60% of maximum."
+  - q: "Why does my Sell Put row show a large loss even when my BPS is profitable?"
+    a: "The short leg shows a loss when the put you sold has risen in value — but this is always partially offset by the long put also losing value. Looking at one row alone always misleads. Only the sum of both rows tells the truth."
+  - q: "How does BPS Tracker simplify options P&L tracking?"
+    a: "BPS Tracker combines both legs into one number — showing opened credit, current value, profit percentage, and DTE in a single line. You enter the trade once and track it in real time without manual addition."
 tags: ["BPS P&L", "options profit loss", "Firstrade", "Bull Put Spread", "options for beginners"]
 ---
 
@@ -21,7 +30,7 @@ Are you up $180? Down $120? Something else?
 
 ---
 
-## What Each Line Actually Means
+## What Does Each Line in Your Broker Actually Mean?
 
 ### Row 1: The Sell Put (your short leg)
 
@@ -45,7 +54,7 @@ Are you up $180? Down $120? Something else?
 
 ---
 
-## Adding Them Together
+## How Do You Add the Two Legs Together?
 
 Total BPS P&L = Row 1 P&L + Row 2 P&L
 

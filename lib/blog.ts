@@ -2,6 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -11,6 +16,7 @@ export interface BlogPost {
   tags: string[];
   locale: string;
   readingTime: number;
+  faq?: FaqItem[];
 }
 
 export interface BlogPostWithContent extends BlogPost {
@@ -42,6 +48,7 @@ export function getAllPosts(locale: string): BlogPost[] {
         tags: data.tags ?? [],
         locale,
         readingTime,
+        faq: data.faq,
       } satisfies BlogPost;
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -65,6 +72,7 @@ export function getPost(locale: string, slug: string): BlogPostWithContent | nul
     tags: data.tags ?? [],
     locale,
     readingTime,
+    faq: data.faq,
     content,
   };
 }

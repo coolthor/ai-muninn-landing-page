@@ -3,16 +3,25 @@ title: "Why I Stopped Buying Stocks and Started Selling Puts Instead"
 description: "Most investors buy stocks and hope they go up. I flipped the model — now I collect premium income whether the market rises, stays flat, or drops a little. Here's exactly how I think about it."
 date: "2026-03-10"
 updatedAt: "2026-03-10"
+faq:
+  - q: "Why sell puts instead of buying stocks?"
+    a: "When you buy a stock, you profit only when it rises — one scenario out of four. When you sell a put, you profit in three scenarios: stock rises, stays flat, or drops a little. Additionally, Theta decay generates returns every day just from time passing, regardless of price movement."
+  - q: "What is the advantage of Bull Put Spreads over naked puts?"
+    a: "Naked puts carry theoretically unlimited risk if a stock crashes. A Bull Put Spread adds a lower-strike long put that caps your maximum loss at the spread width minus the net credit — for example, $400 per contract on a $5-wide spread collecting $1.00."
+  - q: "What rules make a systematic options income strategy work?"
+    a: "The key four rules: enter only when IV Rank is elevated, select strikes by delta (not gut feel), use fixed position sizing regardless of conviction level, and exit at 50% profit target. The system removes emotion — and emotion is what kills options returns."
+  - q: "How many BPS positions can I track with a spreadsheet?"
+    a: "A spreadsheet works for about 3 positions. At 10 positions across different symbols and expiration dates, manually tracking Delta exposure, IV Rank, and alert thresholds becomes error-prone. Purpose-built tools like BPS Tracker automate this tracking."
 tags: ["Options Income", "Sell Puts", "Bull Put Spread", "Premium Selling", "Options Strategy"]
 ---
 
 Most investors have the same mental model: buy a stock, wait for it to go up, sell it for a profit.
 
-I did that for years. It worked when the market went up. It didn't work when it didn't.
+I did that for years. It worked when the market went up. It didn't work when it didn't. Selling puts instead changes the game: you profit in three out of four market scenarios instead of one, and time decay puts money in your pocket every day just from time passing.
 
 Then I started selling puts instead. Here's what changed.
 
-## The Problem With Just Buying Stocks
+## What's the Problem With Just Buying Stocks?
 
 When you buy a stock, you're making a directional bet. The stock has to go *up* for you to make money. If it goes sideways for a year, you earn nothing. If it drops, you lose.
 
@@ -38,7 +47,7 @@ You sell a put at one strike, and buy a cheaper put at a lower strike. The sprea
 
 This is why serious options income traders gravitate toward Bull Put Spreads: it's premium selling with a built-in circuit breaker.
 
-## The Systematic Piece
+## Why Does Systematic Execution Matter for Options Income?
 
 The reason most traders fail at options isn't the strategy — it's inconsistency.
 

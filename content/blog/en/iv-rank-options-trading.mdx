@@ -3,12 +3,21 @@ title: "What Is IV Rank? One Analogy That Makes It Click"
 description: "The clearest explanation of IV Rank (IVR) for options traders: what it actually measures, why it matters for premium selling, and one counterintuitive finding from our own backtesting."
 date: "2025-01-22"
 updatedAt: "2025-01-22"
+faq:
+  - q: "What is IV Rank (IVR) in options trading?"
+    a: "IV Rank tells you where today's implied volatility sits within its 1-year range. Formula: (current IV − 1-year low) ÷ (1-year high − 1-year low) × 100. An IV Rank of 70% means options are more expensive than 70% of all days in the past year."
+  - q: "What is a good IV Rank to sell options?"
+    a: "IV Rank above 50% is generally considered a seller's market — options are expensive and premium is rich. Below 20% is considered thin — the risk/reward of selling is poor. That said, our backtest of 846 BPS trades found that filtering entries by IV Rank actually reduced annualized returns (from 133.5% to 79.2% when requiring IVR > 30%)."
+  - q: "Does high IV Rank guarantee a profitable options trade?"
+    a: "No. IV Rank tells you whether options are expensive — it doesn't tell you which way the stock will move. On March 16, 2020, SPY's IV Rank was near 100%, generating enormous premium, but the same panic caused the market to continue falling."
+  - q: "What is the difference between IV and IV Rank?"
+    a: "IV is the raw implied volatility number (e.g., 18%) — it lacks context. IV Rank puts IV in historical perspective. If SPY's 1-year IV range is 12–35% and today's IV is 28%, IV Rank = 70%, telling you options are in the expensive 70th percentile."
 tags: ["IV Rank", "Implied Volatility", "IVR", "Options Metrics", "Options Education"]
 ---
 
 > This article assumes you understand what IV (Implied Volatility) is. Not yet? Start here: [What Is Implied Volatility (IV)?](/blog/implied-volatility-explained)
 
-If you trade Bull Put Spreads or any premium-selling strategy, you've probably heard "enter when IV is high." But what exactly is IV Rank — and why IV Rank instead of IV itself?
+If you trade Bull Put Spreads or any premium-selling strategy, you've probably heard "enter when IV is high." But what exactly is IV Rank — and why IV Rank instead of IV itself? In our backtest of 846 BPS trades, filtering by IV Rank actually reduced CAGR from 133.5% to 79.2%, which is why understanding what IV Rank actually measures (and what it doesn't) matters.
 
 ## An Analogy That Makes It Click
 

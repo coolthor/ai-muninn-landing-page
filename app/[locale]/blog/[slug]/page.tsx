@@ -1,4 +1,4 @@
-import { getPost, getAllSlugs } from '@/lib/blog';
+import { getPost, getAllSlugs, type FaqItem } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import { notFound } from 'next/navigation';
@@ -218,6 +218,16 @@ export default async function BlogPostPage({ params }: Props) {
     url: articleUrl,
   };
 
+  const faqLd: { '@context': string; '@type': string; mainEntity: { '@type': string; name: string; acceptedAnswer: { '@type': string; text: string } }[] } | null = post.faq?.length ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: post.faq.map(({ q, a }: FaqItem) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  } : null;
+
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -253,6 +263,12 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
 
       {/* Header */}
       <div className="border-b" style={{ borderColor: 'rgba(0,255,200,0.1)' }}>
@@ -317,6 +333,30 @@ export default async function BlogPostPage({ params }: Props) {
             options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
           />
         </div>
+
+        {/* FAQ */}
+        {post.faq?.length ? (
+          <section className="mt-14">
+            <h2
+              className="text-xl font-bold mb-6"
+              style={{ color: 'var(--text-primary)', fontFamily: 'Space Grotesk, sans-serif' }}
+            >
+              {isZh ? '常見問題' : 'Frequently Asked Questions'}
+            </h2>
+            <dl className="space-y-6">
+              {post.faq.map(({ q, a }: FaqItem, i: number) => (
+                <div
+                  key={i}
+                  className="p-5 rounded-xl"
+                  style={{ background: 'var(--bg-card)', border: '1px solid rgba(0,255,200,0.08)' }}
+                >
+                  <dt className="font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{q}</dt>
+                  <dd className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{a}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ) : null}
 
         {/* CTA */}
         <div

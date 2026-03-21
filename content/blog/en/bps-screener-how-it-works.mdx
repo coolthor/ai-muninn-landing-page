@@ -3,6 +3,15 @@ title: "BPS Screener Explained: How It Reads the Market and Surfaces Trade Candi
 description: "The BPS Screener automatically detects market regime from VIX, selects the right parameter set, and outputs ranked spread candidates with probability data. Here's exactly how it works."
 date: "2026-03-09"
 updatedAt: "2026-03-09"
+faq:
+  - q: "How does the BPS Screener select trade candidates?"
+    a: "The Screener first reads VIX to classify the market regime (LOW/MID/HIGH), then automatically selects the matching parameter set (DTE, spread width, delta range), scans hundreds of options chains, and ranks candidates by Return on Capital."
+  - q: "What does TP50% mean in the BPS Screener report?"
+    a: "TP50% is the probability of reaching the 50% profit target before expiration, calculated via Monte Carlo simulation. A value of 84.7% means roughly 8-in-10 trades are expected to hit the profit target early."
+  - q: "What is Brch% in options screening?"
+    a: "Brch% (Breach probability) is the probability that the short strike gets tested at any point before expiration — not just at expiry. It's more conservative than Delta alone. Values under 20% are generally acceptable for HIGH-regime trades."
+  - q: "How long does the BPS Screener take to run?"
+    a: "The screener compresses what would be 30–60 minutes of manual scanning across 70+ symbols into approximately 27 seconds, delivering ranked candidates with probability data before market open."
 tags: ["BPS Screener", "Bull Put Spread", "Options Trading", "Trade Selection", "VIX Regime"]
 ---
 

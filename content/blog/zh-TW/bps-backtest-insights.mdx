@@ -3,6 +3,15 @@ title: "我們回測了 846 筆 BPS 交易：5 個讓我們改變策略的發現
 description: "根據 20 個月、846 筆真實 Bull Put Spread 回測數據，分享幾個反直覺的發現——包括 IV Rank 篩選反而有害、Delta Stop 殺死獲利、以及為什麼大型科技股不適合 BPS。"
 date: "2025-02-15"
 updatedAt: "2025-02-15"
+faq:
+  - q: "IV Rank 篩選能改善 Bull Put Spread 的績效嗎？"
+    a: "不行——我們回測了 846 筆 BPS 交易，結果剛好相反。用 IV Rank 篩選進場條件反而讓績效變差。獲利交易的 IVR 中位數 22.3%，虧損交易的 21.5%，IVR 對單筆交易的勝負幾乎沒有預測力。"
+  - q: "Bull Put Spread 最適合的 DTE 是多少？"
+    a: "回測結果顯示，DTE 30–40 天的年化報酬最高（79%+）且最大回撤最低。這個區間恰好是 Theta 開始加速，但 Gamma 風險尚未極端的甜蜜點。"
+  - q: "Delta Stop 有助於 BPS 風險管理嗎？"
+    a: "沒有。我們用 36,815 筆 SB2 交易測試了五個 Delta Stop 門檻，每一個都讓績效變差。以 |Δ| > 0.30 為例，每救一筆虧損，就殺死四筆獲利。"
+  - q: "哪些股票不適合做 Bull Put Spread？"
+    a: "AAPL、MSFT、AMZN、NFLX 在回測中持續虧損。好的 BPS 標的需要高波動但有支撐的走勢；GDX、SMH、COST 等標的表現明顯優於大型科技股。"
 tags: ["BPS回測", "選擇權策略", "回測數據", "Bull Put Spread", "IV Rank"]
 ---
 
