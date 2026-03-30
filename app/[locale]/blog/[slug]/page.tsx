@@ -10,6 +10,7 @@ import DeltaStopChart from '@/components/blog/DeltaStopChart';
 import ThetaDecayCurve from '@/components/blog/ThetaDecayCurve';
 import IVRMeter from '@/components/blog/IVRMeter';
 import SB2CompareChart from '@/components/blog/SB2CompareChart';
+import VideoEmbed from '@/components/blog/VideoEmbed';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -74,6 +75,7 @@ function makeMdxComponents(locale: string) {
     ThetaDecayCurve: () => <ThetaDecayCurve lang={lang} />,
     IVRMeter: () => <IVRMeter lang={lang} />,
     SB2CompareChart: () => <SB2CompareChart lang={lang} />,
+    VideoEmbed: (props: { src: string; caption?: string }) => <VideoEmbed {...props} />,
     ...mdxComponents,
   };
 }
