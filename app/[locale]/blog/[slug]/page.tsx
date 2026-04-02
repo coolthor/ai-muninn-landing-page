@@ -11,6 +11,7 @@ import ThetaDecayCurve from '@/components/blog/ThetaDecayCurve';
 import IVRMeter from '@/components/blog/IVRMeter';
 import SB2CompareChart from '@/components/blog/SB2CompareChart';
 import VideoEmbed from '@/components/blog/VideoEmbed';
+import ShareButtons from '@/components/blog/ShareButtons';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -360,9 +361,14 @@ export default async function BlogPostPage({ params }: Props) {
           </section>
         ) : null}
 
+        {/* Share */}
+        <div className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(0,255,200,0.1)' }}>
+          <ShareButtons url={articleUrl} title={post.title} />
+        </div>
+
         {/* CTA */}
         <div
-          className="mt-16 p-8 rounded-2xl text-center"
+          className="mt-10 p-8 rounded-2xl text-center"
           style={{
             background: 'var(--bg-card)',
             border: '1px solid rgba(0,255,200,0.15)',
