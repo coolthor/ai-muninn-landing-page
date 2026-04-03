@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,6 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-TK7NPPM3QE" strategy="afterInteractive" />
+      <Script id="ga4" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TK7NPPM3QE');
+      `}</Script>
       {children}
       <Analytics />
     </>
