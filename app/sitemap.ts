@@ -2,7 +2,10 @@ import { MetadataRoute } from 'next';
 import { getAllSlugs, getPost } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bpstracker.com';
+  // Use www subdomain — apex (bpstracker.com) 307-redirects here via Vercel
+  // domain config. Using the canonical www URL in sitemap prevents Google
+  // from indexing the redirect target as a separate URL.
+  const baseUrl = 'https://www.bpstracker.com';
 
   const zhSlugs = getAllSlugs('zh-TW');
   const enSlugs = getAllSlugs('en');

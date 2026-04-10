@@ -12,6 +12,7 @@ import IVRMeter from '@/components/blog/IVRMeter';
 import SB2CompareChart from '@/components/blog/SB2CompareChart';
 import VideoEmbed from '@/components/blog/VideoEmbed';
 import ShareButtons from '@/components/blog/ShareButtons';
+import TLDRCard from '@/components/blog/TLDRCard';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPost(locale, slug);
   if (!post) return {};
 
-  const baseUrl = 'https://bpstracker.com';
+  const baseUrl = 'https://www.bpstracker.com';
   const isZh = locale === 'zh-TW';
   const url = isZh ? `${baseUrl}/blog/${slug}` : `${baseUrl}/en/blog/${slug}`;
   const otherLocale = isZh ? 'en' : 'zh-TW';
@@ -77,6 +78,7 @@ function makeMdxComponents(locale: string) {
     IVRMeter: () => <IVRMeter lang={lang} />,
     SB2CompareChart: () => <SB2CompareChart lang={lang} />,
     VideoEmbed: (props: { src: string; caption?: string }) => <VideoEmbed {...props} />,
+    TLDRCard: (props: { children: React.ReactNode }) => <TLDRCard {...props} />,
     ...mdxComponents,
   };
 }
@@ -200,7 +202,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const isZh = locale === 'zh-TW';
 
-  const baseUrl = 'https://bpstracker.com';
+  const baseUrl = 'https://www.bpstracker.com';
   const articleUrl = isZh ? `${baseUrl}/blog/${slug}` : `${baseUrl}/en/blog/${slug}`;
 
   const jsonLd = {

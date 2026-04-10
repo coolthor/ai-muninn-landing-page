@@ -1,10 +1,14 @@
 import createMiddleware from 'next-intl/middleware';
 
-// Inline config to avoid Edge Runtime import issues
+// Inline config to avoid Edge Runtime import issues.
+// alternateLinks: false — prevents next-intl from auto-adding an HTTP Link
+// header with an x-default hreflang that Google then indexes as a separate
+// URL, splitting ranking signal across apex/www and /en/ variants.
 export default createMiddleware({
   locales: ['en', 'zh-TW'],
   defaultLocale: 'zh-TW',
-  localePrefix: 'as-needed'
+  localePrefix: 'as-needed',
+  alternateLinks: false
 });
 
 export const config = {

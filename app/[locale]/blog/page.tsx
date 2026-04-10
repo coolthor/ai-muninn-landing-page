@@ -8,7 +8,7 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isZh = locale === 'zh-TW';
-  const baseUrl = 'https://bpstracker.com';
+  const baseUrl = 'https://www.bpstracker.com';
 
   return {
     title: isZh ? 'Bull Put Spread 教學部落格 | BPS Tracker' : 'Options Trading Blog | BPS Tracker',

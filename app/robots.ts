@@ -17,6 +17,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'GoogleOther', allow: '/' },
       { userAgent: 'Googlebot', allow: '/' },
     ],
-    sitemap: 'https://bpstracker.com/sitemap.xml',
+    sitemap: 'https://www.bpstracker.com/sitemap.xml',
   };
 }

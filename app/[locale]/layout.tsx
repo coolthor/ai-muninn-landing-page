@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
   const isZh = locale === 'zh-TW';
-  const baseUrl = 'https://bpstracker.com';
+  const baseUrl = 'https://www.bpstracker.com';
 
   return {
     metadataBase: new URL(baseUrl),
@@ -105,7 +105,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     softwareVersion: '1.1',
     downloadUrl: 'https://apps.apple.com/app/id6757736273',
     screenshot: [
-      'https://bpstracker.com/screenshots/screenshot-1.jpg',
+      'https://www.bpstracker.com/screenshots/screenshot-1.jpg',
     ],
     offers: {
       '@type': 'Offer',
@@ -120,7 +120,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     author: {
       '@type': 'Organization',
       name: 'BPS Tracker',
-      url: 'https://bpstracker.com',
+      url: 'https://www.bpstracker.com',
     },
   };
 
