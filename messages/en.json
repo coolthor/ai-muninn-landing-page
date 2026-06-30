@@ -45,23 +45,23 @@
     "subtitle": "Everything you need to manage your Bull Put Spread positions",
     "ai": {
       "title": "AI Risk Analysis",
-      "description": "Gemini-powered portfolio analysis. Identify high-risk positions, track earnings events, get personalized recommendations. Free: 10/month, Pro: 200/month."
+      "description": "Gemini-powered portfolio analysis. Identify high-risk positions, track earnings events, get personalized recommendations. 30 analyses per month, free."
     },
     "greeks": {
       "title": "Real-Time Greeks + Trend Charts",
-      "description": "Full Delta, Gamma, Theta, Vega display with opening vs current comparison. Pro unlocks historical trend charts for Delta, IV, and Theta to track position evolution."
+      "description": "Full Delta, Gamma, Theta, Vega display with opening vs current comparison, plus historical trend charts for Delta, IV, and Theta to track position evolution."
     },
     "risk": {
       "title": "Visual Risk Bar",
-      "description": "Intuitive risk visualization showing position safety at a glance. Pro unlocks historical IV data for a more precise Risk Bar."
+      "description": "Intuitive risk visualization showing position safety at a glance, with historical IV data for a more precise Risk Bar."
     },
     "alerts": {
       "title": "Custom Alerts",
-      "description": "Set personalized thresholds for Delta, DTE, OTM%, and P&L. Get notified when positions need attention. (Pro only)"
+      "description": "Set personalized thresholds for Delta, DTE, OTM%, and P&L. Get notified when positions need attention."
     },
     "import": {
       "title": "Screenshot Import",
-      "description": "Snap a screenshot of your broker and import positions instantly. AI-powered OCR extracts all details. Free: 8/month, Pro: 80/month."
+      "description": "Snap a screenshot of your broker and import positions instantly. AI-powered OCR extracts all details. 20 imports per month, free."
     },
     "market": {
       "title": "Market View",
@@ -72,7 +72,7 @@
     "title": "App Screenshots",
     "subtitle": "See how BPS Tracker helps you manage your positions",
     "positions": "Portfolio Overview — 19 open positions, real-time P&L and Theta income at a glance",
-    "detail": "Position Details — Full Greeks, OTM%, breakeven, Delta & IV trend charts (Pro)",
+    "detail": "Position Details — Full Greeks, OTM%, breakeven, Delta & IV trend charts",
     "market": "Market View — VIX gauge, Fear & Greed Index, CBOE SKEW, earnings calendar",
     "import": "Screenshot Import — AI-powered OCR extracts position details from broker screenshots",
     "history": "Trading History — 29 closed trades, win rate and cumulative P&L summary"
@@ -95,51 +95,33 @@
   },
   "pricing": {
     "badge": "Simple, Transparent Pricing",
-    "title": "Choose Your Plan",
-    "subtitle": "Free forever, or unlock the full toolkit with Pro",
+    "title": "Free for Everyone",
+    "subtitle": "Free forever. Every feature included — no subscription, no ads.",
     "free": {
       "name": "Free",
+      "badge": "All features",
       "price": "$0",
       "period": "Forever free",
       "cta": "Download Now",
       "features": [
-        "Up to 3 positions",
-        "15-minute price updates",
-        "Basic Greeks display",
-        "10 AI analyses / month",
-        "8 screenshot imports / month",
-        "Full position details"
-      ]
-    },
-    "pro": {
-      "name": "Pro",
-      "badge": "Recommended",
-      "priceMonthly": "$19.99",
-      "priceYearly": "$179.99",
-      "periodMonthly": "/ month",
-      "periodYearly": "/ year",
-      "savingLabel": "Save 20%",
-      "cta": "Upgrade to Pro",
-      "features": [
         "Up to 20 positions",
-        "1-minute real-time price updates",
-        "Greeks trend charts (Delta / IV / Theta)",
+        "5-minute price updates",
+        "Full real-time Greeks + trend charts",
         "Historical IV & advanced Risk Bar",
         "Custom risk alerts",
-        "200 AI analyses / month",
-        "80 screenshot imports / month"
+        "30 AI analyses / month",
+        "20 screenshot imports / month"
       ]
-    },
-    "monthly": "Monthly",
-    "yearly": "Yearly"
+    }
   },
   "cta": {
     "title": "Available Now on App Store",
-    "subtitle": "Free Download • Pro Upgrade Available"
+    "subtitle": "Free Download • Every Feature Included"
   },
   "footer": {
     "tagline": "BPS Tracker by AI Muninn",
     "description": "AI-powered Bull Put Spread position tracking for serious options traders.",
+    "blog": "Blog",
     "guide": "User Guide",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",

@@ -45,23 +45,23 @@
     "subtitle": "管理 Bull Put Spread 持倉所需的一切",
     "ai": {
       "title": "AI 風險分析",
-      "description": "Gemini AI 驅動的投資組合分析。識別高風險持倉、追蹤財報事件、提供個人化建議。Free 版每月 10 次，Pro 每月 200 次。"
+      "description": "Gemini AI 驅動的投資組合分析。識別高風險持倉、追蹤財報事件、提供個人化建議。每月 30 次，免費。"
     },
     "greeks": {
       "title": "即時 Greeks + 趨勢圖",
-      "description": "Delta、Gamma、Theta、Vega 完整呈現，比較開倉與現在數值。Pro 版更有 Delta / IV / Theta 歷史趨勢圖，追蹤倉位演變。"
+      "description": "Delta、Gamma、Theta、Vega 完整呈現，比較開倉與現在數值，並提供 Delta / IV / Theta 歷史趨勢圖，追蹤倉位演變。"
     },
     "risk": {
       "title": "視覺化 Risk Bar",
-      "description": "直覺的風險視覺化指標，一眼看出持倉安全性。Pro 版解鎖歷史 IV 數據，讓 Risk Bar 更精準。"
+      "description": "直覺的風險視覺化指標，一眼看出持倉安全性，並用歷史 IV 數據讓 Risk Bar 更精準。"
     },
     "alerts": {
       "title": "自訂告警",
-      "description": "設定個人化的 Delta、DTE、OTM%、P&L 門檻。持倉需要注意時即時通知。（Pro 專屬）"
+      "description": "設定個人化的 Delta、DTE、OTM%、P&L 門檻。持倉需要注意時即時通知。"
     },
     "import": {
       "title": "截圖匯入",
-      "description": "截取券商畫面即可快速匯入持倉。AI OCR 自動擷取所有細節。Free 版每月 8 次，Pro 每月 80 次。"
+      "description": "截取券商畫面即可快速匯入持倉。AI OCR 自動擷取所有細節。每月 20 次，免費。"
     },
     "market": {
       "title": "市場視圖",
@@ -72,7 +72,7 @@
     "title": "App 畫面",
     "subtitle": "看看 BPS Tracker 如何幫助你管理持倉",
     "positions": "投資組合總覽 — 19 個開倉、實時盈虧、Theta 收益一目瞭然",
-    "detail": "持倉詳情 — 完整 Greeks 指標、OTM%、損益平衡、Delta & IV 趨勢圖（Pro）",
+    "detail": "持倉詳情 — 完整 Greeks 指標、OTM%、損益平衡、Delta & IV 趨勢圖",
     "market": "市場視圖 — VIX 儀表盤、Fear & Greed 指數、CBOE SKEW、財報日曆",
     "import": "截圖匯入 — AI OCR 自動從券商截圖擷取持倉細節",
     "history": "交易紀錄 — 29 筆平倉、勝率統計與累計盈虧績效摘要"
@@ -95,51 +95,33 @@
   },
   "pricing": {
     "badge": "簡單透明的定價",
-    "title": "選擇適合你的方案",
-    "subtitle": "Free 版永遠免費，Pro 版解鎖完整功能",
+    "title": "完全免費",
+    "subtitle": "永遠免費、全功能開放 —— 無訂閱、無廣告。",
     "free": {
       "name": "Free",
+      "badge": "全功能",
       "price": "$0",
       "period": "永久免費",
       "cta": "立即下載",
       "features": [
-        "最多 3 個持倉",
-        "15 分鐘價格更新",
-        "基本 Greeks 顯示",
-        "每月 10 次 AI 分析",
-        "每月 8 次截圖匯入",
-        "完整持倉詳情"
-      ]
-    },
-    "pro": {
-      "name": "Pro",
-      "badge": "推薦",
-      "priceMonthly": "$19.99",
-      "priceYearly": "$179.99",
-      "periodMonthly": "/ 月",
-      "periodYearly": "/ 年",
-      "savingLabel": "省 20%",
-      "cta": "升級 Pro",
-      "features": [
         "最多 20 個持倉",
-        "1 分鐘即時價格更新",
-        "Greeks 趨勢圖（Delta / IV / Theta）",
+        "5 分鐘價格更新",
+        "完整即時 Greeks + 趨勢圖",
         "歷史 IV 及進階 Risk Bar",
         "自訂風險告警",
-        "每月 200 次 AI 分析",
-        "每月 80 次截圖匯入"
+        "每月 30 次 AI 分析",
+        "每月 20 次截圖匯入"
       ]
-    },
-    "monthly": "月付",
-    "yearly": "年付"
+    }
   },
   "cta": {
     "title": "現已上架 App Store",
-    "subtitle": "免費下載 • 可升級 Pro"
+    "subtitle": "免費下載 • 全功能開放"
   },
   "footer": {
     "tagline": "BPS Tracker by AI Muninn",
     "description": "專為認真的選擇權交易者打造的 AI 驅動 Bull Put Spread 持倉追蹤工具。",
+    "blog": "部落格",
     "guide": "使用教學",
     "privacy": "隱私權政策",
     "terms": "服務條款",

@@ -62,6 +62,14 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <NextLink
+                  href={locale === 'zh-TW' ? '/blog' : `/${locale}/blog`}
+                  className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:text-[var(--accent-primary)] focus-visible:underline"
+                >
+                  {t('blog')}
+                </NextLink>
+              </li>
+              <li>
+                <NextLink
                   href={locale === 'zh-TW' ? '/bpstracker/guide' : `/${locale}/bpstracker/guide`}
                   className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:text-[var(--accent-primary)] focus-visible:underline"
                 >
@@ -121,7 +129,16 @@ export default function Footer() {
         >
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-[var(--text-muted)] text-sm">
-              &copy; {currentYear} AI Muninn. {t('rights')}
+              &copy; {currentYear}{' '}
+              <a
+                href="https://ai-muninn.com"
+                target="_blank"
+                rel="noopener"
+                className="hover:text-[var(--accent-primary)] transition-colors duration-200 focus-visible:outline-none focus-visible:text-[var(--accent-primary)] focus-visible:underline"
+              >
+                AI Muninn
+              </a>
+              . {t('rights')}
             </p>
             <div className="flex items-center gap-2 text-[var(--text-muted)] text-xs font-mono">
               <span className="w-2 h-2 rounded-full bg-[var(--color-profit)] animate-pulse" />

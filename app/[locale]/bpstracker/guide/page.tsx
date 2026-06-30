@@ -29,9 +29,8 @@ const content = {
       bpsApi: {
         title: 'Works Out of the Box — No Account Needed',
         desc: 'BPS Tracker connects to the official BPS API to deliver real-time option prices and Greeks. No broker account connection or registration is required.',
-        free: { name: 'Free', desc: 'Prices refresh every 15 minutes. Up to 3 open positions.' },
-        pro:  { name: 'Pro',  desc: 'Prices refresh every 1 minute. Up to 20 open positions, plus all advanced features.' },
-        tip: 'Upgrade to Pro at any time from the Settings screen or via the upgrade banner.',
+        free: { name: 'Free — everything included', desc: 'Prices refresh every 5 minutes. Up to 20 open positions, plus all advanced features.' },
+        tip: 'No account and no subscription — every feature is free.',
       },
       overview: {
         title: 'Main Screen Overview',
@@ -78,7 +77,7 @@ const content = {
           'AI extracts the symbol, strikes, credit, contracts, and expiry automatically',
           'Review the parsed results, correct if needed, then save',
         ],
-        limits: 'Free: 8 imports / month    Pro: 80 imports / month',
+        limits: '20 imports / month — free',
         tip: 'Works best with clear, unobstructed screenshots of the order confirmation or position details screen.',
       },
       csv: {
@@ -94,9 +93,9 @@ const content = {
         desc: 'Tap any position card to open the detail view, which is organized into 4 sections:',
         items: [
           { name: 'Combined Card', desc: 'Symbol, spread strikes, Status badge, DTE, current P&L, and net Theta income.' },
-          { name: 'Risk Indicators', desc: 'Delta vs opening value, IV vs yesterday, and visual Risk Bar. Pro: historical IV for a more accurate Risk Bar.' },
+          { name: 'Risk Indicators', desc: 'Delta vs opening value, IV vs yesterday, and visual Risk Bar, with historical IV for a more accurate Risk Bar.' },
           { name: 'Position Details', desc: 'Collapsible section with all Greeks (Delta, Gamma, Theta, Vega), OTM%, Breakeven, Max Loss, and Spread Cost.' },
-          { name: 'Alerts (Pro)', desc: 'Set personalized thresholds for Delta, DTE, OTM%, and P&L. Get notified when a threshold is breached.' },
+          { name: 'Alerts', desc: 'Set personalized thresholds for Delta, DTE, OTM%, and P&L. Get notified when a threshold is breached.' },
         ],
       },
       greeks: {
@@ -110,8 +109,8 @@ const content = {
         ],
       },
       trendCharts: {
-        title: 'Greeks Trend Charts (Pro)',
-        desc: 'Pro subscribers can view historical charts for each position — Delta, IV, Theta, and Spread Cost — plotted from open date to today. Useful for spotting creeping risk before it becomes a problem.',
+        title: 'Greeks Trend Charts',
+        desc: 'View historical charts for each position — Delta, IV, Theta, and Spread Cost — plotted from open date to today. Useful for spotting creeping risk before it becomes a problem.',
         tabs: ['Delta', 'IV', 'Theta', 'Spread Cost'],
       },
       pnl: {
@@ -132,7 +131,7 @@ const content = {
         ],
       },
       alerts: {
-        title: 'Custom Alert Thresholds (Pro)',
+        title: 'Custom Alert Thresholds',
         desc: 'Set personalized thresholds on the Position Detail screen. The app sends a local notification when any threshold is crossed:',
         items: [
           { name: 'Delta Threshold',  desc: 'Alert when net Delta exceeds your chosen value (e.g., > 0.20).' },
@@ -192,8 +191,7 @@ const content = {
       },
       limits: {
         title: 'Usage Limits',
-        free: '10 analyses / month',
-        pro:  '200 analyses / month',
+        free: '30 analyses / month',
         tip: 'Best used after major market moves, before earnings season, or when VIX spikes — not necessarily every day.',
       },
     },
@@ -253,11 +251,9 @@ const content = {
     settings: {
       title: 'Settings',
       subscription: {
-        title: 'Subscription',
-        desc: 'View your current plan and upgrade to Pro directly from Settings.',
-        free: { name: 'Free', features: ['Up to 3 open positions', '15-minute price refresh', '10 AI analyses / month', '8 screenshot imports / month', 'Basic Greeks display'] },
-        pro:  { name: 'Pro',  features: ['Up to 20 open positions', '1-minute price refresh', '200 AI analyses / month', '80 screenshot imports / month', 'Greeks Trend Charts (Delta / IV / Theta)', 'Historical IV & advanced Risk Bar', 'Custom alert thresholds'] },
-        manage: 'To cancel or manage your subscription, go to iOS Settings → Apple ID → Subscriptions.',
+        title: 'Pricing',
+        desc: 'BPSTracker is completely free — every feature included, no subscription, no ads.',
+        free: { name: 'Free — everything included', features: ['Up to 20 open positions', '5-minute price refresh', '30 AI analyses / month', '20 screenshot imports / month', 'Full Greeks + trend charts (Delta / IV / Theta)', 'Historical IV & advanced Risk Bar', 'Custom alert thresholds'] },
       },
       language: {
         title: 'Language',
@@ -308,9 +304,8 @@ const content = {
       bpsApi: {
         title: '開箱即用 — 不需要連結任何帳戶',
         desc: 'BPS Tracker 透過官方 BPS API 提供即時選擇權報價和 Greeks。不需要連結券商帳戶，也不需要註冊任何服務。',
-        free: { name: 'Free', desc: '報價每 15 分鐘更新一次，最多 3 個開倉。' },
-        pro:  { name: 'Pro',  desc: '報價每 1 分鐘更新一次，最多 20 個開倉，並解鎖所有進階功能。' },
-        tip: '可以隨時在 Settings 畫面或透過升級橫幅升級至 Pro。',
+        free: { name: 'Free — 全功能開放', desc: '報價每 5 分鐘更新一次，最多 20 個開倉，並開放所有進階功能。' },
+        tip: '免註冊、免訂閱 —— 所有功能皆免費。',
       },
       overview: {
         title: '主畫面總覽',
@@ -357,7 +352,7 @@ const content = {
           'AI 自動擷取標的代碼、履約價、權利金、口數和到期日',
           '確認解析結果（如需修正可直接編輯），然後儲存',
         ],
-        limits: 'Free：每月 8 次    Pro：每月 80 次',
+        limits: '每月 20 次 —— 免費',
         tip: '建議使用清晰、無遮擋的訂單確認或持倉明細截圖，識別準確率最高。',
       },
       csv: {
@@ -373,9 +368,9 @@ const content = {
         desc: '點擊任一持倉卡片進入詳情頁面，分為四個區塊：',
         items: [
           { name: 'Combined Card（綜合卡）', desc: '標的代碼、履約價、狀態標籤、DTE、目前 P&L 及淨 Theta 收益。' },
-          { name: 'Risk Indicators（風險指標）', desc: 'Delta 對比開倉時的變化、IV 對比昨日、以及視覺化 Risk Bar。Pro 版使用歷史 IV，使 Risk Bar 更精準。' },
+          { name: 'Risk Indicators（風險指標）', desc: 'Delta 對比開倉時的變化、IV 對比昨日、以及視覺化 Risk Bar，並用歷史 IV 讓 Risk Bar 更精準。' },
           { name: 'Position Details（持倉細節）', desc: '可收合的詳情區塊，包含完整 Greeks（Delta、Gamma、Theta、Vega）、OTM%、損益平衡點、Max Loss 與目前 Spread Cost。' },
-          { name: 'Alerts（告警）（Pro）', desc: '針對 Delta、DTE、OTM%、P&L 設定個人化門檻。門檻被突破時發送本地通知。' },
+          { name: 'Alerts（告警）', desc: '針對 Delta、DTE、OTM%、P&L 設定個人化門檻。門檻被突破時發送本地通知。' },
         ],
       },
       greeks: {
@@ -389,8 +384,8 @@ const content = {
         ],
       },
       trendCharts: {
-        title: 'Greeks 趨勢圖（Pro）',
-        desc: 'Pro 版用戶可以查看每個持倉的歷史走勢圖，包含 Delta、IV、Theta 和 Spread Cost，從開倉日到今天的完整軌跡。有助於在風險惡化前及早察覺。',
+        title: 'Greeks 趨勢圖',
+        desc: '可查看每個持倉的歷史走勢圖，包含 Delta、IV、Theta 和 Spread Cost，從開倉日到今天的完整軌跡。有助於在風險惡化前及早察覺。',
         tabs: ['Delta', 'IV', 'Theta', 'Spread Cost'],
       },
       pnl: {
@@ -411,7 +406,7 @@ const content = {
         ],
       },
       alerts: {
-        title: '自訂告警門檻（Pro）',
+        title: '自訂告警門檻',
         desc: '在持倉詳情頁面設定個人化門檻，觸發時發送本地通知：',
         items: [
           { name: 'Delta 門檻',   desc: '當淨 Delta 超過設定值時告警（例如 > 0.20）。' },
@@ -471,8 +466,7 @@ const content = {
       },
       limits: {
         title: '使用次數',
-        free: '每月 10 次',
-        pro:  '每月 200 次',
+        free: '每月 30 次',
         tip: '建議在大盤大幅波動後、財報季前或 VIX 急升時使用，不需要每天運行。',
       },
     },
@@ -532,11 +526,9 @@ const content = {
     settings: {
       title: '設定',
       subscription: {
-        title: '訂閱方案',
-        desc: '在 Settings 查看目前方案，或直接升級至 Pro。',
-        free: { name: 'Free', features: ['最多 3 個開倉', '15 分鐘報價更新', '每月 10 次 AI 分析', '每月 8 次截圖匯入', '基本 Greeks 顯示'] },
-        pro:  { name: 'Pro',  features: ['最多 20 個開倉', '1 分鐘即時報價更新', '每月 200 次 AI 分析', '每月 80 次截圖匯入', 'Greeks 趨勢圖（Delta / IV / Theta）', '歷史 IV 與進階 Risk Bar', '自訂風險告警門檻'] },
-        manage: '如需取消或管理訂閱，請前往 iOS 設定 → Apple ID → 訂閱。',
+        title: '定價',
+        desc: 'BPSTracker 完全免費 —— 全功能開放，無訂閱、無廣告。',
+        free: { name: 'Free — 全功能開放', features: ['最多 20 個開倉', '5 分鐘報價更新', '每月 30 次 AI 分析', '每月 20 次截圖匯入', '完整 Greeks + 趨勢圖（Delta / IV / Theta）', '歷史 IV 與進階 Risk Bar', '自訂風險告警門檻'] },
       },
       language: {
         title: '語言',
@@ -655,15 +647,9 @@ export default function GuidePage() {
               <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
                 <h3 className="text-xl font-semibold text-cyan-400 mb-4">{t.gettingStarted.bpsApi.title}</h3>
                 <p className="mb-4">{t.gettingStarted.bpsApi.desc}</p>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="bg-gray-800/50 rounded-lg p-4">
-                    <p className="text-sm font-bold text-white mb-1">{t.gettingStarted.bpsApi.free.name}</p>
-                    <p className="text-sm text-gray-400">{t.gettingStarted.bpsApi.free.desc}</p>
-                  </div>
-                  <div className="bg-cyan-500/10 rounded-lg p-4 border border-cyan-500/30">
-                    <p className="text-sm font-bold text-cyan-400 mb-1">{t.gettingStarted.bpsApi.pro.name}</p>
-                    <p className="text-sm text-gray-400">{t.gettingStarted.bpsApi.pro.desc}</p>
-                  </div>
+                <div className="bg-cyan-500/10 rounded-lg p-4 border border-cyan-500/30 mb-4">
+                  <p className="text-sm font-bold text-cyan-400 mb-1">{t.gettingStarted.bpsApi.free.name}</p>
+                  <p className="text-sm text-gray-400">{t.gettingStarted.bpsApi.free.desc}</p>
                 </div>
                 <div className="bg-gray-800/50 rounded-lg p-4 border-l-4 border-green-500">
                   <p className="text-sm text-gray-400"><strong className="text-green-400">Tip:</strong> {t.gettingStarted.bpsApi.tip}</p>
@@ -937,14 +923,9 @@ SPY260117P00580000,SPY260117P00575000,2026-01-01,3,0.55,closed,2026-01-15,0.25,9
               {/* Limits */}
               <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
                 <h3 className="text-xl font-semibold text-cyan-400 mb-4">{t.aiAnalysis.limits.title}</h3>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="bg-gray-800/50 rounded-lg p-4">
-                    <p className="text-sm font-bold text-white mb-1">Free</p>
-                    <p className="text-lg font-mono text-gray-300">{t.aiAnalysis.limits.free}</p>
-                  </div>
+                <div className="mb-4">
                   <div className="bg-cyan-500/10 rounded-lg p-4 border border-cyan-500/30">
-                    <p className="text-sm font-bold text-cyan-400 mb-1">Pro</p>
-                    <p className="text-lg font-mono text-gray-300">{t.aiAnalysis.limits.pro}</p>
+                    <p className="text-lg font-mono text-gray-300">{t.aiAnalysis.limits.free}</p>
                   </div>
                 </div>
                 <div className="bg-gray-800/50 rounded-lg p-4 border-l-4 border-yellow-500">
@@ -1064,30 +1045,15 @@ SPY260117P00580000,SPY260117P00575000,2026-01-01,3,0.55,closed,2026-01-15,0.25,9
               <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
                 <h3 className="text-xl font-semibold text-cyan-400 mb-4">{t.settings.subscription.title}</h3>
                 <p className="mb-4">{t.settings.subscription.desc}</p>
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  <div className="bg-gray-800/50 rounded-xl p-5">
-                    <p className="text-lg font-bold text-white mb-3">{t.settings.subscription.free.name}</p>
-                    <ul className="space-y-2">
-                      {t.settings.subscription.free.features.map((f, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
-                          <span className="text-gray-500 mt-0.5">✓</span>{f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="bg-cyan-500/10 rounded-xl p-5 border border-cyan-500/30">
-                    <p className="text-lg font-bold text-cyan-400 mb-3">{t.settings.subscription.pro.name}</p>
-                    <ul className="space-y-2">
-                      {t.settings.subscription.pro.features.map((f, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-cyan-300">
-                          <span className="text-cyan-400 mt-0.5">✓</span>{f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div className="bg-gray-800/50 rounded-lg p-4 border-l-4 border-gray-600">
-                  <p className="text-sm text-gray-400">{t.settings.subscription.manage}</p>
+                <div className="bg-cyan-500/10 rounded-xl p-5 border border-cyan-500/30 mb-4">
+                  <p className="text-lg font-bold text-cyan-400 mb-3">{t.settings.subscription.free.name}</p>
+                  <ul className="space-y-2">
+                    {t.settings.subscription.free.features.map((f, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-cyan-300">
+                        <span className="text-cyan-400 mt-0.5">✓</span>{f}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 

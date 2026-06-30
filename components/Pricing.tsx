@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 const APP_STORE_URL = 'https://apps.apple.com/tw/app/bpstracker/id6757736273';
 
@@ -18,10 +18,8 @@ export default function Pricing() {
   const t = useTranslations('pricing');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [isYearly, setIsYearly] = useState(false);
 
   const freeFeatures: string[] = t.raw('free.features') as string[];
-  const proFeatures: string[] = t.raw('pro.features') as string[];
 
   return (
     <section id="pricing" className="relative py-24 sm:py-32 overflow-hidden">
@@ -64,110 +62,35 @@ export default function Pricing() {
           >
             {t('subtitle')}
           </motion.p>
-
-          {/* Billing toggle */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center justify-center gap-4 mt-8"
-          >
-            <span className={`text-sm font-medium transition-colors duration-200 ${!isYearly ? 'text-white' : 'text-[var(--text-muted)]'}`}>
-              {t('monthly')}
-            </span>
-            <button
-              onClick={() => setIsYearly(!isYearly)}
-              className={`relative w-12 h-6 rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-secondary)] ${isYearly ? 'bg-[var(--accent-primary)]' : 'bg-[var(--bg-tertiary)] border border-[var(--border-subtle)]'}`}
-              aria-label="Toggle billing period"
-            >
-              <span className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-300 ${isYearly ? 'translate-x-6' : 'translate-x-0'}`} />
-            </button>
-            <span className={`text-sm font-medium transition-colors duration-200 ${isYearly ? 'text-white' : 'text-[var(--text-muted)]'}`}>
-              {t('yearly')}
-            </span>
-            {isYearly && (
-              <motion.span
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
-              >
-                {t('pro.savingLabel')}
-              </motion.span>
-            )}
-          </motion.div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {/* Free Card */}
+        {/* Single Free Card — everything included */}
+        <div className="max-w-md mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]"
-          >
-            <div className="mb-6">
-              <h3 className="font-heading text-xl font-bold text-white mb-1">{t('free.name')}</h3>
-              <div className="flex items-baseline gap-1 mt-3">
-                <span className="font-heading text-4xl font-bold text-white">{t('free.price')}</span>
-              </div>
-              <p className="text-sm text-[var(--text-muted)] mt-1">{t('free.period')}</p>
-            </div>
-
-            <ul className="space-y-3 mb-8">
-              {freeFeatures.map((feature, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-[var(--text-secondary)]">
-                  <span className="text-[var(--text-muted)] mt-0.5">
-                    <CheckIcon />
-                  </span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
-            <a
-              href={APP_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full py-3 px-6 text-center rounded-xl border border-[var(--border-accent)] text-[var(--accent-primary)] font-semibold text-sm hover:bg-[var(--accent-muted)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)]"
-            >
-              {t('free.cta')}
-            </a>
-          </motion.div>
-
-          {/* Pro Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
             className="relative group"
           >
             {/* Glow */}
             <div className="absolute -inset-0.5 bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-tertiary)] rounded-2xl opacity-60 blur-sm group-hover:opacity-100 transition-opacity duration-500" />
 
             <div className="relative p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-accent)]">
-              {/* Badge */}
+              {/* Header */}
               <div className="flex items-center justify-between mb-6">
-                <h3 className="font-heading text-xl font-bold text-white">{t('pro.name')}</h3>
+                <h3 className="font-heading text-xl font-bold text-white">{t('free.name')}</h3>
                 <span className="px-3 py-1 text-xs font-bold rounded-full bg-[var(--accent-primary)]/20 text-[var(--accent-primary)] border border-[var(--accent-primary)]/30">
-                  {t('pro.badge')}
+                  {t('free.badge')}
                 </span>
               </div>
 
               <div className="flex items-baseline gap-1 mt-3">
-                <span className="font-heading text-4xl font-bold text-[var(--accent-primary)]">
-                  {isYearly ? t('pro.priceYearly') : t('pro.priceMonthly')}
-                </span>
-                <span className="text-[var(--text-muted)] text-sm">
-                  {isYearly ? t('pro.periodYearly') : t('pro.periodMonthly')}
-                </span>
+                <span className="font-heading text-4xl font-bold text-[var(--accent-primary)]">{t('free.price')}</span>
               </div>
-              <p className="text-sm text-[var(--text-muted)] mt-1 h-5">
-                {isYearly ? t('pro.savingLabel') : ''}
-              </p>
+              <p className="text-sm text-[var(--text-muted)] mt-1">{t('free.period')}</p>
 
               <ul className="space-y-3 mb-8 mt-6">
-                {proFeatures.map((feature, i) => (
+                {freeFeatures.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-[var(--text-secondary)]">
                     <span className="text-[var(--accent-primary)] mt-0.5">
                       <CheckIcon />
@@ -183,7 +106,7 @@ export default function Pricing() {
                 rel="noopener noreferrer"
                 className="block w-full py-3 px-6 text-center rounded-xl bg-[var(--accent-primary)] text-[var(--bg-primary)] font-bold text-sm hover:brightness-110 transition-all duration-200 shadow-[var(--glow-sm)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-card)]"
               >
-                {t('pro.cta')}
+                {t('free.cta')}
               </a>
             </div>
           </motion.div>

@@ -141,7 +141,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         name: 'BPS Tracker 是免費的嗎？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'BPS Tracker 提供免費版本，可追蹤最多 3 個倉位，並享有每月 10 次 AI 分析。Pro 版解鎖 20 個倉位、200 次 AI 分析、Greeks 趨勢圖表和警報功能。',
+          text: 'BPS Tracker 完全免費，全功能開放：最多 20 個倉位、每月 30 次 AI 分析、完整 Greeks 趨勢圖表與風險告警，無訂閱、無廣告。',
         },
       },
       {
